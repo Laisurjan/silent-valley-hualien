@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="theme-dark"><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>事件理解卡成果展示</title><link rel="stylesheet" href="../assets/styles/design_tokens.css"><style>
+*{box-sizing:border-box} body{margin:0;background:var(--bg-page);color:var(--text-primary);font-family:var(--font-serif)}
+.wrap{max-width:1180px;margin:0 auto;padding:28px}.hero{min-height:360px;padding:28px 28px 22px;display:grid;align-content:end;background:linear-gradient(90deg,rgba(0,0,0,.48),rgba(0,0,0,.08)),url("../assets/images/hero_valley.png") center/cover no-repeat;border-radius:8px;overflow:hidden}.hero h1{margin:0;color:#fff;font-size:42px;letter-spacing:0;text-shadow:0 2px 16px rgba(0,0,0,.32)}.hero p{color:rgba(255,255,255,.86);font-family:var(--font-sans)}
+.nav{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0 22px}.nav a{font-family:var(--font-sans);font-size:12px;color:var(--text-primary);border:1px solid var(--line-soft);padding:7px 10px;text-decoration:none;border-radius:999px}
+.hero .nav a{color:#fff;border-color:rgba(255,255,255,.42);background:rgba(0,0,0,.12)}.event{margin:26px 0}.event h2{font-size:28px;color:var(--text-title);letter-spacing:0}.event-image{width:100%;height:230px;object-fit:cover;border-radius:8px;margin:0 0 14px;opacity:.82}.grid{display:grid;gap:16px}
+.empty{margin:0;padding:18px;border:1px dashed var(--line-soft);border-radius:8px;color:var(--text-muted);font-family:var(--font-sans)}
+.card{display:grid;grid-template-columns:6px minmax(0,1fr) 170px;background:var(--bg-card);border:1px solid var(--line-soft);border-radius:8px;overflow:hidden}
+.strip{background:var(--event-color)}.card-main{padding:18px}.meta{font-family:var(--font-sans);font-size:12px;color:var(--text-muted);letter-spacing:.12em}.card h2{margin:3px 0 12px;font-size:24px;color:var(--text-title)}
+.sentences{display:grid;gap:10px}.sentences p{margin:0;border-left:4px solid var(--event-color);padding:9px 12px;background:rgba(0,0,0,.035)}.sentences span{display:block;font-family:var(--font-sans);font-size:12px;color:var(--text-muted)}.sentences strong{display:block;font-size:22px;line-height:1.55;color:var(--text-title)}
+details{margin-top:14px;border-top:1px solid var(--line-thin);padding-top:10px}summary{cursor:pointer;font-family:var(--font-sans);color:var(--text-second)}.details-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:12px;margin-top:10px}.details-grid section{border:1px solid var(--line-thin);padding:10px;border-radius:6px}.details-grid h3{margin:0 0 6px;color:var(--text-title);font-size:16px}.details-grid p,.details-grid li{font-size:14px;line-height:1.7}.url{font-family:monospace;font-size:11px;word-break:break-all;color:var(--text-muted)}
+.rewrite{display:grid;gap:8px}.rewrite span{border:1px dashed var(--line-soft);padding:8px}.rewrite b{background:rgba(217,164,65,.28);padding:8px;color:var(--text-title)}s{color:#b84741;text-decoration-thickness:2px}
+.score{border-left:1px solid var(--line-thin);padding:14px;background:rgba(0,0,0,.035);display:grid;align-content:start;gap:8px}.score div{display:flex;justify-content:space-between;gap:8px;font-family:var(--font-sans);font-size:12px}.score strong{color:var(--event-color)}
+@media(max-width:760px){.card{grid-template-columns:5px 1fr}.score{grid-column:2;border-left:0;border-top:1px solid var(--line-thin)}.details-grid{grid-template-columns:1fr}.sentences strong{font-size:18px}}
+</style></head>
+<body class="theme-dark weave-pattern"><main class="wrap"><header class="hero"><div class="event-color-bar"><div class="seg-cepo"></div><div class="seg-dafen"></div><div class="seg-cikasuan"></div><div class="seg-truku"></div></div><h1>事件理解卡成果展示</h1><p>姓名已屏蔽；資料由 data/class_data.json 產生。</p><nav class="nav"><a href="#cepo">大港口事件</a><a href="#dafen">大分事件</a><a href="#cikasuan">七腳川事件</a><a href="#truku">太魯閣戰役</a></nav></header><section class="event" id="cepo"><h2>大港口事件</h2><img class="event-image" src="../assets/images/event_cepo.png" alt="" loading="lazy"><div class="grid"><p class="empty">尚無學生卡片。</p></div></section><section class="event" id="dafen"><h2>大分事件</h2><img class="event-image" src="../assets/images/event_dafen.png" alt="" loading="lazy"><div class="grid"><p class="empty">尚無學生卡片。</p></div></section><section class="event" id="cikasuan"><h2>七腳川事件</h2><img class="event-image" src="../assets/images/event_cikasuan.png" alt="" loading="lazy"><div class="grid">
+<article class="card" style="--event-color:var(--color-cikasuan-dark)">
+  <div class="strip"></div>
+  <div class="card-main">
+    <header>
+      <div class="meta">商二甲　01　測O甲</div>
+      <h2>七腳川事件</h2>
+    </header>
+    <section class="sentences">
+      <p><span>事實句</span><strong>我知道七腳川事件發生在 1908 年後的花蓮七腳川溪流域。</strong></p>
+      <p><span>差異句</span><strong>官方說法強調治理秩序，部落觀點強調土地與生存被壓迫。</strong></p>
+      <p><span>省思句</span><strong>我重新理解花蓮的溪流不只是地景，也可能保存族人遷徙與受傷的記憶。</strong></p>
+    </section>
+    <details>
+      <summary>AI process / 改寫 / 來源</summary>
+      <div class="details-grid">
+        <section>
+          <h3>AI 使用過程</h3>
+          <p><b>問題：</b>請比較官方記載與部落觀點，並列出可引用頁碼。</p>
+          <p><b>重點：</b>官方重視治安與控制；部落重視土地與生存；事件造成遷徙</p>
+          <p><b>關鍵詞：</b>七腳川社、鎮壓、遷徙</p>
+          <p><b>查證紀錄：</b>我檢查 AI 是否只用了官方立場詞。</p>
+        </section>
+        <section>
+          <h3>AI 原句 → 改寫</h3>
+          <p class="rewrite"><span>日本政府<s>平定</s>了七腳川社的<s>叛亂</s>。</span><b>日本政府以武力鎮壓七腳川社，族人則從保護部落與土地理解這場衝突。</b></p>
+          <p>平定和叛亂只呈現官方立場。</p>
+        </section>
+        <section>
+          <h3>立場比較</h3>
+          <p><b>官方：</b>維持秩序、處理抗命。</p>
+          <p><b>部落／族人：</b>保護部落土地與生活。</p>
+          <p><b>差異：</b>官方說法強調治理秩序，部落觀點強調土地與生存被壓迫。</p>
+        </section>
+        <section>
+          <h3>資料來源</h3>
+          <ul><li><strong>原民會叢書 PDF，P.23</strong>｜P.23</li>
+<li><strong>國教院補充教材 PDF，P.5</strong>｜P.5</li>
+<li><strong></strong><div class="url">https://storymaps.arcgis.com/collections/7e917133a47a4548bc33f5138a397474</div></li></ul>
+        </section>
+      </div>
+    </details>
+  </div>
+  <aside class="score"><div><span>基本事實</span><strong>2 / 2</strong></div>
+<div><span>AI 使用</span><strong>2 / 2</strong></div>
+<div><span>立場比較</span><strong>2 / 2</strong></div>
+<div><span>展示句</span><strong>2 / 2</strong></div></aside>
+</article>
+</div></section><section class="event" id="truku"><h2>太魯閣戰役</h2><img class="event-image" src="../assets/images/event_truku.png" alt="" loading="lazy"><div class="grid">
+<article class="card" style="--event-color:var(--color-truku-dark)">
+  <div class="strip"></div>
+  <div class="card-main">
+    <header>
+      <div class="meta">商二甲　02　測O乙</div>
+      <h2>太魯閣戰役</h2>
+    </header>
+    <section class="sentences">
+      <p><span>事實句</span><strong>我知道太魯閣戰役發生在 1914 年，與太魯閣族和日本理蕃政策有關。</strong></p>
+      <p><span>差異句</span><strong>官方說法看見統治推進，族人說法看見守護家園。</strong></p>
+      <p><span>省思句</span><strong>我重新理解山路和古道不只是觀光路線，也連著族人保護土地的故事。</strong></p>
+    </section>
+    <details>
+      <summary>AI process / 改寫 / 來源</summary>
+      <div class="details-grid">
+        <section>
+          <h3>AI 使用過程</h3>
+          <p><b>問題：</b>請比較官方記載與部落觀點，並列出可引用頁碼。</p>
+          <p><b>重點：</b>官方重視治安與控制；部落重視土地與生存；事件造成遷徙</p>
+          <p><b>關鍵詞：</b>七腳川社、鎮壓、遷徙</p>
+          <p><b>查證紀錄：</b>我檢查 AI 是否只用了官方立場詞。</p>
+        </section>
+        <section>
+          <h3>AI 原句 → 改寫</h3>
+          <p class="rewrite"><span>日本政府<s>平定</s>了七腳川社的<s>叛亂</s>。</span><b>日本政府以武力鎮壓七腳川社，族人則從保護部落與土地理解這場衝突。</b></p>
+          <p>平定和叛亂只呈現官方立場。</p>
+        </section>
+        <section>
+          <h3>立場比較</h3>
+          <p><b>官方：</b>維持秩序、處理抗命。</p>
+          <p><b>部落／族人：</b>保護部落土地與生活。</p>
+          <p><b>差異：</b>官方說法看見統治推進，族人說法看見守護家園。</p>
+        </section>
+        <section>
+          <h3>資料來源</h3>
+          <ul><li><strong>原民會叢書 PDF，P.23</strong>｜P.23</li>
+<li><strong>國教院補充教材 PDF，P.5</strong>｜P.5</li>
+<li><strong></strong><div class="url">https://storymaps.arcgis.com/collections/7e917133a47a4548bc33f5138a397474</div></li></ul>
+        </section>
+      </div>
+    </details>
+  </div>
+  <aside class="score"><div><span>基本事實</span><strong>2 / 2</strong></div>
+<div><span>AI 使用</span><strong>2 / 2</strong></div>
+<div><span>立場比較</span><strong>2 / 2</strong></div>
+<div><span>展示句</span><strong>2 / 2</strong></div></aside>
+</article>
+</div></section></main><script id="class-data" type="application/json">{"meta": {"school": "花蓮高商", "course": "縱谷無言．原住民族重大歷史事件", "unit": "原住民族重大歷史事件理解卡", "generated_at": "2026-05-06T14:43:19", "student_count": 2, "schema": "student_card"}, "students": [{"id": "商二甲_01_測O甲", "class_name": "商二甲", "seat": "01", "name": "測O甲", "event": "cikasuan", "facts": {"time": "1908-1914", "place": "花蓮七腳川溪流域", "ethnic": "阿美族", "people": "七腳川社族人、日本官方"}, "ai_process": {"question": "請比較官方記載與部落觀點，並列出可引用頁碼。", "ai_points": ["官方重視治安與控制", "部落重視土地與生存", "事件造成遷徙"], "keywords": ["七腳川社", "鎮壓", "遷徙"], "original_ai_sentence": "日本政府平定了七腳川社的叛亂。", "revised_sentence": "日本政府以武力鎮壓七腳川社，族人則從保護部落與土地理解這場衝突。", "revision_reason": "平定和叛亂只呈現官方立場。", "process_log": "我檢查 AI 是否只用了官方立場詞。", "verify_log": "保留時間，刪除平定，查證頁碼。"}, "perspectives": {"official": "維持秩序、處理抗命。", "tribal": "保護部落土地與生活。", "difference": "官方說法強調治理秩序，部落觀點強調土地與生存被壓迫。"}, "landscape": {"types": ["河流／溪流", "部落／舊社"], "looks_like_now": "一般溪流與聚落。", "after_knowing_history": "地名背後有被迫遷徙與記憶。"}, "showcase_sentences": {"fact": "我知道七腳川事件發生在 1908 年後的花蓮七腳川溪流域。", "difference": "官方說法強調治理秩序，部落觀點強調土地與生存被壓迫。", "reflection": "我重新理解花蓮的溪流不只是地景，也可能保存族人遷徙與受傷的記憶。"}, "sources": [{"type": "PDF", "title": "原民會叢書 PDF，P.23", "url": "", "pdf_page": "P.23"}, {"type": "PDF", "title": "國教院補充教材 PDF，P.5", "url": "", "pdf_page": "P.5"}, {"type": "", "title": "", "url": "https://storymaps.arcgis.com/collections/7e917133a47a4548bc33f5138a397474", "pdf_page": ""}], "peer_review": {"checks": ["事實句有時間、地點或人物", "差異句有兩種立場", "省思句不是只說很可憐"], "revised_sentence": "把地點補進事實句。"}, "grading": {"basic": 2, "ai_use": 2, "perspective": 2, "showcase": 2}, "source_file": "sample_card_01.docx"}, {"id": "商二甲_02_測O乙", "class_name": "商二甲", "seat": "02", "name": "測O乙", "event": "truku", "facts": {"time": "1908-1914", "place": "花蓮七腳川溪流域", "ethnic": "阿美族", "people": "七腳川社族人、日本官方"}, "ai_process": {"question": "請比較官方記載與部落觀點，並列出可引用頁碼。", "ai_points": ["官方重視治安與控制", "部落重視土地與生存", "事件造成遷徙"], "keywords": ["七腳川社", "鎮壓", "遷徙"], "original_ai_sentence": "日本政府平定了七腳川社的叛亂。", "revised_sentence": "日本政府以武力鎮壓七腳川社，族人則從保護部落與土地理解這場衝突。", "revision_reason": "平定和叛亂只呈現官方立場。", "process_log": "我檢查 AI 是否只用了官方立場詞。", "verify_log": "保留時間，刪除平定，查證頁碼。"}, "perspectives": {"official": "維持秩序、處理抗命。", "tribal": "保護部落土地與生活。", "difference": "官方說法看見統治推進，族人說法看見守護家園。"}, "landscape": {"types": ["河流／溪流", "部落／舊社"], "looks_like_now": "一般溪流與聚落。", "after_knowing_history": "地名背後有被迫遷徙與記憶。"}, "showcase_sentences": {"fact": "我知道太魯閣戰役發生在 1914 年，與太魯閣族和日本理蕃政策有關。", "difference": "官方說法看見統治推進，族人說法看見守護家園。", "reflection": "我重新理解山路和古道不只是觀光路線，也連著族人保護土地的故事。"}, "sources": [{"type": "PDF", "title": "原民會叢書 PDF，P.23", "url": "", "pdf_page": "P.23"}, {"type": "PDF", "title": "國教院補充教材 PDF，P.5", "url": "", "pdf_page": "P.5"}, {"type": "", "title": "", "url": "https://storymaps.arcgis.com/collections/7e917133a47a4548bc33f5138a397474", "pdf_page": ""}], "peer_review": {"checks": ["事實句有時間、地點或人物", "差異句有兩種立場", "省思句不是只說很可憐"], "revised_sentence": "把地點補進事實句。"}, "grading": {"basic": 2, "ai_use": 2, "perspective": 2, "showcase": 2}, "source_file": "sample_card_02.docx"}]}</script></body></html>

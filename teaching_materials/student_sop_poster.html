@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<title>事件理解卡三堂課 SOP</title>
+<link rel="stylesheet" href="../assets/styles/design_tokens.css">
+<style>
+body { margin: 0; background: var(--bg-page); padding: 1rem 0; font-family: var(--font-serif); }
+.a4 { width: 210mm; min-height: 297mm; margin: 1rem auto; padding: 16mm 14mm; box-sizing: border-box; box-shadow: 0 2px 12px rgba(0,0,0,.08); background: var(--bg-main); }
+.poster-head { border-top: 3px solid var(--bg-strong); background: var(--bg-card); padding: 1.2rem 1.4rem 1rem; margin-bottom: 1.2rem; }
+.head-eyebrow { font-family: var(--font-sans); font-size: 10px; letter-spacing: .4em; color: var(--text-second); margin-bottom: .5rem; }
+.head-title { font-size: 28px; font-weight: 600; color: var(--text-title); margin: 0 0 .3rem; letter-spacing: .04em; }
+.head-title .dot { color: var(--color-cepo); }
+.head-meta { display: flex; justify-content: space-between; align-items: baseline; margin-top: .5rem; }
+.session-tag { font-family: var(--font-sans); font-size: 13px; letter-spacing: .3em; color: var(--text-second); font-weight: 600; }
+.right { font-family: var(--font-sans); font-size: 10px; color: var(--text-muted); letter-spacing: .2em; }
+.lesson { border: 1px solid var(--line-soft); background: var(--bg-card); margin: 0 0 1rem; padding: 1rem; break-inside: avoid; }
+.section-divider { width: 100%; height: 24mm; object-fit: cover; display: block; margin: .2rem 0 1rem; opacity: .72; }
+.lesson-head { display: flex; align-items: center; gap: 14px; border-bottom: 1px solid var(--line-thin); padding-bottom: .75rem; margin-bottom: .85rem; }
+.num { width: 54px; height: 54px; border-radius: 50%; display: flex; align-items: center; justify-content: center; color: #fff; font-size: 24px; font-weight: 700; flex-shrink: 0; }
+h2 { margin: 0; color: var(--text-title); font-size: 23px; letter-spacing: 0; }
+.goal { margin: .25rem 0 0; color: var(--text-second); font-family: var(--font-sans); font-size: 12px; letter-spacing: .12em; }
+.steps { display: grid; gap: .55rem; }
+.step { display: grid; grid-template-columns: 62px 1fr; gap: 12px; border-bottom: 1px solid var(--line-thin); padding-bottom: .5rem; }
+.step:last-child { border-bottom: 0; }
+.time { text-align: right; color: var(--bg-strong); font-family: var(--font-sans); font-size: 17px; font-weight: 700; line-height: 1.1; }
+.time span { display: block; color: var(--text-muted); font-size: 10px; font-weight: 400; letter-spacing: .15em; }
+.who { color: var(--text-muted); font-family: var(--font-sans); font-size: 10px; letter-spacing: .3em; font-weight: 700; }
+.text { color: var(--text-primary); font-size: 15px; line-height: 1.75; }
+.sentence { display: inline-block; margin-top: .35rem; padding: .25rem .5rem; border-left: 4px solid currentColor; background: rgba(0,0,0,.04); font-family: var(--font-sans); font-size: 13px; }
+.note { border: 1px dashed var(--line-soft); padding: .8rem 1rem; color: var(--text-second); font-family: var(--font-sans); font-size: 12px; line-height: 1.7; }
+.check { display: grid; grid-template-columns: repeat(3, 1fr); gap: .7rem; margin-top: .8rem; }
+.check div { border-top: 3px solid var(--color-cikasuan); padding: .55rem; background: rgba(255,255,255,.26); font-family: var(--font-sans); font-size: 12px; line-height: 1.55; color: var(--text-primary); }
+@media print { body { padding: 0; background: #fff; } .a4 { margin: 0; box-shadow: none; } }
+</style>
+</head>
+<body class="theme-light weave-pattern">
+<main class="a4">
+  <header class="poster-head">
+    <div class="head-eyebrow">花 蓮 高 商 ｜ 七 腳 川 文 化 報 告</div>
+    <h1 class="head-title">事件理解卡三堂課 SOP<span class="dot">．</span>低動機跑班版</h1>
+    <div class="head-meta">
+      <span class="session-tag">事 實 句 → 差 異 句 → 省 思 句</span>
+      <span class="right">A4 poster｜HTML standalone</span>
+    </div>
+  </header>
+
+  <img class="section-divider" src="../assets/images/divider_mountain.png" alt="">
+  <section class="lesson">
+    <div class="lesson-head">
+      <div class="num" style="background:var(--color-cepo)">1</div>
+      <div>
+        <h2>Lesson 1：完成事實句</h2>
+        <p class="goal">學生先選事件、問 NotebookLM、填出能被查證的事件基礎資料。</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="time">5<span>min</span></div><div><div class="who">TEACHER</div><div class="text">發下事件理解卡，提醒只選一個事件，先完成「時間、地點、族群、人物」。</div></div></div>
+      <div class="step"><div class="time">15<span>min</span></div><div><div class="who">STUDENT</div><div class="text">打開該事件 NotebookLM，使用開場問題，摘出 3 個 AI 重點與 3 個關鍵詞。</div></div></div>
+      <div class="step"><div class="time">20<span>min</span></div><div><div class="who">OUTPUT</div><div class="text">完成第 7 區第一句。<br><span class="sentence" style="color:var(--color-cepo)">事實句：我知道這件事發生在……</span></div></div></div>
+      <div class="step"><div class="time">10<span>min</span></div><div><div class="who">CHECK</div><div class="text">教師巡視，只看事實句是否有時間、地點或人物；不要求完整長文。</div></div></div>
+    </div>
+  </section>
+
+  <img class="section-divider" src="../assets/images/divider_water.png" alt="">
+  <section class="lesson">
+    <div class="lesson-head">
+      <div class="num" style="background:var(--color-dafen)">2</div>
+      <div>
+        <h2>Lesson 2：完成差異句</h2>
+        <p class="goal">學生把官方說法與部落／族人說法分開，練習改掉 AI 的立場詞。</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="time">8<span>min</span></div><div><div class="who">TEACHER</div><div class="text">示範「平定、叛亂、討伐」等詞如何改成較中性的描述，帶學生看立場詞詞卡。</div></div></div>
+      <div class="step"><div class="time">17<span>min</span></div><div><div class="who">STUDENT</div><div class="text">填官方說法、部落／族人說法，寫出兩者最大的差異。</div></div></div>
+      <div class="step"><div class="time">15<span>min</span></div><div><div class="who">OUTPUT</div><div class="text">完成 AI 原句 → 我的改寫，並寫差異句。<br><span class="sentence" style="color:var(--color-dafen)">差異句：不同立場的差異是……</span></div></div></div>
+      <div class="step"><div class="time">10<span>min</span></div><div><div class="who">PEER</div><div class="text">同儕互評「一勾一改」：三個勾選完成後，只改寫同學的一句。</div></div></div>
+    </div>
+  </section>
+
+  <img class="section-divider" src="../assets/images/divider_mountain.png" alt="">
+  <section class="lesson">
+    <div class="lesson-head">
+      <div class="num" style="background:var(--color-truku)">3</div>
+      <div>
+        <h2>Lesson 3：完成省思句</h2>
+        <p class="goal">學生把地景、資料來源與 AI process log 補齊，最後交出可展示的一張卡。</p>
+      </div>
+    </div>
+    <div class="steps">
+      <div class="step"><div class="time">10<span>min</span></div><div><div class="who">TEACHER</div><div class="text">回顧：省思句不是「很可憐」，而是說自己如何重新看花蓮地景。</div></div></div>
+      <div class="step"><div class="time">15<span>min</span></div><div><div class="who">STUDENT</div><div class="text">勾選地景類型，寫現在看起來像什麼，以及知道歷史後怎麼看。</div></div></div>
+      <div class="step"><div class="time">15<span>min</span></div><div><div class="who">OUTPUT</div><div class="text">完成省思句、資料來源 2-3 筆、AI process log。<br><span class="sentence" style="color:var(--color-truku)">省思句：我重新理解花蓮地景是……</span></div></div></div>
+      <div class="step"><div class="time">10<span>min</span></div><div><div class="who">FINAL</div><div class="text">學生開 HTML 預覽或 DOCX，老師確認三句展示句與資料來源可讀後收件。</div></div></div>
+    </div>
+  </section>
+
+  <div class="note">
+    教師檢核最低門檻：每張卡必須有事實句、差異句、省思句；至少 2 筆來源，其中 1 筆可為原民會 PDF 或國教院補充教材；AI 原句必須有一處改寫理由。
+  </div>
+  <div class="check">
+    <div><strong>事實句</strong><br>看得到時間、地點、族群或人物。</div>
+    <div><strong>差異句</strong><br>看得到官方與部落／族人立場差異。</div>
+    <div><strong>省思句</strong><br>看得到學生如何重新理解花蓮地景。</div>
+  </div>
+</main>
+</body>
+</html>

@@ -1,0 +1,275 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="theme-light">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>縱谷無言．事件理解卡</title>
+<link rel="stylesheet" href="../assets/styles/design_tokens.css">
+<style>
+* { box-sizing: border-box; }
+body { margin: 0; color: var(--text-primary); background: var(--bg-page); font-family: var(--font-serif); }
+.page { max-width: 1180px; margin: 0 auto; padding: 24px; }
+.toolbar { display: flex; justify-content: space-between; gap: 12px; align-items: center; margin-bottom: 14px; font-family: var(--font-sans); }
+.toolbar h1 { margin: 0; color: var(--text-title); font-size: 26px; letter-spacing: 0; }
+.theme-toggle { display: inline-flex; align-items: center; gap: 8px; font-size: 13px; color: var(--text-second); }
+.card { background: var(--bg-card); border: 1px solid var(--line-soft); box-shadow: 0 18px 48px rgba(0,0,0,.08); }
+.event-color-bar { border-radius: 0; }
+.card-head { padding: 18px 20px; border-bottom: 1px solid var(--line-thin); display: grid; grid-template-columns: 1fr auto; gap: 16px; }
+.card-title { margin: 0; color: var(--text-title); font-size: 30px; letter-spacing: 0; }
+.card-sub { margin: 4px 0 0; color: var(--text-second); font-family: var(--font-sans); font-size: 13px; }
+.identity { display: grid; grid-template-columns: repeat(3, minmax(90px, 1fr)); gap: 8px; min-width: 340px; }
+label { display: block; font-family: var(--font-sans); font-size: 12px; color: var(--text-second); line-height: 1.5; }
+input[type="text"], textarea { width: 100%; margin-top: 4px; border: 1px solid var(--line-soft); background: rgba(255,255,255,.48); color: var(--text-primary); font: 15px/1.65 var(--font-serif); padding: 8px 10px; border-radius: 6px; }
+.theme-dark input[type="text"], .theme-dark textarea { background: rgba(0,0,0,.18); }
+textarea { min-height: 76px; resize: vertical; }
+.body-grid { display: grid; grid-template-columns: minmax(0, 1fr) 260px; gap: 16px; padding: 18px; }
+.sections { display: grid; gap: 14px; min-width: 0; }
+.section { border: 1px solid var(--line-thin); background: rgba(255,255,255,.24); padding: 14px; border-radius: 8px; min-width: 0; }
+.section-divider { width: 100%; height: 80px; object-fit: cover; object-position: center; display: block; opacity: .65; border-radius: 8px; }
+.theme-dark .section { background: rgba(0,0,0,.14); }
+.section h2 { margin: 0 0 10px; color: var(--text-title); font-size: 18px; letter-spacing: 0; }
+.grid-2 { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+.grid-4 { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 10px; }
+.event-picker { position: relative; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 8px; }
+.event-option { border: 1px solid var(--line-soft); border-left: 7px solid var(--event-color); padding: 8px; border-radius: 6px; color: var(--text-primary); background: var(--bg-card); min-height: 52px; }
+.event-option input { margin-right: 6px; }
+.note-list { margin: 0; padding-left: 1.25em; color: var(--text-second); font-family: var(--font-sans); font-size: 13px; }
+.notebook-q { display: grid; gap: 7px; margin-bottom: 10px; }
+.notebook-q div { border-left: 5px solid var(--event-color); padding: 7px 9px; background: rgba(0,0,0,.04); font-size: 13px; line-height: 1.65; }
+.theme-dark .notebook-q div { background: rgba(255,255,255,.04); }
+.ai-rewrite { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; align-items: stretch; }
+.sample { border: 1px dashed var(--line-soft); border-radius: 8px; padding: 10px; background: rgba(0,0,0,.03); min-height: 88px; }
+.sample strong { display: block; font-family: var(--font-sans); font-size: 12px; color: var(--text-muted); margin-bottom: 6px; }
+.stance-bad { text-decoration: line-through; text-decoration-thickness: 2px; color: #b84741; }
+.stance-new { background: rgba(217,164,65,.34); color: var(--text-title); padding: 0 3px; border-radius: 3px; }
+.side { display: grid; gap: 14px; align-content: start; }
+.grading { border: 1px solid var(--line-soft); border-radius: 8px; padding: 12px; background: var(--bg-card); }
+.grading h3 { margin: 0 0 8px; color: var(--text-title); font-size: 16px; letter-spacing: 0; }
+.stance-table-note { margin: 0 0 10px; color: var(--text-second); font-family: var(--font-sans); font-size: 13px; line-height: 1.7; }
+.stance-table-wrap { overflow-x: auto; border: 1px solid var(--line-soft); border-radius: 8px; min-width: 0; max-width: 100%; }
+.stance-table { width: 100%; min-width: 900px; border-collapse: collapse; font-family: var(--font-sans); font-size: 13px; line-height: 1.55; background: var(--bg-card); }
+.stance-table th, .stance-table td { border: 1px solid var(--line-thin); padding: 8px 9px; text-align: left; vertical-align: top; }
+.stance-table th { color: var(--text-title); background: rgba(217,164,65,.24); font-weight: 700; }
+.stance-table tbody tr:nth-child(odd) { background: rgba(255,255,255,.42); }
+.stance-table tbody tr:nth-child(even) { background: rgba(0,0,0,.045); }
+.theme-dark .stance-table tbody tr:nth-child(odd) { background: rgba(255,255,255,.06); }
+.theme-dark .stance-table tbody tr:nth-child(even) { background: rgba(0,0,0,.22); }
+.peer { display: grid; gap: 8px; }
+.checks { display: grid; gap: 6px; font-family: var(--font-sans); font-size: 13px; }
+.checks label { color: var(--text-primary); }
+.grading details { margin-top: 8px; }
+.grading summary { cursor: pointer; font-family: var(--font-sans); color: var(--text-title); }
+.score-row { display: grid; grid-template-columns: 1fr 62px; gap: 8px; align-items: center; margin-top: 8px; font-family: var(--font-sans); font-size: 12px; }
+.score-row input { width: 62px; padding: 4px; }
+.details { margin-top: 14px; padding: 0 18px 18px; }
+.details summary { cursor: pointer; padding: 12px 14px; border: 1px solid var(--line-soft); border-radius: 8px; color: var(--text-title); font-family: var(--font-sans); background: var(--bg-card); }
+.details-inner { margin-top: 10px; display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 10px; }
+@media (max-width: 900px) {
+  .card-head, .body-grid, .details-inner, .ai-rewrite { grid-template-columns: 1fr; }
+  .identity, .grid-4, .event-picker { grid-template-columns: repeat(2, minmax(0, 1fr)); min-width: 0; }
+}
+@media (max-width: 560px) {
+  .page { padding: 12px; }
+  .grid-2, .grid-4, .event-picker, .identity { grid-template-columns: 1fr; }
+  .toolbar { align-items: flex-start; flex-direction: column; }
+}
+@media print {
+  .toolbar { display: none; }
+  .page { max-width: none; padding: 0; }
+  .card { box-shadow: none; border-color: #333; }
+  input[type="text"], textarea { border-color: #555; background: #fff !important; color: #111; }
+  .body-grid { grid-template-columns: 1fr 230px; }
+  .stance-table { min-width: 0; font-size: 9px; line-height: 1.35; }
+  .stance-table th, .stance-table td { border: 1px solid #333; padding: 4px; }
+  .stance-table-wrap { overflow: visible; border-color: #333; }
+}
+</style>
+</head>
+<body class="theme-light weave-pattern">
+<div class="page">
+  <div class="toolbar no-print">
+    <h1>事件理解卡</h1>
+    <label class="theme-toggle"><input id="mode" type="checkbox"> 深色模式</label>
+  </div>
+
+  <form class="card" aria-label="縱谷無言．原住民族重大歷史事件事件理解卡">
+    <div class="event-color-bar" aria-hidden="true"><div class="seg-cepo"></div><div class="seg-dafen"></div><div class="seg-cikasuan"></div><div class="seg-truku"></div></div>
+    <header class="card-head">
+      <div>
+        <p class="card-sub">花蓮原住民族重大歷史事件｜NotebookLM 輔助閱讀</p>
+        <h1 class="card-title">縱谷無言．事件理解卡</h1>
+      </div>
+      <div class="identity">
+        <label>班級<input type="text" name="class_name"></label>
+        <label>座號<input type="text" name="seat"></label>
+        <label>姓名<input type="text" name="name"></label>
+      </div>
+    </header>
+
+    <div class="body-grid">
+      <main class="sections">
+        <img class="section-divider" src="../assets/images/divider_mountain.png" alt="">
+        <section class="section">
+          <h2>1. 我研究的事件</h2>
+          <div class="event-picker" id="eventPicker">
+            <label class="event-option" style="--event-color:var(--color-cepo)"><input type="checkbox" name="event" value="cepo">大港口事件 Cepo'</label>
+            <label class="event-option" style="--event-color:var(--color-dafen)"><input type="checkbox" name="event" value="dafen">大分事件</label>
+            <label class="event-option" style="--event-color:var(--color-cikasuan)"><input type="checkbox" name="event" value="cikasuan">七腳川事件</label>
+            <label class="event-option" style="--event-color:var(--color-truku)"><input type="checkbox" name="event" value="truku">太魯閣戰役</label>
+          </div>
+        </section>
+
+        <img class="section-divider" src="../assets/images/divider_water.png" alt="">
+        <section class="section">
+          <h2>2. 事件基礎資料</h2>
+          <div class="grid-4">
+            <label>時間<input type="text" name="facts_time"></label>
+            <label>地點<input type="text" name="facts_place"></label>
+            <label>族群<input type="text" name="facts_ethnic"></label>
+            <label>人物<input type="text" name="facts_people"></label>
+          </div>
+        </section>
+
+        <img class="section-divider" src="../assets/images/divider_mountain.png" alt="">
+        <section class="section">
+          <h2>3. AI 協助我理解</h2>
+          <div class="notebook-q" aria-label="NotebookLM 開場問題參考">
+            <div style="--event-color:var(--color-cepo)">大港口事件：請根據 PDF，整理清軍、地方官員與 Cepo' 部落對事件原因的三種說法。</div>
+            <div style="--event-color:var(--color-dafen)">大分事件：請整理 1914-1933 年布農族抵抗、遷移與 Dahu Ali 相關線索。</div>
+            <div style="--event-color:var(--color-cikasuan)">七腳川事件：請說明七腳川社與日本官方說法的差異，並列出可引用頁碼。</div>
+            <div style="--event-color:var(--color-truku)">太魯閣戰役：請比較日方理蕃政策與太魯閣族守護土地的觀點。</div>
+          </div>
+          <label>我問 NotebookLM 的問題<textarea name="ai_question"></textarea></label>
+          <label>NotebookLM 給我的 3 個重點<textarea name="ai_points"></textarea></label>
+          <label>我抓到的 3 個關鍵詞<textarea name="keywords"></textarea></label>
+        </section>
+
+        <img class="section-divider" src="../assets/images/divider_water.png" alt="">
+        <section class="section">
+          <h2>4. 我改掉 AI 一個地方</h2>
+          <div class="ai-rewrite">
+            <label>AI 原句<textarea name="original_ai_sentence">日本政府平定了七腳川社的叛亂。</textarea></label>
+            <label>我的改寫<textarea name="revised_sentence">日本政府以武力鎮壓七腳川社，族人則從保護部落與土地的角度理解這場衝突。</textarea></label>
+          </div>
+          <div class="sample" aria-label="AI 原句到改寫視覺範例">
+            <strong>AI 原句 → 改寫範例</strong>
+            日本政府<span class="stance-bad">平定</span>了<span class="stance-bad">叛亂</span> → 日本政府<span class="stance-new">以武力鎮壓</span>，族人從<span class="stance-new">保護部落與土地</span>理解衝突。
+          </div>
+          <label>我修改的理由<textarea name="revision_reason"></textarea></label>
+        </section>
+
+        <section class="section">
+          <h2>立場詞對照表 ─ 找出 AI 用了哪一邊的詞</h2>
+          <p class="stance-table-note">漢/日方與族方對同一事件常用不同詞彙。AI 答案多偏漢/日視角,你的工作是找出至少一個並改寫成更中性或族視角的版本。</p>
+          <div class="stance-table-wrap">
+            <table class="stance-table">
+              <thead>
+                <tr>
+                  <th>詞彙</th>
+                  <th>漢/日視角</th>
+                  <th>族視角</th>
+                  <th>適用事件</th>
+                  <th>過度簡化風險</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr><td>招撫</td><td>招撫原住民、撫番</td><td>國家力量介入、要求服從</td><td>大港口</td><td>不宜一律譯成「強迫歸順」</td></tr>
+                <tr><td>平亂</td><td>官兵殺平、攻剿</td><td>抵抗入侵後遭鎮壓</td><td>大港口</td><td>可改「鎮壓抵抗」,保留清廷視為亂事的立場</td></tr>
+                <tr><td>滅社</td><td>喪身滅社、討伐滅社</td><td>部落被拆散、遷徙、失去故土</td><td>大港口、七腳川</td><td>「清軍屠殺」只適大港口;七腳川是日治「討伐滅社」</td></tr>
+                <tr><td>理蕃</td><td>治理蕃地的政策</td><td>殖民管控、分類與改造</td><td>大分、七腳川、太魯閣</td><td>標出日治原詞</td></tr>
+                <tr><td>歸順</td><td>臣服、投降、歸順日本</td><td>被迫投降或戰術性和解</td><td>大分、七腳川、太魯閣</td><td>「被迫投降」太單一;大分有 Dahu Ali「和解」與「最後未歸順蕃」的差別</td></tr>
+                <tr><td>收押槍枝</td><td>沒收以便治理</td><td>剝奪生計、防衛、狩獵能力</td><td>大分、太魯閣</td><td>大分事件導火線之一</td></tr>
+                <tr><td>駐在所</td><td>山地警察治理據點</td><td>壓迫、監控、衝突目標</td><td>大分、太魯閣</td><td>大分多次涉襲擊駐在所</td></tr>
+                <tr><td>討伐／征討</td><td>軍警合法征伐</td><td>國家級武力入侵</td><td>七腳川、太魯閣</td><td>比「平亂」更日治準確</td></tr>
+                <tr><td>隘勇線</td><td>警備防線、理蕃設施</td><td>壓縮生活領域、迫使衝突</td><td>七腳川、太魯閣</td><td>七腳川叢書目次列「協助隘勇線的建立」</td></tr>
+                <tr><td>太魯閣蕃討伐</td><td>日方戰役稱呼</td><td>太魯閣族抗日／保衛土地</td><td>太魯閣</td><td>詞彙本身就是立場詞</td></tr>
+                <tr><td>正名</td><td>從事件改稱戰役</td><td>歷史平反、恢復族群敘事</td><td>大港口</td><td>2022 正名 Cepo' 戰役</td></tr>
+              </tbody>
+            </table>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>5. 立場差異</h2>
+          <div class="grid-2">
+            <label>官方說法<textarea name="perspective_official"></textarea></label>
+            <label>部落／族人說法<textarea name="perspective_tribal"></textarea></label>
+          </div>
+          <label>兩種說法最大的差異<textarea name="perspective_difference"></textarea></label>
+        </section>
+
+        <section class="section">
+          <h2>6. 地景與記憶</h2>
+          <div class="checks">
+            <label><input type="checkbox" name="landscape_type" value="river"> 河流／溪流</label>
+            <label><input type="checkbox" name="landscape_type" value="village"> 部落／舊社</label>
+            <label><input type="checkbox" name="landscape_type" value="road"> 道路／古道</label>
+            <label><input type="checkbox" name="landscape_type" value="monument"> 紀念碑／遺址</label>
+          </div>
+          <div class="grid-2">
+            <label>現在看起來像什麼<textarea name="looks_like_now"></textarea></label>
+            <label>知道歷史後，我會怎麼看<textarea name="after_knowing_history"></textarea></label>
+          </div>
+        </section>
+
+        <section class="section">
+          <h2>7. 三句展示句</h2>
+          <label>事實句：我知道這件事發生在……<textarea name="showcase_fact"></textarea></label>
+          <label>差異句：不同立場的差異是……<textarea name="showcase_difference"></textarea></label>
+          <label>省思句：我重新理解花蓮地景是……<textarea name="showcase_reflection"></textarea></label>
+        </section>
+
+        <section class="section">
+          <h2>8. 資料來源</h2>
+          <div class="grid-2">
+            <label>來源 1：標題／頁碼<textarea name="source_1"></textarea></label>
+            <label>來源 2：標題／頁碼<textarea name="source_2"></textarea></label>
+          </div>
+          <label>來源 3：網址或補充頁碼<textarea name="source_3"></textarea></label>
+        </section>
+
+        <section class="section peer">
+          <h2>9. 同儕互評：一勾一改</h2>
+          <div class="checks">
+            <label><input type="checkbox" name="peer_check" value="fact"> 事實句有時間、地點或人物</label>
+            <label><input type="checkbox" name="peer_check" value="difference"> 差異句有兩種立場</label>
+            <label><input type="checkbox" name="peer_check" value="reflection"> 省思句不是只說「我覺得很可憐」</label>
+          </div>
+          <label>我建議同學改成這一句<textarea name="peer_rewrite"></textarea></label>
+        </section>
+      </main>
+
+      <aside class="side">
+        <section class="grading">
+          <h3>評分軌道</h3>
+          <details open>
+            <summary>展開 0-2 分自評</summary>
+            <label class="score-row">基本事實<input type="text" name="grade_basic" placeholder="0-2"></label>
+            <label class="score-row">AI 使用<input type="text" name="grade_ai_use" placeholder="0-2"></label>
+            <label class="score-row">立場比較<input type="text" name="grade_perspective" placeholder="0-2"></label>
+            <label class="score-row">展示句<input type="text" name="grade_showcase" placeholder="0-2"></label>
+          </details>
+        </section>
+      </aside>
+    </div>
+
+    <details class="details">
+      <summary>下半部：AI process log</summary>
+      <div class="details-inner">
+        <label>我怎麼判斷 AI 哪裡需要改<textarea name="ai_process_log"></textarea></label>
+        <label>我最後保留／刪除／查證了什麼<textarea name="ai_verify_log"></textarea></label>
+      </div>
+    </details>
+  </form>
+</div>
+<script>
+const body = document.body;
+document.getElementById('mode').addEventListener('change', event => {
+  body.classList.toggle('theme-dark', event.target.checked);
+  body.classList.toggle('theme-light', !event.target.checked);
+  document.documentElement.classList.toggle('theme-dark', event.target.checked);
+  document.documentElement.classList.toggle('theme-light', !event.target.checked);
+});
+</script>
+</body>
+</html>

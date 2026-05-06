@@ -1,0 +1,142 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://culturereports.local/student_card.schema.json",
+  "title": "事件理解卡班級資料",
+  "type": "object",
+  "required": ["meta", "students"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["school", "course", "unit", "generated_at", "student_count", "schema"],
+      "additionalProperties": true,
+      "properties": {
+        "school": { "type": "string" },
+        "course": { "type": "string" },
+        "unit": { "type": "string" },
+        "generated_at": { "type": "string" },
+        "student_count": { "type": "integer", "minimum": 0 },
+        "schema": { "const": "student_card" }
+      }
+    },
+    "students": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/student" }
+    }
+  },
+  "$defs": {
+    "event": {
+      "type": "string",
+      "enum": ["", "cepo", "dafen", "cikasuan", "truku"]
+    },
+    "source": {
+      "type": "object",
+      "required": ["type", "title", "url"],
+      "additionalProperties": true,
+      "properties": {
+        "type": { "type": "string" },
+        "title": { "type": "string" },
+        "url": { "type": "string" },
+        "pdf_page": { "type": "string" }
+      }
+    },
+    "student": {
+      "type": "object",
+      "required": [
+        "id", "class_name", "seat", "name", "event",
+        "facts", "ai_process", "perspectives", "landscape",
+        "showcase_sentences", "sources", "peer_review", "source_file"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "id": { "type": "string" },
+        "class_name": { "type": "string" },
+        "seat": { "type": "string" },
+        "name": { "type": "string" },
+        "event": { "$ref": "#/$defs/event" },
+        "facts": {
+          "type": "object",
+          "required": ["time", "place", "ethnic", "people"],
+          "additionalProperties": false,
+          "properties": {
+            "time": { "type": "string" },
+            "place": { "type": "string" },
+            "ethnic": { "type": "string" },
+            "people": { "type": "string" }
+          }
+        },
+        "ai_process": {
+          "type": "object",
+          "required": ["question", "ai_points", "keywords", "original_ai_sentence", "revised_sentence"],
+          "additionalProperties": true,
+          "properties": {
+            "question": { "type": "string" },
+            "ai_points": { "type": "array", "items": { "type": "string" } },
+            "keywords": { "type": "array", "items": { "type": "string" } },
+            "original_ai_sentence": { "type": "string" },
+            "revised_sentence": { "type": "string" },
+            "revision_reason": { "type": "string" },
+            "process_log": { "type": "string" },
+            "verify_log": { "type": "string" }
+          }
+        },
+        "perspectives": {
+          "type": "object",
+          "required": ["official", "tribal", "difference"],
+          "additionalProperties": true,
+          "properties": {
+            "official": { "type": "string" },
+            "tribal": { "type": "string" },
+            "difference": { "type": "string" }
+          }
+        },
+        "landscape": {
+          "type": "object",
+          "required": ["types", "looks_like_now", "after_knowing_history"],
+          "additionalProperties": true,
+          "properties": {
+            "types": { "type": "array", "items": { "type": "string" } },
+            "looks_like_now": { "type": "string" },
+            "after_knowing_history": { "type": "string" }
+          }
+        },
+        "showcase_sentences": {
+          "type": "object",
+          "required": ["fact", "difference", "reflection"],
+          "additionalProperties": false,
+          "properties": {
+            "fact": { "type": "string" },
+            "difference": { "type": "string" },
+            "reflection": { "type": "string" }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "items": { "$ref": "#/$defs/source" }
+        },
+        "peer_review": {
+          "type": "object",
+          "required": ["checks", "revised_sentence"],
+          "additionalProperties": true,
+          "properties": {
+            "checks": { "type": "array", "items": { "type": "string" } },
+            "revised_sentence": { "type": "string" },
+            "suggestion": { "type": "string" }
+          }
+        },
+        "grading": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "basic": { "type": ["integer", "null"], "minimum": 0, "maximum": 2 },
+            "ai_use": { "type": ["integer", "null"], "minimum": 0, "maximum": 2 },
+            "perspective": { "type": ["integer", "null"], "minimum": 0, "maximum": 2 },
+            "showcase": { "type": ["integer", "null"], "minimum": 0, "maximum": 2 }
+          }
+        },
+        "legacy_supplement": { "type": "object" },
+        "source_file": { "type": "string" }
+      }
+    }
+  }
+}

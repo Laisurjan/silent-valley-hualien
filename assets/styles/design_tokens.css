@@ -1,0 +1,136 @@
+/* ==========================================================================
+   縱谷無言．設計 Token
+   來源：PROJECT_BRIEF.md Part 5.1 + style_light.html / style_dark.html
+   ========================================================================== */
+
+:root {
+  /* ---- 四色事件分色（淺色版 / 出版用） ---- */
+  --color-cepo:       #C73E3A;   /* 大港口・阿美紅 */
+  --color-dafen:      #2C4A6E;   /* 大分・布農藍 */
+  --color-cikasuan:   #D9A441;   /* 七腳川・阿美黃 */
+  --color-truku:      #8B2E2A;   /* 太魯閣・太魯閣紅 */
+
+  /* ---- 四色事件分色（深色版 / 網頁用，提亮版本） ---- */
+  --color-cepo-dark:     #E85A52;
+  --color-dafen-dark:    #5B7CA8;
+  --color-cikasuan-dark: #E8C56B;
+  --color-truku-dark:    #B84741;
+
+  /* ---- 字型 ---- */
+  --font-serif: 'Songti TC', 'Noto Serif TC', 'PingFang TC', serif;
+  --font-sans:  'Noto Sans TC', 'PingFang TC', 'Microsoft JhengHei', sans-serif;
+
+  /* ---- 字級 ---- */
+  --fs-h1: 42px;
+  --fs-h2: 26px;
+  --fs-h3: 19px;
+  --fs-body: 15px;
+  --fs-sub: 13px;
+  --fs-small: 11px;
+
+  /* ---- 字距節奏 ---- */
+  --ls-tag: 0.35em;
+  --ls-sub: 0.15em;
+  --ls-h1: 0.04em;
+
+  /* ---- 行高 ---- */
+  --lh-tight: 1.3;
+  --lh-body: 1.85;
+  --lh-loose: 2;
+}
+
+/* ---- 淺色主題（出版用） ---- */
+.theme-light {
+  --bg-page:    #E8E2D2;
+  --bg-main:    #F5F1EA;
+  --bg-card:    rgba(255, 251, 242, 0.85);
+  --bg-strong:  #2B2520;
+  --text-primary: #3A3530;
+  --text-title:   #1F1A14;
+  --text-second:  #5C5552;
+  --text-muted:   #8B7355;
+  --line-soft:    rgba(43, 37, 32, 0.3);
+  --line-thin:    rgba(43, 37, 32, 0.12);
+  --pattern-color: rgba(139, 69, 19, 0.04);
+}
+
+/* ---- 深色主題（網頁用） ---- */
+.theme-dark {
+  --bg-page:    #0E0B08;
+  --bg-main:    #1A1612;
+  --bg-card:    rgba(43, 37, 32, 0.6);
+  --bg-strong:  rgba(43, 37, 32, 0.7);
+  --accent:     #D9A441;
+  --text-primary: #D8D0C0;
+  --text-title:   #F5F1EA;
+  --text-second:  #A09584;
+  --text-muted:   #8B7E68;
+  --line-soft:    rgba(216, 208, 192, 0.2);
+  --line-thin:    rgba(216, 208, 192, 0.1);
+  --pattern-color: rgba(217, 164, 65, 0.025);
+}
+
+/* ---- 共用 base ---- */
+.theme-light, .theme-dark {
+  font-family: var(--font-serif);
+  color: var(--text-primary);
+  background: var(--bg-page);
+  line-height: var(--lh-body);
+}
+
+/* ---- 織紋背景（淺深通用，色由 --pattern-color 控制） ---- */
+.weave-pattern {
+  background-color: var(--bg-main);
+  background-image:
+    linear-gradient(45deg,  var(--pattern-color) 25%, transparent 25%),
+    linear-gradient(-45deg, var(--pattern-color) 25%, transparent 25%),
+    linear-gradient(45deg,  transparent 75%, var(--pattern-color) 75%),
+    linear-gradient(-45deg, transparent 75%, var(--pattern-color) 75%);
+  background-size: 16px 16px;
+  background-position: 0 0, 0 8px, 8px -8px, -8px 0px;
+}
+
+/* ---- 四色織紋條 ---- */
+.event-color-bar {
+  display: flex;
+  height: 4px;
+  border-radius: 1px;
+  overflow: hidden;
+}
+.event-color-bar > div { flex: 1; }
+.theme-light .event-color-bar > .seg-cepo     { background: var(--color-cepo); }
+.theme-light .event-color-bar > .seg-dafen    { background: var(--color-dafen); }
+.theme-light .event-color-bar > .seg-cikasuan { background: var(--color-cikasuan); }
+.theme-light .event-color-bar > .seg-truku    { background: var(--color-truku); }
+.theme-dark  .event-color-bar > .seg-cepo     { background: var(--color-cepo-dark); }
+.theme-dark  .event-color-bar > .seg-dafen    { background: var(--color-dafen-dark); }
+.theme-dark  .event-color-bar > .seg-cikasuan { background: var(--color-cikasuan-dark); }
+.theme-dark  .event-color-bar > .seg-truku    { background: var(--color-truku-dark); }
+
+/* ---- 小標籤（拉字距） ---- */
+.tag-label {
+  font-size: var(--fs-small);
+  letter-spacing: var(--ls-tag);
+  font-weight: 500;
+}
+.tag-with-line {
+  display: flex; align-items: center; gap: 12px;
+  margin-bottom: 1.2rem;
+}
+.tag-with-line::before {
+  content: ''; display: block; width: 24px; height: 1px;
+  background: var(--bg-strong);
+}
+.theme-dark .tag-with-line::before { background: var(--accent); }
+.theme-dark .tag-with-line .tag-label { color: var(--accent); }
+
+/* ---- 列印 ---- */
+@media print {
+  body { background: white !important; }
+  .no-print { display: none !important; }
+  .page-break { page-break-after: always; }
+  .weave-pattern {
+    -webkit-print-color-adjust: exact;
+    print-color-adjust: exact;
+  }
+}

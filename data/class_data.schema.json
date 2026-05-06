@@ -1,0 +1,124 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://culturereports.local/class_data.schema.json",
+  "title": "縱谷無言．班級資料",
+  "description": "由 scripts/parse_student_docs.py 從學生繳交的 .docx 解析而來；class_showcase.html 與 event_map_*.html 的資料來源。",
+  "type": "object",
+  "required": ["meta", "students"],
+  "additionalProperties": false,
+  "properties": {
+    "meta": {
+      "type": "object",
+      "required": ["school", "course", "unit", "generated_at", "student_count"],
+      "additionalProperties": false,
+      "properties": {
+        "school":        { "type": "string" },
+        "course":        { "type": "string" },
+        "unit":          { "type": "string" },
+        "generated_at":  { "type": "string", "description": "ISO 8601 時間戳" },
+        "student_count": { "type": "integer", "minimum": 0 }
+      }
+    },
+    "students": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/student" }
+    }
+  },
+  "$defs": {
+    "student": {
+      "type": "object",
+      "required": [
+        "id", "class_name", "seat", "name", "event",
+        "facts", "narrative", "image_main", "perspectives",
+        "landscape", "impact", "reflections", "sources"
+      ],
+      "additionalProperties": true,
+      "properties": {
+        "id":         { "type": "string", "description": "班級_座號_姓名 串接" },
+        "class_name": { "type": "string" },
+        "seat":       { "type": "string" },
+        "name":       { "type": "string" },
+        "event": {
+          "type": "string",
+          "enum": ["", "cepo", "dafen", "cikasuan", "truku"],
+          "description": "空字串代表未勾選或解析失敗"
+        },
+        "facts": {
+          "type": "object",
+          "required": ["time", "place", "ethnic", "people"],
+          "properties": {
+            "time":   { "type": "string" },
+            "place":  { "type": "string" },
+            "ethnic": { "type": "string" },
+            "people": { "type": "string" }
+          }
+        },
+        "narrative": { "type": "string", "description": "貳 事件經過 150–200 字" },
+        "image_main": {
+          "type": "object",
+          "required": ["path", "caption", "source", "why"],
+          "properties": {
+            "path":    { "type": "string", "description": "相對路徑：data/images/<id>_main.<ext>" },
+            "caption": { "type": "string" },
+            "source":  { "type": "string" },
+            "why":     { "type": "string" }
+          }
+        },
+        "perspectives": {
+          "type": "object",
+          "required": ["official", "tribal", "scholar", "differences"],
+          "properties": {
+            "official":    { "type": "string", "description": "A 官方記載" },
+            "tribal":      { "type": "string", "description": "B 部落族人後代" },
+            "scholar":     { "type": "string", "description": "C 學者" },
+            "differences": { "type": "string", "description": "D 三版本最不同處" }
+          }
+        },
+        "landscape": {
+          "type": "object",
+          "required": ["types", "observation", "image_path"],
+          "properties": {
+            "types": {
+              "type": "array",
+              "items": {
+                "type": "string",
+                "enum": ["紀念碑", "地名", "學校", "紀念活動", "完全沒留下"]
+              }
+            },
+            "observation": { "type": "string" },
+            "image_path":  { "type": "string" }
+          }
+        },
+        "impact": { "type": "string", "description": "陸 事件的影響 150–200 字" },
+        "reflections": {
+          "type": "object",
+          "required": ["q1", "q2", "q3"],
+          "properties": {
+            "q1": { "type": "string" },
+            "q2": { "type": "string" },
+            "q3": { "type": "string" }
+          }
+        },
+        "sources": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["title", "url", "type"],
+            "properties": {
+              "title": { "type": "string" },
+              "url":   { "type": "string" },
+              "type":  {
+                "type": "string",
+                "enum": ["", "官方", "學術", "媒體", "部落"]
+              }
+            }
+          }
+        },
+        "source_file": {
+          "type": "string",
+          "description": "原始 .docx 檔名（除錯用）"
+        }
+      }
+    }
+  }
+}

@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="zh-Hant" class="theme-dark">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>NotebookLM 老師端建置清單｜縱谷無言</title>
+<link rel="stylesheet" href="../assets/styles/design_tokens.css">
+<style>
+* { box-sizing: border-box; }
+html, body { margin: 0; }
+body {
+  background: var(--bg-page);
+  color: var(--text-primary);
+  font-family: var(--font-serif);
+  line-height: var(--lh-body);
+  padding: 32px 28px;
+  max-width: 980px;
+  margin: 0 auto;
+}
+h1 {
+  font-size: 30px;
+  letter-spacing: 0.04em;
+  color: var(--text-title);
+  border-bottom: 3px solid var(--accent);
+  padding-bottom: 12px;
+  margin: 0 0 6px;
+}
+.eyebrow {
+  font-family: var(--font-sans);
+  font-size: 11px;
+  letter-spacing: 0.4em;
+  color: var(--text-muted);
+  margin-bottom: 24px;
+}
+h2 {
+  font-size: 21px;
+  color: var(--text-title);
+  margin: 36px 0 12px;
+  padding-left: 10px;
+  border-left: 4px solid var(--accent);
+}
+h3 {
+  font-size: 16px;
+  color: var(--text-title);
+  margin: 22px 0 8px;
+  font-family: var(--font-sans);
+  letter-spacing: 0.04em;
+}
+ol, ul { padding-left: 1.4em; }
+li { margin: 6px 0; }
+.step {
+  display: grid;
+  grid-template-columns: 28px 1fr;
+  gap: 10px;
+  align-items: start;
+  padding: 10px 12px;
+  border: 0.5px solid var(--line-thin);
+  border-radius: 6px;
+  margin: 8px 0;
+  background: rgba(255,255,255,0.03);
+}
+.step input[type="checkbox"] {
+  margin-top: 4px;
+  transform: scale(1.3);
+  accent-color: var(--accent);
+}
+.copy-block {
+  display: block;
+  background: rgba(0,0,0,0.35);
+  border: 0.5px solid var(--line-soft);
+  border-left: 4px solid var(--accent);
+  padding: 12px 14px;
+  margin: 8px 0;
+  font-family: ui-monospace, "SF Mono", Consolas, monospace;
+  font-size: 13px;
+  line-height: 1.7;
+  white-space: pre-wrap;
+  color: var(--text-primary);
+  border-radius: 4px;
+  cursor: pointer;
+  position: relative;
+}
+.copy-block::after {
+  content: "點擊複製";
+  position: absolute;
+  top: 6px; right: 8px;
+  font-family: var(--font-sans);
+  font-size: 10px;
+  letter-spacing: 0.2em;
+  color: var(--text-muted);
+}
+.copy-block.copied::after { content: "已複製"; color: var(--accent); }
+.event-block {
+  border: 1px solid var(--line-soft);
+  border-left: 6px solid var(--event-color);
+  padding: 16px 18px;
+  margin: 16px 0;
+  border-radius: 6px;
+  background: rgba(255,255,255,0.02);
+}
+.event-block.cepo     { --event-color: var(--color-cepo); }
+.event-block.dafen    { --event-color: var(--color-dafen); }
+.event-block.cikasuan { --event-color: var(--color-cikasuan); }
+.event-block.truku    { --event-color: var(--color-truku); }
+.event-block h3 {
+  margin-top: 0;
+  color: var(--event-color);
+}
+.path {
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+  color: var(--text-second);
+  background: rgba(0,0,0,0.25);
+  padding: 2px 6px;
+  border-radius: 3px;
+}
+table { width: 100%; border-collapse: collapse; margin: 8px 0; font-size: 13px; }
+th, td { border: 0.5px solid var(--line-soft); padding: 7px 10px; text-align: left; }
+th { background: rgba(255,255,255,0.04); font-family: var(--font-sans); letter-spacing: 0.06em; }
+.url-input {
+  display: block;
+  width: 100%;
+  margin-top: 6px;
+  padding: 6px 8px;
+  font-family: ui-monospace, Consolas, monospace;
+  font-size: 12px;
+  background: rgba(0,0,0,0.25);
+  border: 0.5px solid var(--line-soft);
+  color: var(--text-primary);
+  border-radius: 3px;
+}
+.warn {
+  border-left: 4px solid #c14e3a;
+  padding: 10px 14px;
+  background: rgba(193, 78, 58, 0.08);
+  font-size: 14px;
+  margin: 12px 0;
+}
+.note {
+  font-family: var(--font-sans);
+  font-size: 12px;
+  color: var(--text-muted);
+  letter-spacing: 0.04em;
+  line-height: 1.7;
+}
+@media print {
+  body { padding: 0; }
+  .copy-block::after, .url-input { display: none; }
+  .copy-block { cursor: default; background: #f4f0e8; color: #111; border-color: #999; }
+  body { background: #fff; color: #111; }
+  h1, h2, h3 { color: #111; }
+}
+</style>
+</head>
+<body>
+
+<div class="eyebrow">花蓮高商．多元文化與文學．原住民族單元</div>
+<h1>NotebookLM 老師端建置清單</h1>
+<p class="note">建置時間估計 35-45 分鐘 ‧ 4 個 Notebook 共用、不分班 ‧ 完成後寫回每個 Notebook 的 Education Viewer URL。</p>
+
+<h2>0. 預備</h2>
+<div class="step"><input type="checkbox"><span>用學校 Google 帳號登入 <code>notebooklm.google.com</code>(Education Viewer 分享需同網域)</span></div>
+<div class="step"><input type="checkbox"><span>確認 Chrome 或 Edge 桌機版,手機 / 平板 UI 不完整不要用</span></div>
+<div class="step"><input type="checkbox"><span>打開檔案總管到 <span class="path">C:\culturereports\pdf\</span>,4 個事件子資料夾備用</span></div>
+
+<div class="warn"><strong>不要</strong>開公開分享連結。<strong>只用</strong> Education Viewer(read-only,同網域)。學生看得到內容、能問問題,但不能改 source。</div>
+
+<h2>1. 大港口事件 / Cepo' 戰役</h2>
+<div class="event-block cepo">
+  <h3>步驟</h3>
+  <div class="step"><input type="checkbox"><span>NotebookLM 首頁 → <strong>新增 Notebook</strong></span></div>
+  <div class="step"><input type="checkbox"><span>命名:<span class="path">花商二年級_大港口_2026v1</span></span></div>
+  <div class="step"><input type="checkbox"><span>上傳兩支 PDF(從 <span class="path">pdf\大港口事件\</span>):
+    <ul>
+      <li><span class="path">原民會叢書-大港口事件1877-1878.pdf</span></li>
+      <li><span class="path">國教院補充教材-大港口事件.pdf</span></li>
+    </ul>
+  </span></div>
+  <div class="step"><input type="checkbox"><span>等索引完成(右側 source 出現「Cited」前不要進下一步)</span></div>
+  <div class="step"><input type="checkbox"><span>點 <strong>Audio Overview</strong> → <strong>Customize</strong>,Focus Prompt 貼下框文字後產生(僅老師上課示範用,學生不一定需要聽):</span></div>
+
+  <code class="copy-block">誰的土地被改變?強調命名差異(撫番 vs Cepo' 戰爭)與靜浦國小蓋在屠殺地的事實。</code>
+
+  <div class="step"><input type="checkbox"><span>用學生開場問題驗證 — 在 chat 貼下框測試,看 NotebookLM 是否答得出來且引用合理:</span></div>
+
+  <code class="copy-block">請根據已上傳的大港口事件 PDF,整理清廷文獻稱此事為「事件 / 撫番 / 攻剿」,與阿美族稱 Cepo' 戰爭的差異,各列 3 點並附來源。</code>
+
+  <div class="step"><input type="checkbox"><span>右上 <strong>Share</strong> → <strong>Education Viewer</strong> → 同校網域只讀分享</span></div>
+  <div class="step"><input type="checkbox"><span>複製分享 URL 貼到下方:
+    <input type="text" class="url-input" placeholder="https://notebooklm.google.com/notebook/..."></span></div>
+</div>
+
+<h2>2. 大分事件</h2>
+<div class="event-block dafen">
+  <h3>步驟</h3>
+  <div class="step"><input type="checkbox"><span>新增 Notebook,命名:<span class="path">花商二年級_大分_2026v1</span></span></div>
+  <div class="step"><input type="checkbox"><span>上傳(從 <span class="path">pdf\大分事件\</span>):
+    <ul>
+      <li><span class="path">原民會叢書-大分事件1914-1933.pdf</span></li>
+      <li><span class="path">國教院補充教材-大分事件.pdf</span></li>
+    </ul>
+  </span></div>
+  <div class="step"><input type="checkbox"><span>等索引完成</span></div>
+  <div class="step"><input type="checkbox"><span>Audio Overview Focus Prompt:</span></div>
+
+  <code class="copy-block">18 年漫長武裝抗爭、駐在所襲擊、布農族 Dahu Ali 與日警的爭議與抵抗。</code>
+
+  <div class="step"><input type="checkbox"><span>學生開場問題驗證:</span></div>
+
+  <code class="copy-block">請根據大分事件 PDF,說明 1914-1933 年布農族與日本警察衝突的導火線、駐在所角色、Dahu Ali 爭議,各用高中生能懂的一句話回答。</code>
+
+  <div class="step"><input type="checkbox"><span>Share → Education Viewer 同校網域</span></div>
+  <div class="step"><input type="checkbox"><span>分享 URL:<input type="text" class="url-input" placeholder="https://notebooklm.google.com/notebook/..."></span></div>
+</div>
+
+<h2>3. 七腳川事件</h2>
+<div class="event-block cikasuan">
+  <h3>步驟</h3>
+  <div class="step"><input type="checkbox"><span>新增 Notebook,命名:<span class="path">花商二年級_七腳川_2026v1</span></span></div>
+  <div class="step"><input type="checkbox"><span>上傳(從 <span class="path">pdf\七腳川事件\</span>):
+    <ul>
+      <li><span class="path">原民會叢書-七腳川事件1908-1914.pdf</span></li>
+      <li><span class="path">國教院補充教材-七腳川事件.pdf</span></li>
+    </ul>
+  </span></div>
+  <div class="step"><input type="checkbox"><span>等索引完成</span></div>
+  <div class="step"><input type="checkbox"><span>Audio Overview Focus Prompt:</span></div>
+
+  <code class="copy-block">衝突如何被擴大?從協助隘勇線到被討伐滅社的逆轉脈絡。</code>
+
+  <div class="step"><input type="checkbox"><span>學生開場問題驗證:</span></div>
+
+  <code class="copy-block">請根據七腳川事件 PDF,整理七腳川社為何從協助隘勇線變成被討伐滅社,並列出官方說法與後裔記憶最大的不同。</code>
+
+  <div class="step"><input type="checkbox"><span>Share → Education Viewer 同校網域</span></div>
+  <div class="step"><input type="checkbox"><span>分享 URL:<input type="text" class="url-input" placeholder="https://notebooklm.google.com/notebook/..."></span></div>
+</div>
+
+<h2>4. 太魯閣戰役</h2>
+<div class="event-block truku">
+  <h3>步驟</h3>
+  <div class="step"><input type="checkbox"><span>新增 Notebook,命名:<span class="path">花商二年級_太魯閣_2026v1</span></span></div>
+  <div class="step"><input type="checkbox"><span>上傳(從 <span class="path">pdf\太魯閣事件\</span>):
+    <ul>
+      <li><span class="path">原民會叢書-太魯閣事件1914.pdf</span></li>
+      <li><span class="path">國教院補充教材-太魯閣事件.pdf</span></li>
+    </ul>
+  </span></div>
+  <div class="step"><input type="checkbox"><span>等索引完成</span></div>
+  <div class="step"><input type="checkbox"><span>Audio Overview Focus Prompt:</span></div>
+
+  <code class="copy-block">國家力量如何進山?日方戰役稱呼本身就是立場詞。</code>
+
+  <div class="step"><input type="checkbox"><span>學生開場問題驗證:</span></div>
+
+  <code class="copy-block">請根據太魯閣事件 PDF,說明日方「太魯閣蕃討伐」的目的、太魯閣族抵抗的理由、戰後地景或移住影響,各 2 點。</code>
+
+  <div class="step"><input type="checkbox"><span>Share → Education Viewer 同校網域</span></div>
+  <div class="step"><input type="checkbox"><span>分享 URL:<input type="text" class="url-input" placeholder="https://notebooklm.google.com/notebook/..."></span></div>
+</div>
+
+<h2>5. 學生端模擬測試</h2>
+<div class="step"><input type="checkbox"><span>用無痕視窗 + 學生 Google 帳號(或不同帳號)開 4 個 Education Viewer 連結,確認:可讀 source、可問問題、不能改 / 刪 source</span></div>
+<div class="step"><input type="checkbox"><span>各 Notebook 用學生開場問題重跑一次,目視回答品質可接受</span></div>
+<div class="step"><input type="checkbox"><span>關掉學生帳號分頁,回老師帳號</span></div>
+
+<h2>6. 寫回專案</h2>
+<p class="note">把上面 4 個 URL 整理成清單,之後給學生用課堂網頁 / handout 連結。</p>
+
+<table>
+  <thead>
+    <tr><th>事件</th><th>Notebook 名稱</th><th>Education Viewer URL</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>大港口</td><td><code>花商二年級_大港口_2026v1</code></td><td><input type="text" class="url-input"></td></tr>
+    <tr><td>大分</td><td><code>花商二年級_大分_2026v1</code></td><td><input type="text" class="url-input"></td></tr>
+    <tr><td>七腳川</td><td><code>花商二年級_七腳川_2026v1</code></td><td><input type="text" class="url-input"></td></tr>
+    <tr><td>太魯閣</td><td><code>花商二年級_太魯閣_2026v1</code></td><td><input type="text" class="url-input"></td></tr>
+  </tbody>
+</table>
+
+<div class="step"><input type="checkbox"><span>把 4 個 URL 貼回對話視窗給 Claude,我會更新到 <span class="path">teaching_materials/student_resources_handout.html</span></span></div>
+
+<h2>建置完成檢核</h2>
+<ul>
+  <li>✅ 4 個 Notebook 命名一致(花商二年級_&lt;事件&gt;_2026v1)</li>
+  <li>✅ 每個 Notebook 都上傳了 2 PDF 並等索引完成</li>
+  <li>✅ 4 個 Audio Overview Focus Prompt 已設定</li>
+  <li>✅ 4 個學生開場問題已實際測試過,答案合理可引用</li>
+  <li>✅ 4 個 Education Viewer URL 已收回專案</li>
+  <li>✅ 學生帳號模擬測試通過(可讀、可問、不可改)</li>
+</ul>
+
+<script>
+document.querySelectorAll('.copy-block').forEach(el => {
+  el.addEventListener('click', async () => {
+    try {
+      await navigator.clipboard.writeText(el.textContent.trim());
+      el.classList.add('copied');
+      setTimeout(() => el.classList.remove('copied'), 1500);
+    } catch (e) {}
+  });
+});
+</script>
+</body>
+</html>

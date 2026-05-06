@@ -1,0 +1,44 @@
+# 第三方教材 PDF — 學生透過 NotebookLM Education Viewer 取得
+# (原民會叢書、國教院補充教材，著作權屬原機關，不在 repo 散布)
+pdf/
+
+# 學生作品與班級資料 — 含個資 (PII)
+data/submissions/
+data/class_data.json
+
+# 暫存與測試檔
+outputs/_tmp/
+teaching_materials/_verify_*.pptx
+teaching_materials/lesson_week1_v2.pptx
+**/tmp*
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+.pytest_cache/
+.venv/
+venv/
+
+# OS
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# IDE
+.vscode/
+.idea/
+*.swp
+*.swo
+*~
+
+# 環境變數 / 密鑰
+.env
+.env.*
+!.env.example
+*.key
+*.pem
+
+# Claude Code 本地設定 (個人專用)
+.claude/
