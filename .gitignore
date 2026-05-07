@@ -5,6 +5,8 @@ pdf/
 # 學生作品與班級資料 — 含個資 (PII)
 data/submissions/
 data/class_data.json
+data/class_roster.json
+outputs/event_assignment_board.html
 
 # 暫存與測試檔
 outputs/_tmp/
