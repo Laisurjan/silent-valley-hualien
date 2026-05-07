@@ -1,0 +1,34 @@
+MIT License
+
+Copyright (c) 2026 Lai (花蓮高商 多元文化與文學)
+
+Permission is hereby granted, free of charge, to any person obtaining a copy
+of this software and associated documentation files (the "Software"), to deal
+in the Software without restriction, including without limitation the rights
+to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+copies of the Software, and to permit persons to whom the Software is
+furnished to do so, subject to the following conditions:
+
+The above copyright notice and this permission notice shall be included in all
+copies or substantial portions of the Software.
+
+THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+SOFTWARE.
+
+---
+
+Note: This license applies only to the original course design, Python scripts,
+and HTML/CSS templates authored by the copyright holder.
+
+It does NOT apply to:
+- Third-party PDFs in the `pdf/` directory (excluded from this repository;
+  copyright belongs to 原住民族委員會 and 國家教育研究院)
+- AI-generated images in `assets/images/` (generated via OpenAI image API
+  by the author; usage governed by OpenAI's usage policies)
+- Indigenous cultural content referenced in the course materials (treated
+  with respect to source communities; teaching use only)
