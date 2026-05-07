@@ -6,6 +6,14 @@
 
 > 「下次經過靜浦、富源、吉安、太魯閣口 — 你不會再什麼都看不到。」
 
+## 線上 Demo（不必 clone 也能看）
+
+- 🗺️ [互動事件地圖](https://laisurjan.github.io/silent-valley-hualien/outputs/event_map_interactive.html) — 四個事件在縱谷上的位置，點 marker 看詳細
+- 🎓 [班級成果頁](https://laisurjan.github.io/silent-valley-hualien/outputs/class_showcase.html) — 學生三句展示（目前為測試資料）
+- 📋 [學生資源頁](https://laisurjan.github.io/silent-valley-hualien/teaching_materials/student_resources_handout.html) — 學生上課用的入口頁
+- 📝 [學習單 HTML 版](https://laisurjan.github.io/silent-valley-hualien/teaching_materials/student_report_template.html) — 事件理解卡
+- ✅ [NotebookLM 教師端建置清單](https://laisurjan.github.io/silent-valley-hualien/teaching_materials/notebooklm_teacher_setup.html) — 教師備課用
+
 ## 為什麼這個 repo 存在
 
 不是給學生用的成品 — 學生用 NotebookLM 與紙本／HTML 學習單即可。
