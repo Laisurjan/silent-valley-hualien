@@ -1,6 +1,6 @@
 # 縱谷無言
 
-花蓮高商「多元文化與文學」第三學期單元教學設計與配套產出。
+花蓮高商「多元文化與文學」114 學年第二學期單元教學設計與配套產出。
 
 主題：花東縱谷四個原住民族重大歷史事件（大港口 / 大分 / 七腳川 / 太魯閣），用 NotebookLM 與三句寫作（事實句 / 差異句 / 省思句），帶低動機學生在三節課內走完「認識 → 對照 → 省思」的弧。
 
@@ -8,6 +8,8 @@
 
 ## 線上 Demo（不必 clone 也能看）
 
+- 🏛️ [AI 與原住民族歷史敘事學習展](https://laisurjan.github.io/silent-valley-hualien/outputs/ai_history_learning_exhibit.html) — 觀課成果展：四大事件展區、NotebookLM 輸出節錄、學生心智圖與策展歷程
+- 🎮 [總督的算盤](https://laisurjan.github.io/silent-valley-hualien/outputs/governor_game.html) — 滑牌歷史模擬遊戲：扮演理蕃官僚，從制度內部看見「縱谷無言」
 - 🗺️ [互動事件地圖](https://laisurjan.github.io/silent-valley-hualien/outputs/event_map_interactive.html) — 四個事件在縱谷上的位置，點 marker 看詳細
 - 🎓 [班級成果頁](https://laisurjan.github.io/silent-valley-hualien/outputs/class_showcase.html) — 學生三句展示（目前為測試資料）
 - 📋 [學生資源頁](https://laisurjan.github.io/silent-valley-hualien/teaching_materials/student_resources_handout.html) — 學生上課用的入口頁
@@ -39,6 +41,7 @@
 │   ├── generate_resources_handout.py # 學生資源頁
 │   ├── generate_showcase.py        # 班級成果頁
 │   ├── generate_template_docx.py   # 學習單 docx 模板
+│   ├── generate_0604_exhibit.py    # 觀課成果展（讀 NotebookLM 匯出）
 │   ├── parse_student_docs.py       # 收回 docx → JSON
 │   └── ...
 │
@@ -50,7 +53,9 @@
 │   ├── student_sop_poster.html
 │   └── notebooklm_teacher_setup.html # NotebookLM 教師端建置清單
 │
-├── outputs/                    # 產出（地圖 HTML / PDF、班級成果頁）
+├── outputs/                    # 產出（地圖、班級成果頁、觀課展、遊戲）
+│   ├── ai_history_learning_exhibit.html # 觀課成果展
+│   ├── governor_game.html               # 總督的算盤（教學遊戲，手寫單檔）
 │   ├── event_map_interactive.html
 │   ├── event_map_print.pdf
 │   └── class_showcase.html

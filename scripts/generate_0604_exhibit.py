@@ -16,6 +16,7 @@ import html
 import json
 import re
 import shutil
+from datetime import date
 from pathlib import Path
 
 
@@ -75,6 +76,39 @@ EVENTS = {
 }
 
 EVENT_ORDER = ["cepo", "truku", "dafen", "cikasuan"]
+
+# 依資料夾編號明確指定事件，避免關鍵字誤判（例如 11 號筆記本含 "Amis" 被誤歸大港口）。
+# "general" = 跨事件綜論，不放進單一事件展區。
+FOLDER_EVENT_OVERRIDES = {
+    "01": "truku",
+    "02": "truku",
+    "03": "dafen",
+    "04": "cepo",
+    "05": "cepo",
+    "06": "general",
+    "07": "dafen",
+    "08": "truku",
+    "09": "dafen",
+    "10": "cikasuan",
+    "11": "cikasuan",
+    "12": "cepo",
+}
+
+# 給觀展者看的中文標題；原始 NotebookLM 英文標題保留在卡片小字。
+NOTEBOOK_TITLE_OVERRIDES = {
+    "01": "太魯閣戰役百年與文化韌性",
+    "02": "太魯閣戰爭百年回顧",
+    "03": "大分事件與布農族抗爭 1914-1933",
+    "04": "靜浦考古遺址：阿美族的傳承",
+    "05": "Cepo' 戰役：1877 阿美族的抵抗",
+    "06": "臺灣原住民族歷史與抵抗（跨事件綜論）",
+    "07": "玉山之子：布農族抗爭 1914-1933",
+    "08": "太魯閣戰役：百年抗爭與主權",
+    "09": "大分事件：布農族抵抗與殖民政策",
+    "10": "七腳川事件 1908-1914",
+    "11": "七腳川事件：阿美族的流離與韌性",
+    "12": "大港口事件：阿美族抗清與文化衝擊",
+}
 
 GLOBAL_REFERENCE_SOURCES = {
     "大港口事件 / Cepo'": [
@@ -211,6 +245,7 @@ MINDMAP_MANIFEST = [
     },
 ]
 
+# 每個內容只保留一個版本：影片用 MP4、音訊用 MP3（檔案較小、瀏覽器相容性最好）。
 MEDIA_MANIFEST = [
     {
         "event": "cepo",
@@ -218,7 +253,7 @@ MEDIA_MANIFEST = [
         "source": "1877-1878大港口事件解析.mp4",
         "target": "cepo-1877-1878-analysis.mp4",
         "title": "1877-1878 大港口事件解析",
-        "note": "NotebookLM 影片生成成果，適合放在大港口展區作為事件導覽。",
+        "note": "NotebookLM 影片導覽：事件起因、經過與對阿美族社會的影響。",
     },
     {
         "event": "cepo",
@@ -226,7 +261,23 @@ MEDIA_MANIFEST = [
         "source": "1877大港口事件：帝國擴張與原民抗爭.mp4",
         "target": "cepo-empire-resistance.mp4",
         "title": "帝國擴張與原民抗爭",
-        "note": "以帝國治理與原民抵抗為主軸，呈現學生用 AI 重組敘事的嘗試。",
+        "note": "以清帝國治理與阿美族抵抗為雙主軸，重組事件敘事。",
+    },
+    {
+        "event": "cepo",
+        "kind": "audio",
+        "source": "mp3/大港口事件的血腥真相.mp3",
+        "target": "cepo-bloody-truth.mp3",
+        "title": "大港口事件的血腥真相",
+        "note": "AI 口述導覽（Audio Overview）：把史料轉成口語敘事的範例。",
+    },
+    {
+        "event": "cepo",
+        "kind": "audio",
+        "source": "mp3/Take_your_story_back_from_narrative_theft.mp3",
+        "target": "narrative-theft.mp3",
+        "title": "Take Your Story Back from Narrative Theft",
+        "note": "英文 Audio Overview：把故事從「敘事掠奪」中拿回來，呼應課程的敘事權主題。",
     },
     {
         "event": "truku",
@@ -234,63 +285,15 @@ MEDIA_MANIFEST = [
         "source": "太魯閣事件：18年的抗日戰役.mp4",
         "target": "truku-18-year-war.mp4",
         "title": "太魯閣事件：18 年的抗日戰役",
-        "note": "把太魯閣戰役放回長期抵抗脈絡，提醒觀眾不要只看單一年份。",
-    },
-    {
-        "event": "cepo",
-        "kind": "audio",
-        "source": "大港口事件的血腥真相.m4a",
-        "target": "cepo-bloody-truth.m4a",
-        "title": "大港口事件的血腥真相",
-        "note": "NotebookLM 音訊成果，適合展示 AI 如何把史料轉成口語導覽。",
-    },
-    {
-        "event": "cepo",
-        "kind": "audio",
-        "source": "Take_your_story_back_from_narrative_theft.m4a",
-        "target": "narrative-theft.m4a",
-        "title": "Take your story back from narrative theft",
-        "note": "英文音訊成果，可用來說明敘事權與歷史詮釋的課程主題。",
-    },
-    {
-        "event": "cepo",
-        "kind": "audio",
-        "source": "mp3/1877-1878大港口事件解析.mp3",
-        "target": "cepo-1877-1878-analysis.mp3",
-        "title": "1877-1878 大港口事件解析 MP3",
-        "note": "測試轉檔版本，提供網頁播放器較穩定的音訊備用。",
-    },
-    {
-        "event": "cepo",
-        "kind": "audio",
-        "source": "mp3/1877大港口事件：帝國擴張與原民抗爭.mp3",
-        "target": "cepo-empire-resistance.mp3",
-        "title": "帝國擴張與原民抗爭 MP3",
-        "note": "測試轉檔版本，提供網頁播放器較穩定的音訊備用。",
+        "note": "把 1914 年戰役放回 1896 年起的長期抵抗脈絡，不只看單一年份。",
     },
     {
         "event": "truku",
         "kind": "audio",
         "source": "mp3/太魯閣事件：18年的抗日戰役.mp3",
         "target": "truku-18-year-war.mp3",
-        "title": "太魯閣事件 18 年抗日戰役 MP3",
-        "note": "影片轉音訊版本，手機展示時載入較快。",
-    },
-    {
-        "event": "cepo",
-        "kind": "audio",
-        "source": "mp3/大港口事件的血腥真相.mp3",
-        "target": "cepo-bloody-truth.mp3",
-        "title": "大港口事件的血腥真相 MP3",
-        "note": "M4A 的測試轉檔版本，供瀏覽器相容性備用。",
-    },
-    {
-        "event": "cepo",
-        "kind": "audio",
-        "source": "mp3/Take_your_story_back_from_narrative_theft.mp3",
-        "target": "narrative-theft.mp3",
-        "title": "Narrative theft MP3",
-        "note": "英文音訊的測試轉檔版本，供瀏覽器相容性備用。",
+        "title": "太魯閣戰役（音訊版）",
+        "note": "影片的音訊版本，適合行動裝置快速聆聽。",
     },
 ]
 
@@ -301,10 +304,16 @@ def esc(value: object) -> str:
 
 def classify_event(text: str) -> str:
     low = text.lower()
-    for event_id, event in EVENTS.items():
-        if any(keyword.lower() in low for keyword in event["keywords"]):
+    # 先比對專名度高的事件，最後才比對含泛用詞（amis）的大港口，無法判定歸入綜論。
+    for event_id in ["cikasuan", "truku", "dafen", "cepo"]:
+        if any(keyword.lower() in low for keyword in EVENTS[event_id]["keywords"]):
             return event_id
-    return "cepo"
+    return "general"
+
+
+def folder_prefix(folder_name: str) -> str:
+    match = re.match(r"^(\d+)_", folder_name)
+    return match.group(1) if match else ""
 
 
 def clean_text(text: str) -> str:
@@ -366,6 +375,17 @@ def strip_export_noise(text: str) -> str:
     return "\n".join(filtered)
 
 
+def clip_sentence(text: str, limit: int = 260) -> str:
+    """超過長度時在完整句子的句號處截斷，避免「並...」這種半句結尾。"""
+    if len(text) <= limit:
+        return text
+    cut = text[: limit - 10]
+    pos = max(cut.rfind("。"), cut.rfind("！"), cut.rfind("？"))
+    if pos >= 80:
+        return cut[: pos + 1]
+    return cut.rstrip("，,；;。.") + "……"
+
+
 def readable_paragraphs(text: str, limit: int = 2) -> list[str]:
     text = strip_export_noise(text)
     selected = []
@@ -383,9 +403,7 @@ def readable_paragraphs(text: str, limit: int = 2) -> list[str]:
             continue
         if not re.search(r"[。！？.!?]", line):
             continue
-        if len(line) > 260:
-            line = line[:250].rstrip("，,；;。.") + "..."
-        selected.append(line)
+        selected.append(clip_sentence(line))
         if len(selected) >= limit:
             return selected
 
@@ -400,17 +418,27 @@ def readable_paragraphs(text: str, limit: int = 2) -> list[str]:
             continue
         if not re.search(r"[。！？.!?]", chunk):
             continue
-        if len(chunk) > 260:
-            chunk = chunk[:250].rstrip("，,；;。.") + "..."
-        selected.append(chunk)
+        selected.append(clip_sentence(chunk))
         if len(selected) >= limit:
             break
     return selected
 
 
+def pretty_sample_label(stem: str) -> str:
+    label = re.sub(r"^\d+_", "", stem)
+    if label == "content_copy":
+        return "內容節錄"
+    if label == "資料表":
+        return "資料表"
+    if label.lower().startswith("study guide"):
+        return "Study Guide"
+    return "AI 摘要"
+
+
 def collect_notebook_outputs() -> tuple[list[dict], dict[str, list[dict]]]:
     notebooks = []
-    grouped = {event_id: [] for event_id in EVENTS}
+    grouped = {event_id: [] for event_id in [*EVENTS, "general"]}
+    seen_texts: set[str] = set()  # NotebookLM 匯出常重複同段摘要，跨筆記本全域去重
     for folder in sorted(p for p in EXPORT_DIR.iterdir() if p.is_dir()):
         summary_path = folder / "_summary.json"
         txt_files = sorted(folder.glob("*.txt"))
@@ -418,8 +446,10 @@ def collect_notebook_outputs() -> tuple[list[dict], dict[str, list[dict]]]:
         if summary_path.exists():
             summary = json.loads(summary_path.read_text(encoding="utf-8"))
 
-        title = str(summary.get("notebook") or folder.name.split("_", 1)[-1])
-        event_id = classify_event(folder.name + " " + title)
+        original_title = str(summary.get("notebook") or folder.name.split("_", 1)[-1])
+        prefix = folder_prefix(folder.name)
+        title = NOTEBOOK_TITLE_OVERRIDES.get(prefix, original_title)
+        event_id = FOLDER_EVENT_OVERRIDES.get(prefix) or classify_event(folder.name + " " + original_title)
         samples = []
         output_titles = []
         for txt in txt_files:
@@ -427,18 +457,23 @@ def collect_notebook_outputs() -> tuple[list[dict], dict[str, list[dict]]]:
                 continue
             output_titles.append(txt.stem)
             for paragraph in readable_paragraphs(txt.read_text(encoding="utf-8", errors="ignore"), limit=1):
-                samples.append({"title": txt.stem, "text": paragraph})
-            if len(samples) >= 3:
+                fingerprint = re.sub(r"\s+", "", paragraph)[:80]
+                if fingerprint in seen_texts:
+                    continue
+                seen_texts.add(fingerprint)
+                samples.append({"title": pretty_sample_label(txt.stem), "text": paragraph})
+            if len(samples) >= 2:
                 break
 
         item = {
             "folder": folder.name,
             "title": title,
+            "original_title": original_title,
             "event": event_id,
             "output_count": int(summary.get("outputCount") or len(txt_files)),
             "txt_count": len(txt_files),
             "json": summary_path.name if summary_path.exists() else "",
-            "samples": samples[:3],
+            "samples": samples[:2],
             "output_titles": output_titles[:5],
         }
         notebooks.append(item)
@@ -458,6 +493,10 @@ def copy_media() -> list[dict]:
             shutil.copy2(source, target)
             status = "copied"
             size_mb = round(target.stat().st_size / 1024 / 1024, 2)
+        elif target.exists():
+            # 原始下載資料夾被清掉時，沿用先前已複製到 outputs 的檔案
+            status = "copied"
+            size_mb = round(target.stat().st_size / 1024 / 1024, 2)
         copied.append(
             {
                 **item,
@@ -473,7 +512,6 @@ def collect_mindmaps() -> list[dict]:
     mindmaps = []
     for item in MINDMAP_MANIFEST:
         file_id = item["id"]
-        event_id = item["event"]
         mindmaps.append(
             {
                 **item,
@@ -481,6 +519,9 @@ def collect_mindmaps() -> list[dict]:
                 "preview_url": f"https://drive.google.com/file/d/{file_id}/preview",
             }
         )
+    # 已確認事件的排前面（依展區順序），待學生審查歸類的排後面
+    order = {event_id: idx for idx, event_id in enumerate(EVENT_ORDER)}
+    mindmaps.sort(key=lambda m: order.get(m["event"], len(order)))
     return mindmaps
 
 
@@ -495,14 +536,11 @@ def build_data() -> dict:
     return {
         "meta": {
             "title": "AI 與原住民族歷史敘事學習展",
-            "generated_at": "2026-06-04",
+            "generated_at": date.today().isoformat(),
             "notebook_count": len(notebooks),
             "txt_count": sum(n["txt_count"] for n in notebooks),
-            "json_count": len(list(EXPORT_DIR.rglob("*.json"))),
             "media_count": len([m for m in media if m["status"] == "copied"]),
             "mindmap_count": len(mindmaps),
-            "source_exports": str(EXPORT_DIR),
-            "source_media": str(MEDIA_DIR),
         },
         "events": [
             {
@@ -513,6 +551,7 @@ def build_data() -> dict:
             }
             for event_id in EVENT_ORDER
         ],
+        "general_notebooks": grouped["general"],
         "all_notebooks": notebooks,
         "mindmaps": mindmaps,
         "reference_sources": GLOBAL_REFERENCE_SOURCES,
@@ -520,7 +559,7 @@ def build_data() -> dict:
 
 
 CSS = r"""
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg-main);color:var(--text-primary);font-family:var(--font-serif);line-height:1.75}.wrap{max-width:1180px;margin:0 auto;padding:0 24px}.hero{min-height:92vh;display:grid;align-content:end;background:linear-gradient(90deg,rgba(14,11,8,.82),rgba(14,11,8,.28)),url("../assets/images/hero_valley.png") center/cover no-repeat;border-bottom:1px solid var(--line-thin)}.hero-inner{max-width:1180px;margin:0 auto;width:100%;padding:44px 24px 52px}.eyebrow{font-family:var(--font-sans);font-size:12px;letter-spacing:.28em;color:var(--accent);text-transform:uppercase}.hero h1{font-size:52px;line-height:1.18;margin:12px 0 14px;color:#fff;letter-spacing:0}.hero p{max-width:760px;margin:0;color:rgba(245,241,234,.86);font-family:var(--font-sans);font-size:17px}.nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.nav a{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.28);padding:8px 12px;border-radius:8px;font-family:var(--font-sans);font-size:13px;background:rgba(0,0,0,.18)}.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px;max-width:920px}.stat{border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:12px;background:rgba(14,11,8,.34)}.stat strong{display:block;color:#fff;font-size:28px;line-height:1.1}.stat span{font-family:var(--font-sans);font-size:12px;color:rgba(255,255,255,.72)}section{padding:56px 0;border-bottom:1px solid var(--line-thin)}h2{font-size:32px;color:var(--text-title);line-height:1.3;margin:0 0 10px;letter-spacing:0}.lead{max-width:820px;color:var(--text-second);font-family:var(--font-sans);margin:0 0 24px}.two-col{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:26px;align-items:start}.event-head{display:grid;grid-template-columns:160px minmax(0,1fr);gap:18px;align-items:stretch}.event-head img{width:100%;height:100%;min-height:190px;object-fit:cover;border-radius:8px;border:1px solid var(--line-thin)}.event-title{border-left:5px solid var(--event-color);padding-left:16px}.event-title .years{font-family:var(--font-sans);font-size:13px;color:var(--event-color);letter-spacing:.18em}.event-title h3{font-size:30px;color:var(--text-title);margin:4px 0}.event-title p{margin:0;color:var(--text-second)}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.chip{border:1px solid var(--line-soft);border-radius:999px;padding:5px 9px;font-family:var(--font-sans);font-size:12px;color:var(--text-primary)}.panel{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:8px;padding:18px}.panel h4{margin:0 0 10px;color:var(--text-title);font-size:18px}.notebook-list{display:grid;gap:12px}.notebook{border-left:3px solid var(--event-color);background:rgba(0,0,0,.12);padding:12px;border-radius:0 8px 8px 0}.notebook h5{margin:0 0 5px;color:var(--text-title);font-size:16px}.notebook .meta{font-family:var(--font-sans);font-size:12px;color:var(--text-muted);margin-bottom:8px}.quote{margin:8px 0 0;padding:10px;border:1px solid var(--line-thin);border-radius:8px}.quote b{display:block;font-family:var(--font-sans);font-size:12px;color:var(--event-color);margin-bottom:4px}.quote p{margin:0;font-size:14px;color:var(--text-primary)}.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.media-card{border:1px solid var(--line-soft);border-radius:8px;padding:14px;background:var(--bg-card)}.media-card h5{font-size:16px;margin:0 0 4px;color:var(--text-title)}.media-card p{font-family:var(--font-sans);font-size:13px;color:var(--text-second);margin:0 0 10px}.media-card audio,.media-card video{width:100%;display:block;border-radius:6px}.mindmap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.mindmap-card{border:1px solid var(--line-soft);background:var(--bg-card);border-radius:8px;overflow:hidden}.mindmap-card figure{margin:0;background:#f5f1ea}.mindmap-card iframe{display:block;width:100%;aspect-ratio:16/10;border:0;background:#f5f1ea}.mindmap-body{padding:14px}.mindmap-body h4{font-size:18px;margin:0 0 4px;color:var(--text-title)}.mindmap-meta{font-family:var(--font-sans);font-size:12px;color:var(--text-muted);margin-bottom:10px}.refs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}.ref-group{border:1px solid var(--line-soft);border-radius:8px;background:var(--bg-card);padding:16px}.ref-group h3{margin:0 0 8px;color:var(--text-title);font-size:18px}.ref-group ul{margin:0;padding-left:18px}.ref-group li{font-family:var(--font-sans);font-size:13px;color:var(--text-second);line-height:1.65}.source-link{display:inline-block;margin-top:10px;color:var(--accent);font-family:var(--font-sans);font-size:13px}.wall{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.work-card{border:1px solid var(--line-soft);background:var(--bg-card);border-radius:8px;padding:16px}.work-card h4{margin:0 0 8px;color:var(--text-title);font-size:19px}.work-card p{margin:0 0 10px;color:var(--text-second);font-family:var(--font-sans);font-size:14px}.checklist{display:grid;gap:8px;margin:0;padding:0;list-style:none}.checklist li{padding-left:22px;position:relative;font-family:var(--font-sans);font-size:14px}.checklist li:before{content:"";position:absolute;left:0;top:.65em;width:8px;height:8px;background:var(--accent);border-radius:50%}.notice{border:1px solid var(--line-soft);border-left:5px solid var(--accent);border-radius:8px;padding:16px;background:rgba(217,164,65,.08);font-family:var(--font-sans)}footer{padding:26px 24px;text-align:center;color:var(--text-muted);font-family:var(--font-sans);font-size:12px}@media(max-width:820px){.hero{min-height:88vh}.hero h1{font-size:38px}.stats,.two-col,.media-grid,.wall,.mindmap-grid,.refs{grid-template-columns:1fr}.event-head{grid-template-columns:1fr}.event-head img{height:220px}.wrap{padding:0 16px}section{padding:38px 0}}
+*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg-main);color:var(--text-primary);font-family:var(--font-serif);line-height:1.75}.wrap{max-width:1180px;margin:0 auto;padding:0 24px}.hero{min-height:92vh;display:grid;align-content:end;background:linear-gradient(90deg,rgba(14,11,8,.82),rgba(14,11,8,.28)),url("../assets/images/hero_valley.png") center/cover no-repeat;border-bottom:1px solid var(--line-thin)}.hero-inner{max-width:1180px;margin:0 auto;width:100%;padding:44px 24px 52px}.eyebrow{font-family:var(--font-sans);font-size:12px;letter-spacing:.28em;color:var(--accent);text-transform:uppercase}.hero h1{font-size:52px;line-height:1.18;margin:12px 0 14px;color:#fff;letter-spacing:0}.hero p{max-width:760px;margin:0;color:rgba(245,241,234,.86);font-family:var(--font-sans);font-size:17px}.nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.nav a{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.28);padding:8px 12px;border-radius:8px;font-family:var(--font-sans);font-size:13px;background:rgba(0,0,0,.18)}.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px;max-width:920px}.stat{border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:12px;background:rgba(14,11,8,.34)}.stat strong{display:block;color:#fff;font-size:28px;line-height:1.1}.stat span{font-family:var(--font-sans);font-size:12px;color:rgba(255,255,255,.72)}section{padding:56px 0;border-bottom:1px solid var(--line-thin)}h2{font-size:32px;color:var(--text-title);line-height:1.3;margin:0 0 10px;letter-spacing:0}.lead{max-width:820px;color:var(--text-second);font-family:var(--font-sans);margin:0 0 24px}.two-col{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:26px;align-items:start}.event-head{display:grid;grid-template-columns:160px minmax(0,1fr);gap:18px;align-items:stretch}.event-head img{width:100%;height:100%;min-height:190px;object-fit:cover;border-radius:8px;border:1px solid var(--line-thin)}.event-title{border-left:5px solid var(--event-color);padding-left:16px}.event-title .years{font-family:var(--font-sans);font-size:13px;color:var(--event-color);letter-spacing:.18em}.event-title h3{font-size:30px;color:var(--text-title);margin:4px 0}.event-title p{margin:0;color:var(--text-second)}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.chip{border:1px solid var(--line-soft);border-radius:999px;padding:5px 9px;font-family:var(--font-sans);font-size:12px;color:var(--text-primary)}.panel{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:8px;padding:18px}.panel h4{margin:0 0 10px;color:var(--text-title);font-size:18px}.notebook-list{display:grid;gap:12px}.notebook{border-left:3px solid var(--event-color);background:rgba(0,0,0,.12);padding:12px;border-radius:0 8px 8px 0}.notebook h5{margin:0 0 5px;color:var(--text-title);font-size:16px}.notebook .meta{font-family:var(--font-sans);font-size:12px;color:var(--text-muted);margin-bottom:8px}.quote{margin:8px 0 0;padding:10px;border:1px solid var(--line-thin);border-radius:8px}.quote b{display:block;font-family:var(--font-sans);font-size:12px;color:var(--event-color);margin-bottom:4px}.quote p{margin:0;font-size:14px;color:var(--text-primary)}.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.media-card{border:1px solid var(--line-soft);border-radius:8px;padding:14px;background:var(--bg-card)}.media-card h5{font-size:16px;margin:0 0 4px;color:var(--text-title)}.media-card p{font-family:var(--font-sans);font-size:13px;color:var(--text-second);margin:0 0 10px}.media-card audio,.media-card video{width:100%;display:block;border-radius:6px}.mindmap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.mindmap-card{border:1px solid var(--line-soft);background:var(--bg-card);border-radius:8px;overflow:hidden}.mindmap-card figure{margin:0;background:#f5f1ea}.mindmap-card iframe{display:block;width:100%;aspect-ratio:16/10;border:0;background:#f5f1ea}.mindmap-body{padding:14px}.mindmap-body h4{font-size:18px;margin:0 0 4px;color:var(--text-title)}.mindmap-meta{font-family:var(--font-sans);font-size:12px;color:var(--text-muted);margin-bottom:10px}.refs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}.ref-group{border:1px solid var(--line-soft);border-radius:8px;background:var(--bg-card);padding:16px}.ref-group h3{margin:0 0 8px;color:var(--text-title);font-size:18px}.ref-group ul{margin:0;padding-left:18px}.ref-group li{font-family:var(--font-sans);font-size:13px;color:var(--text-second);line-height:1.65}.source-link{display:inline-block;margin-top:10px;color:var(--accent);font-family:var(--font-sans);font-size:13px}.wall{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.work-card{border:1px solid var(--line-soft);background:var(--bg-card);border-radius:8px;padding:16px}.work-card h4{margin:0 0 8px;color:var(--text-title);font-size:19px}.work-card p{margin:0 0 10px;color:var(--text-second);font-family:var(--font-sans);font-size:14px}.checklist{display:grid;gap:8px;margin:0;padding:0;list-style:none}.checklist li{padding-left:22px;position:relative;font-family:var(--font-sans);font-size:14px}.checklist li:before{content:"";position:absolute;left:0;top:.65em;width:8px;height:8px;background:var(--accent);border-radius:50%}.notice{border:1px solid var(--line-soft);border-left:5px solid var(--accent);border-radius:8px;padding:16px;background:rgba(217,164,65,.08);font-family:var(--font-sans)}footer{padding:26px 24px;text-align:center;color:var(--text-muted);font-family:var(--font-sans);font-size:12px}.badge{display:inline-block;font-family:var(--font-sans);font-size:11px;letter-spacing:.06em;padding:3px 9px;border-radius:999px;border:1px solid var(--line-soft);white-space:nowrap}.badge-event{color:var(--event-color);border-color:var(--event-color)}.badge-pending{color:var(--accent);border-color:var(--accent);background:rgba(217,164,65,.1)}.mindmap-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.wall-step{font-family:var(--font-sans);font-size:12px;letter-spacing:.18em;color:var(--accent);margin-bottom:6px}@media(max-width:820px){.hero{min-height:88vh}.hero h1{font-size:38px}.stats,.two-col,.media-grid,.wall,.mindmap-grid,.refs{grid-template-columns:1fr}.event-head{grid-template-columns:1fr}.event-head img{height:220px}.wrap{padding:0 16px}section{padding:38px 0}}
 """
 
 
@@ -528,27 +567,32 @@ def render_media(item: dict) -> str:
     source = esc(item["path"])
     note = esc(item["note"])
     title = esc(item["title"])
-    size = esc(item["size_mb"])
     if item["status"] != "copied":
         player = '<p>來源檔尚未複製，請確認 0604 影音資料夾。</p>'
     elif item["kind"] == "video":
         player = f'<video controls preload="metadata" src="{source}"></video>'
     else:
         player = f'<audio controls preload="metadata" src="{source}"></audio>'
-    return f'<article class="media-card"><h5>{title}</h5><p>{note}｜{size} MB</p>{player}</article>'
+    return f'<article class="media-card"><h5>{title}</h5><p>{note}</p>{player}</article>'
 
 
 def render_notebook(notebook: dict, color: str) -> str:
     samples = "".join(
-        f'<div class="quote"><b>{esc(sample["title"])}</b><p>{esc(sample["text"])}</p></div>'
+        f'<div class="quote"><b>AI 生成｜{esc(sample["title"])}</b><p>{esc(sample["text"])}</p></div>'
         for sample in notebook["samples"]
     )
     if not samples:
-        samples = '<div class="quote"><p>此筆記本目前只有應用程式輸出或短格式內容，先列入盤點，不直接作長段展示。</p></div>'
+        samples = '<div class="quote"><p>此筆記本以心智圖、資料表等短格式輸出為主，文字節錄詳見各展區。</p></div>'
+    original = notebook.get("original_title", "")
+    original_line = (
+        f'<div class="meta">{esc(notebook["output_count"])} 個 AI 輸出｜NotebookLM：{esc(original)}</div>'
+        if original and original != notebook["title"]
+        else f'<div class="meta">{esc(notebook["output_count"])} 個 AI 輸出</div>'
+    )
     return f"""
 <article class="notebook" style="--event-color:{color}">
   <h5>{esc(notebook["title"])}</h5>
-  <div class="meta">{esc(notebook["output_count"])} 個輸出｜{esc(notebook["txt_count"])} 個 txt｜{esc(notebook["folder"])}</div>
+  {original_line}
   {samples}
 </article>
 """
@@ -556,15 +600,20 @@ def render_notebook(notebook: dict, color: str) -> str:
 
 def render_mindmap(item: dict) -> str:
     event = EVENTS.get(item["event"])
-    event_name = event["name"] if event else "事件待確認"
+    if event:
+        badge = f'<span class="badge badge-event" style="--event-color:{event["color"]}">{esc(event["name"])}</span>'
+        title = item["title"]
+    else:
+        badge = '<span class="badge badge-pending">審查中｜待學生歸類</span>'
+        title = "NotebookLM 心智圖"
     return f"""
 <article class="mindmap-card">
   <figure>
-    <iframe src="{esc(item["preview_url"])}" title="{esc(item["title"])}" loading="lazy" allow="autoplay"></iframe>
+    <iframe src="{esc(item["preview_url"])}" title="{esc(title)}" loading="lazy" allow="autoplay"></iframe>
   </figure>
   <div class="mindmap-body">
-    <h4>{esc(item["title"])}</h4>
-    <div class="mindmap-meta">{esc(item["student"])}｜{esc(event_name)}｜{esc(item["file_name"])}</div>
+    <h4>{esc(title)}</h4>
+    <div class="mindmap-meta">{badge}<span>{esc(item["student"])}</span></div>
     <a class="source-link" href="{esc(item["drive_url"])}" target="_blank" rel="noopener">開啟原始 PNG</a>
   </div>
 </article>
@@ -584,13 +633,27 @@ def build_html(data: dict) -> str:
     nav = "".join(f'<a href="#{event["id"]}">{esc(event["name"])}</a>' for event in data["events"])
     mindmaps = "".join(render_mindmap(item) for item in data["mindmaps"])
     reference_sources = render_reference_sources(data["reference_sources"])
+    general_html = ""
+    if data.get("general_notebooks"):
+        general_cards = "".join(
+            render_notebook(n, "var(--accent)") for n in data["general_notebooks"]
+        )
+        general_html = f"""
+  <section id="general">
+    <div class="wrap">
+      <h2>跨事件綜論</h2>
+      <p class="lead">部分筆記本同時涵蓋多個歷史事件（含霧社事件等對照閱讀），不歸入單一展區，列於此處供整體脈絡參考。</p>
+      <div class="notebook-list" style="max-width:820px">{general_cards}</div>
+    </div>
+  </section>
+"""
     events_html = []
     for event in data["events"]:
         color = event["color"]
         notebooks = "".join(render_notebook(n, color) for n in event["notebooks"]) or '<p class="lead">尚未對應到 NotebookLM 匯出。</p>'
         media = "".join(render_media(m) for m in event["media"] if m["status"] == "copied")
         if not media:
-            media = '<p class="lead">目前沒有對應影音檔，先以文字與圖片成果展示。</p>'
+            media = '<p class="lead">本展區以 NotebookLM 文字輸出與學生心智圖呈現。</p>'
         focus = "".join(f'<span class="chip">{esc(item)}</span>' for item in event["focus"])
         events_html.append(
             f"""
@@ -633,14 +696,14 @@ def build_html(data: dict) -> str:
     <div class="event-color-bar"><div class="seg-cepo"></div><div class="seg-dafen"></div><div class="seg-cikasuan"></div><div class="seg-truku"></div></div>
     <div class="eyebrow">花蓮高商 多元文化與文學</div>
     <h1>{esc(meta["title"])}</h1>
-    <p>展示學生如何用 NotebookLM 閱讀史料、整理事件、比較官方與族群觀點，並把 AI 生成內容轉化為可討論、可查證的歷史敘事。</p>
-    <nav class="nav">{nav}<a href="#mindmaps">心智圖</a><a href="#process">學習歷程</a><a href="#wall">作品牆</a><a href="#references">參考資料</a></nav>
+    <p>學生以 NotebookLM 閱讀史料、比較官方文獻與族群記憶；AI 生成的素材經學生審查、歸類與改寫後才上牆。這裡展示的不是 AI 能生成什麼，而是學生如何判斷。</p>
+    <nav class="nav">{nav}<a href="#mindmaps">心智圖</a><a href="#process">學習歷程</a><a href="#wall">學生策展</a><a href="#references">參考資料</a></nav>
     <div class="stats">
-      <div class="stat"><strong>{esc(meta["notebook_count"])}</strong><span>本 NotebookLM</span></div>
-      <div class="stat"><strong>{esc(meta["txt_count"])}</strong><span>份文字輸出</span></div>
-      <div class="stat"><strong>{esc(meta["json_count"])}</strong><span>份 JSON 摘要</span></div>
-      <div class="stat"><strong>{esc(meta["media_count"])}</strong><span>組影音檔</span></div>
-      <div class="stat"><strong>{esc(meta["mindmap_count"])}</strong><span>張 PNG 心智圖</span></div>
+      <div class="stat"><strong>4</strong><span>大歷史事件</span></div>
+      <div class="stat"><strong>{esc(meta["notebook_count"])}</strong><span>本 NotebookLM 筆記本</span></div>
+      <div class="stat"><strong>{esc(meta["txt_count"])}</strong><span>份 AI 文字輸出</span></div>
+      <div class="stat"><strong>{esc(meta["media_count"])}</strong><span>組影音成果</span></div>
+      <div class="stat"><strong>{esc(meta["mindmap_count"])}</strong><span>張學生心智圖</span></div>
     </div>
   </div>
 </header>
@@ -649,16 +712,17 @@ def build_html(data: dict) -> str:
     <div class="wrap two-col">
       <div>
         <h2>課程成果總覽</h2>
-        <p class="lead">這不是單純讓學生交 AI 生成物，而是把 AI 放在史料閱讀、觀點比較與改寫練習中。網站刻意區分「NotebookLM 輸出節錄」與「教師整理說明」，避免把 AI 生成文字直接當作史實。</p>
+        <p class="lead">這不是讓學生交 AI 生成物，而是把 AI 放進史料閱讀、觀點比較與改寫練習中。本站刻意區分「NotebookLM 輸出節錄」與「教師整理說明」，AI 生成文字一律標示，不直接視為史實。</p>
       </div>
-      <div class="notice">教授觀看時可先看統計與四個展區，再進入影音與作品牆。學生完成度不一，但班級整體已形成可展示的多媒體學習成果。</div>
+      <div class="notice">本頁所有標示「AI 生成」的內容，定位都是學生審查與改寫的素材；標示「審查中」者，代表已排入學生審查會進行歸類與判讀。觀展動線建議：四大事件展區 → 心智圖 → 學生策展。</div>
     </div>
   </section>
   {''.join(events_html)}
+  {general_html}
   <section id="mindmaps">
     <div class="wrap">
-      <h2>NotebookLM 心智圖與 PNG 截圖</h2>
-      <p class="lead">以下 PNG 來自 Google Drive「2026作業」學生資料夾。能由檔名或同資料夾作品判讀事件者已先標註；其餘保留「事件待確認」，避免誤把未查證的 AI 生成圖歸入錯誤事件。預覽使用 Google Drive 原生 preview，若瀏覽器阻擋嵌入，可點「開啟原始 PNG」。</p>
+      <h2>學生心智圖</h2>
+      <p class="lead">以下心智圖來自學生作業資料夾。已能確認事件者以事件色標示；標示「審查中」者，將由學生在審查會中判讀歸類——判斷一張 AI 心智圖屬於哪個事件、依據是哪些關鍵詞，正是本課程要練的 AI 素養。若瀏覽器阻擋嵌入預覽，可點「開啟原始 PNG」。</p>
       <div class="mindmap-grid">{mindmaps}</div>
     </div>
   </section>
@@ -666,26 +730,27 @@ def build_html(data: dict) -> str:
     <div class="wrap two-col">
       <div>
         <h2>生成工具與學習歷程</h2>
-        <p class="lead">學生用 NotebookLM 將 PDF、教材與事件資料轉為摘要、Study Guide、資料表、音訊與影片，再回到課堂任務：事實句、觀點差異句、省思句。</p>
+        <p class="lead">學生用 NotebookLM 將權威史料 PDF 轉為摘要、Study Guide、資料表、音訊與影片，再回到課堂的三句寫作：事實句、差異句、省思句。</p>
       </div>
       <ul class="checklist">
-        <li>先選事件並建立研究問題。</li>
-        <li>用 NotebookLM 摘要史料，但保留人工判讀。</li>
-        <li>比較官方歷史、族群記憶、地景與遷徙。</li>
-        <li>把 AI 輸出改寫成自己的理解。</li>
-        <li>補上來源，避免把生成錯誤當作史實。</li>
+        <li>選定事件，建立自己的研究問題。</li>
+        <li>用 NotebookLM 摘要史料，保留人工判讀。</li>
+        <li>審查 AI 輸出：歸類心智圖、辨認有立場的用詞。</li>
+        <li>比較官方說法與族群記憶，寫出差異。</li>
+        <li>把 AI 輸出改寫成自己的話，並補上來源。</li>
       </ul>
     </div>
   </section>
   <section id="wall">
     <div class="wrap">
-      <h2>學生作品牆與補件格式</h2>
-      <p class="lead">下一節課可以要求每位學生至少補齊一張成果卡；低完成度學生則以一張 NotebookLM 截圖、一段 80-120 字理解與一個來源作為最低展示內容。</p>
+      <h2>學生策展：AI 素材的三道審查</h2>
+      <p class="lead">AI 生成的素材要登上這面牆，必須先通過全班的三道審查程序。</p>
       <div class="wall">
-        <article class="work-card"><h4>成果卡</h4><p>事件名稱、研究問題、事實句、觀點差異句、省思句、至少兩個來源。</p></article>
-        <article class="work-card"><h4>代表素材</h4><p>大港口心智圖、太魯閣影音、大分 PDF/PPT、七腳川觀點比較。</p></article>
-        <article class="work-card"><h4>檢查原則</h4><p>手機可讀、媒體可播、圖片清楚、姓名必要時匿名、AI 文字需人工判斷。</p></article>
+        <article class="work-card"><div class="wall-step">第一道</div><h4>歸類</h4><p>判讀心智圖與摘要屬於哪個事件，說出判斷依據的關鍵詞。</p></article>
+        <article class="work-card"><div class="wall-step">第二道</div><h4>挑錯與票選</h4><p>找出 AI 錯置的內容與有立場的用詞（招撫、平亂、歸順、理蕃……），票選最值得上牆的段落。</p></article>
+        <article class="work-card"><div class="wall-step">第三道</div><h4>三句展示</h4><p>事實句、差異句、省思句——用自己的話寫下一句可上牆的理解。</p></article>
       </div>
+      <p class="lead" style="margin-top:18px">審查會後，本區將更新全班票選結果與入選的學生句子。</p>
     </div>
   </section>
   <section id="references">
@@ -696,7 +761,7 @@ def build_html(data: dict) -> str:
     </div>
   </section>
 </main>
-<footer>資料來源：{esc(meta["source_exports"])}｜{esc(meta["source_media"])}｜產出日期：{esc(meta["generated_at"])}</footer>
+<footer>花蓮高商「多元文化與文學」縱谷無言單元｜素材：NotebookLM 匯出與學生課堂作業｜頁面更新：{esc(meta["generated_at"])}</footer>
 </body>
 </html>"""
 
