@@ -1,0 +1,670 @@
+<!DOCTYPE html>
+<html lang="zh-Hant">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
+<title>總督的算盤｜縱谷無言</title>
+<style>
+:root{
+  --bg:#0e0b08; --bg2:#171209;
+  --paper:#efe6d0; --paper2:#e6d9bc; --ink:#2b2218; --ink2:#5a4c38;
+  --gold:#c9a062; --red:#a83a32; --blue:#3d4f63; --muted:#8d7c5f;
+  --dark-paper:#1b1610; --dark-ink:#cdbb95;
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html,body{height:100%}
+body{margin:0;background:radial-gradient(1200px 800px at 50% -10%,#241b10,var(--bg) 60%);color:var(--paper);
+  font-family:"Noto Serif TC","PMingLiU","Microsoft JhengHei",serif;overflow:hidden;
+  display:flex;align-items:center;justify-content:center}
+#stage{width:100%;max-width:480px;height:100%;max-height:880px;display:flex;flex-direction:column;padding:14px 16px;position:relative}
+
+/* ── screens ── */
+.screen{position:absolute;inset:0;display:none;flex-direction:column;padding:20px;overflow-y:auto}
+.screen.on{display:flex}
+
+/* ── intro ── */
+#intro{align-items:center;justify-content:center;text-align:center;gap:14px}
+#intro .eyebrow{font-size:12px;letter-spacing:.5em;color:var(--gold);text-indent:.5em}
+#intro h1{font-size:44px;margin:0;letter-spacing:.12em;color:var(--paper)}
+#intro .sub{color:var(--muted);font-size:14px;margin-bottom:6px}
+#intro .brief{max-width:340px;font-size:15px;line-height:2;color:#d8cbab;text-align:left;line-break:strict}
+#intro .warn{max-width:340px;font-size:11.5px;line-height:1.8;color:var(--muted);border-top:1px solid #3a2f1e;padding-top:12px}
+.btn{font-family:inherit;font-size:16px;letter-spacing:.3em;text-indent:.3em;padding:12px 34px;border-radius:6px;cursor:pointer;
+  background:transparent;color:var(--gold);border:1px solid var(--gold);transition:background .2s,color .2s}
+.btn:hover{background:var(--gold);color:var(--bg)}
+#best{font-size:12px;color:var(--muted)}
+
+/* ── game header ── */
+#game{display:none;position:relative;flex:1;flex-direction:column;padding:0}
+#game.on{display:flex}
+#meters{display:flex;gap:8px;padding:4px 2px 10px}
+.meter{flex:1;text-align:center}
+.meter .lab{font-size:11px;letter-spacing:.2em;color:var(--muted);margin-bottom:4px;position:relative}
+.meter .dot{position:absolute;top:-7px;left:50%;transform:translateX(-50%);width:6px;height:6px;border-radius:50%;
+  background:var(--gold);opacity:0;transition:opacity .15s}
+.meter.hot .dot{opacity:1}
+.meter .bar{height:7px;background:#241c11;border:1px solid #3a2f1e;border-radius:4px;overflow:hidden}
+.meter .fill{height:100%;background:linear-gradient(90deg,#8a6c39,var(--gold));border-radius:3px;transition:width .5s ease}
+.meter.low .fill{background:linear-gradient(90deg,#6e2520,var(--red))}
+#yearrow{display:flex;justify-content:space-between;align-items:baseline;padding:2px 4px 10px}
+#year{font-size:30px;letter-spacing:.08em;color:var(--paper)}
+#era{font-size:13px;color:var(--muted);letter-spacing:.2em}
+
+/* ── card ── */
+#cardzone{flex:1;position:relative;display:flex;align-items:center;justify-content:center;perspective:900px;min-height:0}
+#card{width:100%;max-width:400px;max-height:100%;overflow-y:auto;background:
+  linear-gradient(160deg,var(--paper),var(--paper2));color:var(--ink);border-radius:8px;
+  padding:22px 22px 26px;box-shadow:0 18px 50px rgba(0,0,0,.6),0 2px 0 #fff3 inset;position:relative;
+  cursor:grab;user-select:none;-webkit-user-select:none;touch-action:pan-y}
+#card.drag{cursor:grabbing;transition:none}
+#card.snap{transition:transform .25s ease}
+#card.fly{transition:transform .35s ease,opacity .35s ease;opacity:0}
+#card.dark{background:linear-gradient(160deg,#221b12,var(--dark-paper));color:var(--dark-ink)}
+#card.dark .cstamp{border-color:#6b5a3a;color:#6b5a3a}
+#card.dark .ctitle{color:var(--dark-ink)}
+.cstamp{position:absolute;top:14px;right:14px;border:2px solid var(--red);color:var(--red);font-size:11px;
+  letter-spacing:.25em;text-indent:.25em;padding:3px 7px;transform:rotate(8deg);border-radius:3px;opacity:.75}
+.cyear{font-size:11px;letter-spacing:.3em;color:var(--ink2);margin-bottom:6px}
+#card.dark .cyear{color:#7d6c4c}
+.ctitle{font-size:24px;letter-spacing:.15em;color:var(--ink);margin:0 0 14px;border-bottom:1px solid rgba(0,0,0,.18);padding-bottom:10px}
+.ctext{font-size:15.5px;line-height:1.92;text-align:left;white-space:pre-line;line-break:strict;word-break:normal;overflow-wrap:normal;text-wrap:pretty}
+.cnote{margin-top:14px;font-size:12.5px;color:var(--ink2);line-height:1.8;font-style:italic}
+#card.dark .cnote{color:#8d7c5f}
+
+/* drag hints */
+.hint{position:absolute;top:46%;transform:translateY(-50%);font-size:15px;letter-spacing:.15em;max-width:120px;
+  line-height:1.7;opacity:0;transition:opacity .15s;pointer-events:none;z-index:3}
+#hintL{left:6px;color:#9db4cd;text-align:left}
+#hintR{right:6px;color:#e0a59f;text-align:right}
+
+/* ── choices ── */
+#choices{display:flex;gap:10px;padding:14px 2px 8px}
+.choice{flex:1;font-family:inherit;font-size:14px;line-height:1.55;padding:12px 10px;border-radius:6px;cursor:pointer;
+  background:#1d160d;transition:background .15s,transform .1s}
+.choice:active{transform:scale(.97)}
+#chL{border:1px solid #41566e;color:#aebfd4;text-align:left}
+#chL:hover{background:#222d3a}
+#chR{border:1px solid #7e423c;color:#e3b4ae;text-align:left}
+#chR:hover{background:#33211e}
+.choice .tag{display:block;font-size:10.5px;letter-spacing:.3em;opacity:.55;margin-bottom:4px}
+#chOne{flex:1;border:1px solid var(--gold);color:var(--gold);text-align:center;background:#171108;
+  font-size:15px;letter-spacing:.4em;text-indent:.4em;padding:14px}
+#chOne:hover{background:var(--gold);color:var(--bg)}
+
+/* ── result interstitial ── */
+#result{position:absolute;inset:0;display:none;align-items:center;justify-content:center;flex-direction:column;
+  background:rgba(10,8,5,.9);z-index:5;padding:30px;text-align:center;gap:24px}
+#result.on{display:flex}
+#resText{max-width:320px;font-size:16px;line-height:2.2;color:#d8cbab;font-style:italic}
+
+/* ── settlement ── */
+#end{background:var(--bg);align-items:center;text-align:center}
+#endTitle{font-size:30px;letter-spacing:.2em;color:var(--gold);margin:18px 0 4px}
+#endSub{font-size:14px;color:var(--muted);max-width:340px;line-height:2;margin-bottom:8px;white-space:pre-line}
+#epitaph{font-size:13px;color:#b3a17d;font-style:italic;margin-bottom:14px}
+#ledger{width:100%;max-width:360px;background:#13100a;border:1px solid #3a2f1e;border-radius:8px;
+  padding:20px 22px;text-align:left;font-size:13.5px;line-height:2.1;color:#d8cbab;margin-bottom:14px}
+#ledger .div{border-top:1px dashed #4a3c24;margin:10px 0}
+#ledger .dim{color:var(--muted)}
+#ledger .final{color:var(--paper)}
+#srcs{max-width:360px;font-size:10.5px;line-height:1.9;color:#6e6048;text-align:left;line-break:strict;margin-bottom:18px}
+#endBtns{display:flex;gap:12px;margin-bottom:30px}
+@media(max-height:700px){
+  #intro h1{font-size:34px}
+  .ctitle{font-size:20px}.ctext{font-size:14px;line-height:1.9}
+  #year{font-size:24px}
+}
+</style>
+</head>
+<body>
+<audio id="bgm" src="Sealed%20Register.mp3" preload="auto" autoplay loop playsinline></audio>
+<div id="stage">
+
+  <!-- 開場 -->
+  <div id="intro" class="screen on">
+    <div class="eyebrow">縱谷無言・歷史模擬</div>
+    <h1>總督的算盤</h1>
+    <div class="sub">花蓮高商「多元文化與文學」教學遊戲</div>
+    <div class="brief">1896 年。你是臺灣總督府裡，主管「蕃地」事務的官僚。
+公文會一張一張送到你桌上——左滑駁回，右滑核准。
+東京的耐心、預算、軍警、「蕃地平穩」：任何一條歸零，你就下台。
+看看你能在任幾年。</div>
+    <button class="btn" id="startBtn">就　任</button>
+    <div id="best"></div>
+    <div class="warn">本遊戲依史實改編；人物對白除另有標示外，皆為創作性轉述。
+牌面所稱「蕃」「兇蕃」「歸順」等語為日本殖民政府之用語，照錄以呈現其視角，不代表本課程立場。資料來源見結算頁。</div>
+  </div>
+
+  <!-- 遊戲 -->
+  <div id="game">
+    <div id="meters">
+      <div class="meter" data-k="t"><div class="lab">東京<span class="dot"></span></div><div class="bar"><div class="fill"></div></div></div>
+      <div class="meter" data-k="b"><div class="lab">預算<span class="dot"></span></div><div class="bar"><div class="fill"></div></div></div>
+      <div class="meter" data-k="a"><div class="lab">軍警<span class="dot"></span></div><div class="bar"><div class="fill"></div></div></div>
+      <div class="meter" data-k="c"><div class="lab">平穩<span class="dot"></span></div><div class="bar"><div class="fill"></div></div></div>
+    </div>
+    <div id="yearrow"><span id="year">1896</span><span id="era">明治二十九年</span></div>
+    <div id="cardzone">
+      <div class="hint" id="hintL"></div>
+      <div class="hint" id="hintR"></div>
+      <div id="card">
+        <div class="cstamp">機密</div>
+        <div class="cyear"></div>
+        <h2 class="ctitle"></h2>
+        <div class="ctext"></div>
+        <div class="cnote"></div>
+      </div>
+    </div>
+    <div id="choices"></div>
+    <div id="result"><div id="resText"></div><button class="btn" id="resBtn">繼　續</button></div>
+  </div>
+
+  <!-- 結算 -->
+  <div id="end" class="screen">
+    <div id="endTitle"></div>
+    <div id="endSub"></div>
+    <div id="epitaph"></div>
+    <div id="ledger"></div>
+    <div id="srcs"><b>主要參考</b>：原住民族委員會《原住民族重大歷史事件系列叢書》（太魯閣事件1914、七腳川事件、大分事件等）；國史館臺灣文獻館；文化部文化資產網「花蓮吉野開村紀念碑」；戴寶村〈太魯閣戰爭百年回顧〉；徐如林、楊南郡《最後的拉比勇》；日治官方檔案（《理蕃誌稿》《臺灣總督府公文類纂》等，屬殖民政府視角）。本遊戲為教學用途之歷史改編，非學術著作。</div>
+    <div id="endBtns">
+      <button class="btn" id="againBtn">再任一次</button>
+    </div>
+  </div>
+</div>
+
+<script>
+"use strict";
+/* ============================================================
+   牌庫
+   fx: t=東京 b=預算 a=軍警 c=平穩（顯性數值）
+   hid: con=良知 tru=真相 rhe=修辭 sil=沉默 hat=仇恨
+   era:'被改寫的名字' / cnt:'massacre|confiscate|relocate|lure'
+   next:鏈結牌 / sched:{id,delay}延遲牌 / flag:設旗標
+   dt:結算後經過年數(預設1) / res:選後餘韻文字
+   kind: fixed(year,ord) | random(minY,maxY,max) | chain | cond(need)
+   ============================================================ */
+const DECK = [
+{id:'00',kind:'fixed',year:1896,ord:0,title:'就任',
+ text:'敕令到了。你將赴臺灣總督府，主管「蕃地」事務。\n前任留給你一句話：「山是錢。山裡的人，是麻煩。」',
+ L:{lab:'「我會讓山地平穩。」',fx:{c:5}},
+ R:{lab:'「我會讓山地賺錢。」',fx:{b:5}}},
+
+/* ── 第一幕 1896–1905 隘勇線 ── */
+{id:'02',kind:'fixed',year:1896,ord:1,title:'新城的報告',
+ text:'新城監視哨十三名士兵遭太魯閣人襲殺。守備隊請求即刻討伐。',
+ L:{lab:'先查起因',fx:{t:-10},hid:{tru:1},
+    res:'調查回報：起事之前，日軍侵害部落婦女之說，在口述與後來的研究中反覆出現。\n這行字，最終沒有印進公報。'},
+ R:{lab:'立刻討伐',fx:{a:-5,b:-10,c:5},next:'03'}},
+
+{id:'03',kind:'chain',title:'撤退',
+ text:'討伐隊深入山區。瘴癘、斷崖、伏擊，無法取勝，五月撤退。\n隨行的六百名阿美族人伕，傷亡不在正式統計之內。',
+ L:{lab:'照實呈報',fx:{t:-15},hid:{tru:1}},
+ R:{lab:'寫成「戰略轉進」',fx:{t:5},hid:{rhe:1}}},
+
+{id:'01',kind:'fixed',year:1897,ord:0,title:'前朝卷宗',
+ text:'檔案室送來清國留下的卷宗：光緒三年，統領吳光亮於大港口（今花蓮豐濱、靜浦一帶）設局誘殺阿美族壯年菁英多人。\n承辦人問：歸檔，還是列為參考？',
+ L:{lab:'歸檔封存',hid:{sil:1},res:'你選擇不看。卷宗安靜地回到架上。'},
+ R:{lab:'列為參考',fx:{a:5},flag:'precedent',res:'幕僚把「誘殺」兩個字圈起來，旁邊寫上：有效。'}},
+
+{id:'04',kind:'random',minY:1897,maxY:1905,max:1,title:'賀田組的請願',
+ text:'樟腦商人請願開放山林採腦，願與官方分利。\n地圖上他圈起來的範圍，原本印著別的名字。',
+ L:{lab:'駁回',fx:{b:-5,t:-5}},
+ R:{lab:'核准',fx:{b:15},hid:{hat:1},sched:{id:'05',delay:2}}},
+
+{id:'05',kind:'chain',title:'腦寮被襲',
+ text:'採腦工人遭出草，商會要求官方保護。\n報紙開始使用「蕃害」二字。',
+ L:{lab:'撤出腦寮',fx:{b:-10,t:-5}},
+ R:{lab:'增設隘勇線',fx:{b:-10,a:5,c:5}}},
+
+{id:'06',kind:'random',minY:1897,maxY:1908,max:1,title:'通電的提案',
+ text:'警務課提案：隘勇線架設高壓電網、埋設地雷。\n提案書的結語：「一勞永逸。」',
+ L:{lab:'否決',fx:{t:-5,a:-5},hid:{con:1}},
+ R:{lab:'核准',fx:{b:-10,c:10},flag:'electric'}},
+
+{id:'07',kind:'random',minY:1897,maxY:1924,max:2,title:'人類學者的信',
+ text:'森丑之助求見。他在山裡行走的年數，比你在臺灣的年數還長。\n他帶來一份不用槍的「蕃地」方案，求你給他十年。',
+ L:{lab:'聽他說完',fx:{t:-5},hid:{con:1},res:'你聽完了。\n然後，什麼也沒有改變。'},
+ R:{lab:'「公務繁忙」',hid:{sil:1},flag:'moriDecline'}},
+
+{id:'09',kind:'random',minY:1898,maxY:1928,max:1,title:'視察團',
+ text:'內地議員視察，行程表希望加入「歸順蕃人」的歌舞表演。',
+ L:{lab:'婉拒',fx:{t:-10}},
+ R:{lab:'安排表演',fx:{t:10},res:'掌聲很熱烈。\n沒有人問，他們唱的是什麼。'}},
+
+{id:'10',kind:'random',minY:1898,maxY:1909,max:2,title:'預算審查',
+ text:'東京來電：理蕃支出連年超標，質問成果何在。',
+ L:{lab:'請求寬限',fx:{t:-10}},
+ R:{lab:'承諾五年見效',fx:{t:10,b:10}}},
+
+/* ── 第二幕 1906–1913 五年計畫 ── */
+{id:'11',kind:'fixed',year:1906,ord:0,title:'新總督',
+ text:'佐久間左馬太就任。陸軍大將，七十二歲。他對你說的第一句話：\n「綏撫太慢。我要在任內，解決蕃地問題。」',
+ L:{lab:'附議',fx:{a:10,c:5}},
+ R:{lab:'進言緩進',fx:{t:-10},hid:{con:1},res:'他看了你三秒。\n然後繼續講他的計畫。'}},
+
+{id:'12',kind:'fixed',year:1906,ord:1,title:'威里的血',
+ text:'賀田組腦寮遭襲，死者數十。\n報紙頭條，只有兩個字的標題。',
+ L:{lab:'封鎖消息',fx:{t:5},hid:{rhe:1}},
+ R:{lab:'藉機請兵',fx:{a:10,b:-10},hid:{hat:1}}},
+
+{id:'08',kind:'fixed',year:1908,ord:0,title:'通譯求見',
+ text:'通事轉述：七腳川社的隘勇，對勞役與欠薪不滿。\n「他們的原話……卑職不敢全文照譯。」',
+ L:{lab:'要求全文',fx:{t:-5},hid:{tru:1},res:'通事低著頭，最後只說：\n大意是，不公平。\n（全文，始終沒有出現。）'},
+ R:{lab:'按慣例慰撫',fx:{b:-5}}},
+
+{id:'13',kind:'fixed',year:1908,ord:1,title:'隘勇脫逃',
+ text:'十二月。七腳川社隘勇集體脫逃，抗議欠薪與勞役。\n警務課長的簽呈只有一行：「此為叛亂之兆。建議：滅社。」',
+ L:{lab:'只處理欠薪',fx:{t:-10,a:-10,c:-5},hid:{con:2},flag:'spared',res:'警務課長從此越過你，直接行文。'},
+ R:{lab:'核准進剿',next:'14',dt:0}},
+
+{id:'14',kind:'chain',one:'蓋章歸檔',title:'滅社',dark:true,
+ text:'砲擊七腳川。\n東臺灣最強盛的阿美族部落，原社被迫離散，族人四散他鄉。\n故地充公，待撥。',
+ O:{fx:{c:15,b:10},hid:{hat:2},era:'七腳川社 → 廢社',cnt:'massacre'}},
+
+{id:'15',kind:'fixed',year:1910,ord:0,title:'吉野村',
+ text:'殖產局申請：將七腳川故地撥予內地移民，設置移民指導所。\n明年起，這片土地將定名為——「吉野」。',
+ alt:{flag:'spared',text:'殖產局申請：在七腳川社周邊徵收土地，設置移民指導所。\n公文裡寫：該社「自願讓渡」。\n明年起，這片土地將定名為——「吉野」。'},
+ L:{lab:'保留部分予遺族',fx:{t:-5,b:-5},hid:{con:1}},
+ R:{lab:'全數撥用',fx:{b:15,t:5},era:'Cikasuan → 吉野',res:'地圖重印了。\nCikasuan 這個音，從圖上消失。'}},
+
+{id:'16',kind:'fixed',year:1910,ord:1,title:'五年理蕃計畫',
+ text:'佐久間提出：五年之內，以軍警武力徹底解決「北蕃」。需要鉅額公債。\n文件最後一欄，等你副署。',
+ L:{lab:'拒絕副署',fx:{t:-15},res:'計畫照樣通過了。只是你的名字不在上面。\n幕僚提醒你：這在東京，不是加分。'},
+ R:{lab:'副署',fx:{b:-15,a:15}}},
+
+{id:'17',kind:'fixed',year:1911,ord:0,title:'收繳槍枝',
+ text:'警務本署提案：收繳原住民槍械。\n殖產局技師在會議上小聲說了一句：「獵槍，是他們的口糧。」',
+ L:{lab:'分期、保留獵用槍',fx:{c:-5,a:-5},hid:{con:1}},
+ R:{lab:'全面收繳',fx:{c:10},hid:{hat:2},flag:'fullGuns',cnt:'confiscate'}},
+
+{id:'18',kind:'random',minY:1911,maxY:1930,max:1,need:'electric',title:'自然減耗',
+ text:'電網與地雷的每月死亡報告送達。\n承辦人問：要列入「蕃害統計」的哪一欄？',
+ L:{lab:'據實列入',fx:{t:-5},hid:{tru:1}},
+ R:{lab:'列為「自然減耗」',hid:{rhe:1}}},
+
+{id:'19',kind:'random',minY:1907,maxY:1929,max:1,title:'記者',
+ text:'內地記者申請隨隊採訪「理蕃實況」。',
+ L:{lab:'准其隨行',fx:{t:-10},hid:{tru:1},res:'報導見了血。\n東京的電話也來了。'},
+ R:{lab:'只發資料照片',fx:{t:5},hid:{rhe:1}}},
+
+/* ── 第三幕 1914–1915 太魯閣 ── */
+{id:'20',kind:'fixed',year:1914,ord:0,title:'開戰',
+ text:'佐久間決意親征太魯閣，動員軍警與人伕逾萬。對面：太魯閣族，戰士約三千。\n命令書，等你副署。',
+ L:{lab:'進言延期',fx:{t:-15},loop:true,dt:0,res:'一週後。\n命令書原封不動，回到你的桌上。'},
+ R:{lab:'副署',fx:{b:-20,a:-10},next:'21',dt:0}},
+
+{id:'21',kind:'chain',title:'夾擊',dt:0,
+ text:'東西兩路，海陸並進，七十四天。\n總督於戰線視察中自斷崖墜落，負傷。\n戰報的措辭，請你定稿。',
+ L:{lab:'照實呈報',fx:{t:-10},hid:{tru:1},next:'22',
+    res:'你寫下：族人憑天險死戰。我軍警死傷三百餘；太魯閣族傷亡，未入完整統計。'},
+ R:{lab:'粉飾戰報',fx:{t:10},hid:{rhe:2},next:'22',
+    res:'你定稿：「皇威浩蕩，蕃情歸順。」'}},
+
+{id:'22',kind:'chain',title:'歸順式',
+ text:'各社代表被召集出席儀式。\n紀錄官請示：談判紀錄，如何登載？',
+ L:{lab:'註記「有條件停戰」',fx:{t:-5},hid:{tru:1}},
+ R:{lab:'一律記為「歸順」',fx:{c:15},era:'談判 → 「歸順」'}},
+
+{id:'23',kind:'fixed',year:1915,ord:0,title:'人伕的帳',
+ text:'戰歿人伕——多為受募而來的阿美族人——撫卹案送達。\n簽呈上的金額，低得刺眼。',
+ L:{lab:'比照內地標準',fx:{b:-10,t:-5},hid:{con:1}},
+ R:{lab:'照慣例',hid:{hat:1},res:'帳目，平了。'}},
+
+{id:'24',kind:'fixed',year:1915,ord:1,title:'大分駐在所',
+ text:'急電：布農族 Dahu Ali（拉荷・阿雷）、Aliman Siking（阿里曼・西肯）兄弟，率眾襲擊大分駐在所，警員十二名死亡。\n起因欄寫著三個字：收繳槍。',
+ L:{lab:'大舉圍剿',fx:{a:-15,b:-15},next:'25'},
+ R:{lab:'經濟封鎖',fx:{c:-5},next:'26'}},
+
+/* ── 第四幕 1916–1933 漫長的山 ── */
+{id:'25',kind:'chain',title:'山的戰爭',
+ text:'討伐隊月報：中央山脈深處，找不到他們。\n只有損耗數字，準時抵達。',
+ L:{lab:'繼續搜剿',fx:{b:-10},loop:true},
+ R:{lab:'改採封鎖',next:'26',dt:0}},
+
+{id:'26',kind:'chain',title:'交易所',
+ text:'鹽、鐵器、火柴，從此只能在警察監管的交易所換取。山上的家族要鹽，就得下山登記。\n幕僚的原話：「飢餓比子彈便宜。」——你沒有糾正他。',
+ L:{lab:'寬鬆執行',fx:{c:-5},hid:{con:1}},
+ R:{lab:'嚴格執行',fx:{c:10},hid:{hat:2}}},
+
+{id:'27',kind:'fixed',year:1921,ord:0,title:'托西佑',
+ text:'警部密呈：誘捕 Aliman Siking 失敗。\n新案：以和解之名，邀托西佑社壯丁二十三人至駐在所——以下省略。請示。',
+ ptext:'警部密呈：誘捕 Aliman Siking 失敗。\n新案：以和解之名，邀托西佑社壯丁二十三人至駐在所——以下省略。請示。\n\n密呈附註：前清吳光亮，有成例。',
+ L:{lab:'嚴禁',fx:{a:-10},hid:{con:2}},
+ R:{lab:'不聞不問',fx:{c:10},hid:{hat:3,sil:1},cnt:'lure',res:'事後送來的卷宗裡，這一頁的墨，特別黑。'}},
+
+{id:'28',kind:'random',minY:1916,maxY:1931,max:1,title:'集團移住',
+ text:'提案：將深山部落整批遷往山腳，「便於管理」。\n技師註記：他們的小米，種不活在平地。',
+ L:{lab:'緩議',fx:{c:-5,t:-5}},
+ R:{lab:'核准',fx:{c:10},era:'舊社 → 移住地',cnt:'relocate',sched:{id:'29',delay:2}}},
+
+{id:'29',kind:'chain',title:'疫病',
+ text:'移住地瘧疾流行，遷村人口銳減。\n衛生課請款。',
+ L:{lab:'全力醫治',fx:{b:-10},hid:{con:1}},
+ R:{lab:'例行處理',hid:{sil:1}}},
+
+{id:'39',kind:'fixed',year:1926,ord:0,need:'moriDecline',one:'放下報紙',dark:true,title:'船',
+ text:'1926 年。\n返航內地的船上，森丑之助失蹤。\n你是在報紙的角落讀到的。',
+ O:{}},
+
+{id:'30',kind:'fixed',year:1930,ord:0,title:'霧社',
+ text:'急電自臺中州：霧社公學校運動會遭襲，內地人死者百三十餘。\n全島震動。東京質問：理蕃政策，是否全盤失敗？',
+ audit:'\n另：監察當局重啟歷年戰報，發現多處與實況不符。',
+ L:{lab:'承認需要全盤檢討',fx:{t:-15},hid:{tru:1}},
+ R:{lab:'歸咎「兇蕃天性」',fx:{t:5,c:-10},hid:{rhe:1}}},
+
+{id:'31',kind:'fixed',year:1932,ord:0,title:'和解的使者',
+ text:'警務當局報告：Dahu Ali 年事已高，部眾凋零，可促成「歸順」。\n對方的條件：保留部分獵槍、不究既往。',
+ L:{lab:'接受條件',fx:{c:15},next:'32'},
+ R:{lab:'要求無條件',fx:{c:-10},loop:true}},
+
+{id:'32',kind:'chain',one:'蓋章歸檔',dark:true,title:'1933',dt:0,final:true,
+ text:'高雄州。Dahu Ali 率族人出席儀式。\n十八年的山的戰爭，今天以官方用語「歸順」作結。\n\n儀式上，老人說了一段話。\n通譯的紀錄，只留下極短的一行。\n原話，沒有被完整保存。',
+ O:{}},
+
+/* ── 通用 ── */
+{id:'33',kind:'random',minY:1899,maxY:1932,max:2,title:'統計年報',
+ text:'年度「蕃害」統計送印，數字比去年低。幕僚說：是政績。\n你知道真正的原因，是去年少了一個社。',
+ L:{lab:'加註原因',fx:{t:-10},hid:{tru:1}},
+ R:{lab:'照印',fx:{t:10,b:5},hid:{rhe:1}}},
+
+{id:'34',kind:'random',minY:1900,maxY:1931,max:1,title:'升遷的暗示',
+ text:'同期來信：再撐兩年，就能調回東京榮升。\n「別在任內出事就好。」',
+ L:{lab:'不為所動'},
+ R:{lab:'求穩至上',fx:{t:5},hid:{sil:1}}},
+
+{id:'35',kind:'random',minY:1899,maxY:1932,max:1,title:'家書',
+ text:'妻的信：孩子問，父親在臺灣做什麼。\n你提筆，又放下。',
+ L:{lab:'寫「在開山」',hid:{sil:1}},
+ R:{lab:'寫「在打仗」',hid:{tru:1}}},
+
+{id:'36',kind:'random',minY:1915,maxY:1931,max:1,need:'fullGuns',title:'獵槍的下落',
+ text:'倉庫主任報告：收繳的數千支獵槍已開始鏽蝕。\n請示處置。',
+ L:{lab:'狩獵季發還部分',fx:{c:-5},hid:{con:1}},
+ R:{lab:'熔毀',fx:{c:5},era:'收繳的獵槍 → 鐵水',res:'鐵水裡，是誰家三代的口糧。'}},
+
+{id:'37',kind:'cond',needCon:2,max:1,title:'人類學者（再）',
+ text:'他又來了，瘦了很多。\n這次的方案更完整：一個郡的預算，一個不需要槍的「蕃地」。',
+ L:{lab:'撥款試辦',fx:{b:-10,t:-10},hid:{con:2},res:'試辦案在公文往返中，無疾而終。\n個人的善意，救不了結構。'},
+ R:{lab:'婉拒',hid:{sil:1},flag:'moriDecline'}},
+
+{id:'38',kind:'cond',needCon:4,max:1,title:'辭呈',
+ text:'辭呈在你抽屜裡，放了很多天了。',
+ L:{lab:'遞出',resign:true},
+ R:{lab:'收回抽屜',fx:{t:5},hid:{sil:2}}},
+];
+
+/* ============================================================ 引擎 */
+const $=s=>document.querySelector(s);
+const byId={}; DECK.forEach(c=>byId[c.id]=c);
+let S=null;
+
+function newState(){return{
+  year:1896,t:60,b:62,a:50,c:40,
+  con:0,tru:0,rhe:0,sil:0,hat:0,
+  erase:[],cnt:{massacre:0,confiscate:0,relocate:0,lure:0},
+  uses:{},done:{},flags:{},queue:[],sched:[],cur:null,over:false};}
+
+function eraName(y){
+  if(y<1912)return '明治'+cn(y-1867)+'年';
+  if(y<1926)return '大正'+cn(y-1911)+'年';
+  return '昭和'+cn(y-1925)+'年';}
+function cn(n){const d='〇一二三四五六七八九';
+  if(n<10)return (n===1?'元':d[n]);
+  if(n<20)return '十'+(n%10? d[n%10]:'');
+  return d[Math.floor(n/10)]+'十'+(n%10? d[n%10]:'');}
+
+function condOK(c){
+  if(c.need && !S.flags[c.need])return false;
+  if(c.needCon && S.con<c.needCon)return false;
+  return true;}
+
+function pickCard(){
+  // 1. 鏈結佇列
+  while(S.queue.length){const id=S.queue.shift();return byId[id];}
+  // 2. 條件牌（辭呈優先）
+  for(const id of ['38','37']){const c=byId[id];
+    if(condOK(c)&&!(S.uses[id]>=c.max))return c;}
+  // 3. 固定牌（到年即發）
+  const fx=DECK.filter(c=>c.kind==='fixed'&&!S.done[c.id]&&c.year<=S.year&&condOK(c))
+    .sort((x,y)=>x.year-y.year||x.ord-y.ord);
+  if(fx.length)return fx[0];
+  // 4. 隨機池
+  const pool=DECK.filter(c=>c.kind==='random'&&condOK(c)
+    &&S.year>=c.minY&&S.year<=c.maxY&&(S.uses[c.id]||0)<c.max);
+  if(pool.length)return pool[Math.floor(Math.random()*pool.length)];
+  // 5. 池空：墊檔（推進時間）
+  return {id:'pad',kind:'random',title:'例行公文',max:99,
+    text:'今天桌上沒有需要你決定的事。\n山很安靜。安靜得像一份已經歸檔的卷宗。',
+    L:{lab:'批閱'},R:{lab:'批閱'}};
+}
+
+function showCard(c){
+  S.cur=c;
+  const card=$('#card');
+  card.classList.toggle('dark',!!c.dark);
+  card.style.transform='';card.classList.remove('fly');card.classList.add('snap');
+  setTimeout(()=>card.classList.remove('snap'),260);
+  $('.cyear').textContent=S.year+'　'+eraName(S.year);
+  $('.ctitle').textContent=c.title;
+  let txt=c.text;
+  if(c.alt&&S.flags[c.alt.flag])txt=c.alt.text;
+  if(c.id==='27'&&S.flags.precedent)txt=c.ptext;
+  if(c.id==='30'&&S.rhe>=5)txt+= '\n'+c.audit;
+  $('.ctext').textContent=txt;
+  $('.cnote').textContent=c.one?'（本件無可選擇之處。）':'';
+  // choices
+  const box=$('#choices');box.innerHTML='';
+  if(c.one){
+    const b=document.createElement('button');b.id='chOne';b.className='choice';
+    b.textContent=c.one;
+    b.onclick=()=>resolve('O');
+    box.appendChild(b);
+    $('#hintL').textContent='';$('#hintR').textContent='';
+  }else{
+    const mk=(side,tag)=>{const b=document.createElement('button');
+      b.id='ch'+side;b.className='choice';
+      b.innerHTML='<span class="tag">'+tag+'</span>'+escp(c[side].lab);
+      b.onclick=()=>resolve(side);
+      b.onmouseenter=()=>preview(c[side]);b.onmouseleave=()=>preview(null);
+      return b;};
+    box.appendChild(mk('L','駁回 ◀'));
+    box.appendChild(mk('R','▶ 核准'));
+    $('#hintL').textContent=c.L.lab;$('#hintR').textContent=c.R.lab;
+  }
+  drawMeters();
+}
+function escp(s){return s.replace(/&/g,'&amp;').replace(/</g,'&lt;');}
+
+function preview(opt){
+  document.querySelectorAll('.meter').forEach(m=>{
+    const k=m.dataset.k;
+    m.classList.toggle('hot',!!(opt&&opt.fx&&opt.fx[k]));});
+}
+
+function resolve(side){
+  if(S.over)return;
+  preview(null);
+  const c=S.cur,opt=c.one?c.O:c[side];
+  S.uses[c.id]=(S.uses[c.id]||0)+1;
+  if(c.kind==='fixed')S.done[c.id]=true;
+  // 顯性數值
+  if(opt.fx)for(const k in opt.fx)S[k]=clamp(S[k]+opt.fx[k]);
+  // 隱性
+  if(opt.hid)for(const k in opt.hid)S[k]+=opt.hid[k];
+  if(opt.era)S.erase.push(opt.era);
+  if(opt.cnt)S.cnt[opt.cnt]++;
+  if(opt.flag)S.flags[opt.flag]=true;
+  if(c.id==='30'&&S.rhe>=5)S.t=clamp(S.t-30);   // 霧社清算
+  if(opt.resign){return finish('resign');}
+  // 排程與鏈結
+  if(opt.sched)S.sched.push({id:opt.sched.id,left:opt.sched.delay});
+  if(opt.next)S.queue.push(opt.next);
+  if(opt.loop){S.done[c.id]=false;S.queue.push(c.id);}  // 拒絕無效牌
+  // 終幕牌
+  const isFinal=!!c.final;
+  // 時間（選項層級 dt 優先於牌層級，預設 1 年）
+  const dt=opt.dt!==undefined?opt.dt:(c.dt!==undefined?c.dt:1);
+  advance(dt);
+  drawMeters();
+  if(S.over)return;
+  if(isFinal){return finish('complete');}
+  const dead=checkDeath();if(dead)return finish(dead);
+  // 餘韻
+  if(opt.res){
+    $('#resText').textContent=opt.res;
+    $('#result').classList.add('on');
+  }else flyNext(side);
+}
+function flyNext(side){
+  const card=$('#card');
+  card.classList.add('fly');
+  card.style.transform='translateX('+(side==='L'?-1:1)*420+'px) rotate('+(side==='L'?-14:14)+'deg)';
+  setTimeout(()=>{card.style.opacity='';card.classList.remove('fly');nextTurn();},330);
+}
+$('#resBtn').onclick=()=>{$('#result').classList.remove('on');nextTurn();};
+
+function advance(dy){
+  for(let i=0;i<dy;i++){
+    S.year++;
+    S.b=clamp(S.b-1);
+    const decay=1+(S.hat>=3?1:0)+(S.hat>=6?1:0);
+    S.c=clamp(S.c-decay);
+    S.sched.forEach(s=>s.left--);
+    const due=S.sched.filter(s=>s.left<=0);
+    S.sched=S.sched.filter(s=>s.left>0);
+    due.forEach(s=>S.queue.push(s.id));
+    if(S.year>=1936){finish('endless');return;}
+    const dead=checkDeath();if(dead){finish(dead);return;}
+  }
+  $('#year').textContent=S.year;
+  $('#era').textContent=eraName(S.year);
+}
+function clamp(v){return Math.max(0,Math.min(100,v));}
+function checkDeath(){
+  if(S.t<=0)return 'tokyo';
+  if(S.b<=0)return 'broke';
+  if(S.a<=0)return 'mutiny';
+  if(S.a>=100)return 'puppet';
+  if(S.c<=0)return 'uprising';
+  if(S.c>=100)return 'complete';
+  return null;}
+
+function drawMeters(){
+  [['t',60],['b',55],['a',50],['c',40]].forEach(([k])=>{
+    const m=document.querySelector('.meter[data-k="'+k+'"]');
+    m.querySelector('.fill').style.width=S[k]+'%';
+    m.classList.toggle('low',S[k]<=20);});
+}
+
+function nextTurn(){
+  if(S.over)return;
+  showCard(pickCard());
+}
+
+/* ── 結局 ── */
+const ENDINGS={
+ tokyo:['召回','你被免職了。繼任者，比你強硬得多。\n山裡的事沒有停——只是換了一個名字蓋章。'],
+ broke:['破產','公債案未過，計畫凍結。\n東京另派了一位「有辦法的人」。\n他確實有辦法。'],
+ mutiny:['失控','前線不再聽你的。\n討伐照常進行，只是不再請示。'],
+ puppet:['架空','將軍們感謝你一路的配合。\n從今天起，公文不必再經過你的桌子。'],
+ uprising:['蜂起','全線起事。東京宣布軍事接管。\n多年後的檔案裡，你的名字旁邊註記著：過於軟弱。'],
+ resign:['下車的人','你回到東京，寫了一本書。沒有人讀。\n1933 年，你在報紙一角看到「歸順式」三個字，認得那個名字。\n你是唯一雙手乾淨的玩家。代價是：什麼也沒有改變。\n機器不需要你，照樣運轉了十八年。'],
+ complete:['理蕃事業完成','十八年的山的戰爭，以官方用語「歸順」作結。\n卷宗閉合。算盤，打完了。'],
+ endless:['漫長的山','你在任內，沒有等到結束。\n山裡的戰爭，繼續。'],
+};
+function finish(key){
+  if(S.over)return;S.over=true;
+  const [title,sub]=ENDINGS[key];
+  const yrs=S.year-1896;
+  $('#endTitle').textContent='【'+title+'】';
+  $('#endSub').textContent=sub;
+  $('#epitaph').textContent=
+    S.tru>S.rhe?'檔案註記：他至少寫下了實情。':
+    S.rhe>S.tru?'檔案註記：他的報告，文情並茂。':
+    '檔案，沒有對他多說什麼。';
+  const L=[];
+  L.push('在任：'+yrs+' 年（1896–'+S.year+'）');
+  L.push('<div class="div"></div>');
+  L.push('你核准滅社：'+S.cnt.massacre+' 社'+(S.cnt.massacre?'（七腳川）':''));
+  L.push('你核准全面收繳獵槍：'+(S.cnt.confiscate?'是':'否'));
+  L.push('你核准集團移住：'+S.cnt.relocate+' 村');
+  L.push('你默許誘殺：'+S.cnt.lure+' 次');
+  L.push('你「選擇不看」：'+S.sil+' 次');
+  if(S.erase.length)L.push('被改寫的：'+S.erase.join('、'));
+  L.push('<span class="dim">陣亡的人伕，不在上列任何統計。</span>');
+  L.push('<div class="div"></div>');
+  L.push('整場遊戲，你聽到族人自己說話的次數：<b>0</b>。');
+  L.push('<span class="dim">最接近的一次，是通譯留下的一行極短紀錄——原話沒有被完整保存。</span>');
+  L.push('<div class="div"></div>');
+  L.push('<span class="final">這不是遊戲的缺陷。這就是檔案的樣子。<br>公文、戰報、統計表——歷史，就是從這樣的紙堆裡寫出來的。<br>要把「人」從紙堆裡找回來，得有人去找口述、地名、和記憶。<br>那就是你們這學期在做的事。</span>');
+  $('#ledger').innerHTML=L.map(x=>x.startsWith('<div')?x:'<div>'+x+'</div>').join('');
+  // best
+  try{const b=+localStorage.getItem('zdsp_best')||0;
+    if(yrs>b)localStorage.setItem('zdsp_best',yrs);}catch(e){}
+  $('#game').classList.remove('on');
+  $('#end').classList.add('on');
+}
+
+/* ── 拖曳 ── */
+(function(){
+  const card=$('#card');let sx=0,dx=0,drag=false;
+  const start=e=>{if(S&&S.cur&&S.cur.one)return;
+    drag=true;sx=(e.touches?e.touches[0]:e).clientX;dx=0;
+    card.classList.add('drag');};
+  const move=e=>{if(!drag)return;
+    dx=((e.touches?e.touches[0]:e).clientX)-sx;
+    card.style.transform='translateX('+dx+'px) rotate('+dx/22+'deg)';
+    $('#hintL').style.opacity=dx<-30?Math.min(1,-dx/110):0;
+    $('#hintR').style.opacity=dx>30?Math.min(1,dx/110):0;
+    preview(dx<-30?S.cur.L:dx>30?S.cur.R:null);};
+  const end=()=>{if(!drag)return;drag=false;
+    card.classList.remove('drag');
+    $('#hintL').style.opacity=0;$('#hintR').style.opacity=0;
+    if(dx<-90)resolve('L');
+    else if(dx>90)resolve('R');
+    else{card.classList.add('snap');card.style.transform='';
+      setTimeout(()=>card.classList.remove('snap'),260);preview(null);}};
+  card.addEventListener('mousedown',start);
+  window.addEventListener('mousemove',move);
+  window.addEventListener('mouseup',end);
+  card.addEventListener('touchstart',start,{passive:true});
+  card.addEventListener('touchmove',move,{passive:true});
+  card.addEventListener('touchend',end);
+  window.addEventListener('keydown',e=>{
+    if(!S||S.over||$('#result').classList.contains('on'))return;
+    if(!$('#game').classList.contains('on'))return;
+    if(S.cur&&S.cur.one&&(e.key==='Enter'||e.key===' '))resolve('O');
+    else if(e.key==='ArrowLeft'&&!S.cur.one)resolve('L');
+    else if(e.key==='ArrowRight'&&!S.cur.one)resolve('R');});
+})();
+
+/* ── 啟動 ── */
+function startMusic(){
+  const bgm=$('#bgm');
+  if(!bgm)return;
+  bgm.volume=.42;
+  const p=bgm.play();
+  if(p&&p.catch)p.catch(()=>{});
+}
+function startGame(){
+  startMusic();
+  S=newState();
+  $('#intro').classList.remove('on');
+  $('#end').classList.remove('on');
+  $('#game').classList.add('on');
+  $('#year').textContent=S.year;
+  $('#era').textContent=eraName(S.year);
+  drawMeters();
+  showCard(pickCard());
+}
+$('#startBtn').onclick=startGame;
+$('#againBtn').onclick=startGame;
+startMusic();
+['pointerdown','touchstart','keydown'].forEach(ev=>{
+  window.addEventListener(ev,startMusic,{once:true,passive:true});
+});
+try{const b=+localStorage.getItem('zdsp_best')||0;
+  if(b)$('#best').textContent='目前班上／本機最久紀錄：在任 '+b+' 年';}catch(e){}
+</script>
+</body>
+</html>
