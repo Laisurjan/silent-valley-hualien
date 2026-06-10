@@ -49,6 +49,14 @@ body{margin:0;background:radial-gradient(1200px 800px at 50% -10%,#241b10,var(--
 #yearrow{display:flex;justify-content:space-between;align-items:baseline;padding:2px 4px 10px}
 #year{font-size:30px;letter-spacing:.08em;color:var(--paper)}
 #era{font-size:13px;color:var(--muted);letter-spacing:.2em}
+#audioControls{position:absolute;top:8px;right:4px;display:flex;gap:6px;z-index:6}
+.iconBtn{position:relative;width:34px;height:34px;border-radius:50%;border:1px solid #4b3b23;background:#171108;color:var(--gold);
+  font-family:inherit;font-size:16px;line-height:1;display:flex;align-items:center;justify-content:center;cursor:pointer;
+  opacity:.9;transition:opacity .15s,background .15s,color .15s,transform .1s}
+.iconBtn:hover{background:#241a0d}
+.iconBtn:active{transform:scale(.94)}
+.iconBtn.off{color:#6e6048;border-color:#332819;opacity:.65}
+.iconBtn.off::after{content:"";position:absolute;width:22px;height:1px;background:#8d4038;transform:rotate(-38deg)}
 
 /* ── card ── */
 #cardzone{flex:1;position:relative;display:flex;align-items:center;justify-content:center;perspective:900px;min-height:0}
@@ -137,6 +145,10 @@ body{margin:0;background:radial-gradient(1200px 800px at 50% -10%,#241b10,var(--
 
   <!-- 遊戲 -->
   <div id="game">
+    <div id="audioControls">
+      <button class="iconBtn" id="musicBtn" type="button" aria-label="關閉背景音樂" title="背景音樂">♪</button>
+      <button class="iconBtn" id="sfxBtn" type="button" aria-label="關閉音效" title="紙張與蓋章音效">◉</button>
+    </div>
     <div id="meters">
       <div class="meter" data-k="t"><div class="lab">東京<span class="dot"></span></div><div class="bar"><div class="fill"></div></div></div>
       <div class="meter" data-k="b"><div class="lab">預算<span class="dot"></span></div><div class="bar"><div class="fill"></div></div></div>
@@ -481,10 +493,60 @@ function preview(opt){
     m.classList.toggle('hot',!!(opt&&opt.fx&&opt.fx[k]));});
 }
 
+let audioCtx=null;
+let musicOn=localStorage.getItem('zdsp_music')!=='0';
+let sfxOn=localStorage.getItem('zdsp_sfx')!=='0';
+function sfxCtx(){
+  if(!audioCtx)audioCtx=new (window.AudioContext||window.webkitAudioContext)();
+  if(audioCtx.state==='suspended')audioCtx.resume();
+  return audioCtx;
+}
+function noiseBurst(t,dur,vol,filterFreq,type='bandpass'){
+  const ctx=sfxCtx();
+  const len=Math.max(1,Math.floor(ctx.sampleRate*dur));
+  const buf=ctx.createBuffer(1,len,ctx.sampleRate);
+  const data=buf.getChannelData(0);
+  for(let i=0;i<len;i++)data[i]=(Math.random()*2-1)*(1-i/len);
+  const src=ctx.createBufferSource();src.buffer=buf;
+  const filt=ctx.createBiquadFilter();filt.type=type;filt.frequency.value=filterFreq;filt.Q.value=type==='bandpass'?1.8:.7;
+  const gain=ctx.createGain();
+  gain.gain.setValueAtTime(0,t);
+  gain.gain.linearRampToValueAtTime(vol,t+.012);
+  gain.gain.exponentialRampToValueAtTime(.001,t+dur);
+  src.connect(filt);filt.connect(gain);gain.connect(ctx.destination);
+  src.start(t);src.stop(t+dur+.02);
+}
+function tone(t,freq,dur,vol,type='sine'){
+  const ctx=sfxCtx();
+  const osc=ctx.createOscillator();osc.type=type;osc.frequency.setValueAtTime(freq,t);
+  const gain=ctx.createGain();
+  gain.gain.setValueAtTime(0,t);
+  gain.gain.linearRampToValueAtTime(vol,t+.008);
+  gain.gain.exponentialRampToValueAtTime(.001,t+dur);
+  osc.connect(gain);gain.connect(ctx.destination);
+  osc.start(t);osc.stop(t+dur+.03);
+}
+function playPaper(){
+  if(!sfxOn)return;
+  const ctx=sfxCtx(),t=ctx.currentTime;
+  noiseBurst(t,.09,.11,1800);
+  noiseBurst(t+.055,.12,.08,3200);
+  noiseBurst(t+.14,.08,.045,900,'highpass');
+}
+function playStamp(){
+  if(!sfxOn)return;
+  const ctx=sfxCtx(),t=ctx.currentTime;
+  noiseBurst(t,.035,.16,700,'lowpass');
+  tone(t,92,.16,.12,'triangle');
+  tone(t+.012,58,.11,.08,'sine');
+  noiseBurst(t+.12,.10,.045,1500);
+}
+
 function resolve(side){
   if(S.over)return;
   preview(null);
   const c=S.cur,opt=c.one?c.O:c[side];
+  if(c.one)playStamp();else playPaper();
   S.uses[c.id]=(S.uses[c.id]||0)+1;
   if(c.kind==='fixed')S.done[c.id]=true;
   // 顯性數值
@@ -521,7 +583,7 @@ function flyNext(side){
   card.style.transform='translateX('+(side==='L'?-1:1)*420+'px) rotate('+(side==='L'?-14:14)+'deg)';
   setTimeout(()=>{card.style.opacity='';card.classList.remove('fly');nextTurn();},330);
 }
-$('#resBtn').onclick=()=>{$('#result').classList.remove('on');nextTurn();};
+$('#resBtn').onclick=()=>{playPaper();$('#result').classList.remove('on');nextTurn();};
 
 function advance(dy){
   for(let i=0;i<dy;i++){
@@ -642,9 +704,36 @@ function finish(key){
 function startMusic(){
   const bgm=$('#bgm');
   if(!bgm)return;
+  if(sfxOn)sfxCtx();
   bgm.volume=.42;
+  if(!musicOn){bgm.pause();return;}
   const p=bgm.play();
   if(p&&p.catch)p.catch(()=>{});
+}
+function drawAudioButtons(){
+  const mb=$('#musicBtn'),sb=$('#sfxBtn');
+  if(mb){
+    mb.classList.toggle('off',!musicOn);
+    mb.setAttribute('aria-label',musicOn?'關閉背景音樂':'開啟背景音樂');
+    mb.title=musicOn?'背景音樂：開':'背景音樂：關';
+  }
+  if(sb){
+    sb.classList.toggle('off',!sfxOn);
+    sb.setAttribute('aria-label',sfxOn?'關閉音效':'開啟音效');
+    sb.title=sfxOn?'紙張與蓋章音效：開':'紙張與蓋章音效：關';
+  }
+}
+function toggleMusic(){
+  musicOn=!musicOn;
+  localStorage.setItem('zdsp_music',musicOn?'1':'0');
+  drawAudioButtons();
+  startMusic();
+}
+function toggleSfx(){
+  sfxOn=!sfxOn;
+  localStorage.setItem('zdsp_sfx',sfxOn?'1':'0');
+  drawAudioButtons();
+  if(sfxOn)playPaper();
 }
 function startGame(){
   startMusic();
@@ -659,6 +748,9 @@ function startGame(){
 }
 $('#startBtn').onclick=startGame;
 $('#againBtn').onclick=startGame;
+$('#musicBtn').onclick=toggleMusic;
+$('#sfxBtn').onclick=toggleSfx;
+drawAudioButtons();
 startMusic();
 ['pointerdown','touchstart','keydown'].forEach(ev=>{
   window.addEventListener(ev,startMusic,{once:true,passive:true});
