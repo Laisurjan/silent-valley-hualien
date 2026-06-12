@@ -6,46 +6,284 @@
 <title>AI 與原住民族歷史敘事學習展</title>
 <link rel="stylesheet" href="../assets/styles/design_tokens.css">
 <style>
-*{box-sizing:border-box}html{scroll-behavior:smooth}body{margin:0;background:var(--bg-main);color:var(--text-primary);font-family:var(--font-serif);line-height:1.75}.wrap{max-width:1180px;margin:0 auto;padding:0 24px}.hero{min-height:92vh;display:grid;align-content:end;background:linear-gradient(90deg,rgba(14,11,8,.82),rgba(14,11,8,.28)),url("../assets/images/hero_valley.png") center/cover no-repeat;border-bottom:1px solid var(--line-thin)}.hero-inner{max-width:1180px;margin:0 auto;width:100%;padding:44px 24px 52px}.eyebrow{font-family:var(--font-sans);font-size:12px;letter-spacing:.28em;color:var(--accent);text-transform:uppercase}.hero h1{font-size:52px;line-height:1.18;margin:12px 0 14px;color:#fff;letter-spacing:0}.hero p{max-width:760px;margin:0;color:rgba(245,241,234,.86);font-family:var(--font-sans);font-size:17px}.nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}.nav a{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.28);padding:8px 12px;border-radius:8px;font-family:var(--font-sans);font-size:13px;background:rgba(0,0,0,.18)}.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px;max-width:920px}.stat{border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:12px;background:rgba(14,11,8,.34)}.stat strong{display:block;color:#fff;font-size:28px;line-height:1.1}.stat span{font-family:var(--font-sans);font-size:12px;color:rgba(255,255,255,.72)}section{padding:56px 0;border-bottom:1px solid var(--line-thin)}h2{font-size:32px;color:var(--text-title);line-height:1.3;margin:0 0 10px;letter-spacing:0}.lead{max-width:820px;color:var(--text-second);font-family:var(--font-sans);margin:0 0 24px}.two-col{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:26px;align-items:start}.event-head{display:grid;grid-template-columns:160px minmax(0,1fr);gap:18px;align-items:stretch}.event-head img{width:100%;height:100%;min-height:190px;object-fit:cover;border-radius:8px;border:1px solid var(--line-thin)}.event-title{border-left:5px solid var(--event-color);padding-left:16px}.event-title .years{font-family:var(--font-sans);font-size:13px;color:var(--event-color);letter-spacing:.18em}.event-title h3{font-size:30px;color:var(--text-title);margin:4px 0}.event-title p{margin:0;color:var(--text-second)}.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.chip{border:1px solid var(--line-soft);border-radius:999px;padding:5px 9px;font-family:var(--font-sans);font-size:12px;color:var(--text-primary)}.panel{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:8px;padding:18px}.panel h4{margin:0 0 10px;color:var(--text-title);font-size:18px}.notebook-list{display:grid;gap:12px}.notebook{border-left:3px solid var(--event-color);background:rgba(0,0,0,.12);padding:12px;border-radius:0 8px 8px 0}.notebook h5{margin:0 0 5px;color:var(--text-title);font-size:16px}.notebook .meta{font-family:var(--font-sans);font-size:12px;color:var(--text-muted);margin-bottom:8px}.quote{margin:8px 0 0;padding:10px;border:1px solid var(--line-thin);border-radius:8px}.quote b{display:block;font-family:var(--font-sans);font-size:12px;color:var(--event-color);margin-bottom:4px}.quote p{margin:0;font-size:14px;color:var(--text-primary)}.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}.media-card{border:1px solid var(--line-soft);border-radius:8px;padding:14px;background:var(--bg-card)}.media-card h5{font-size:16px;margin:0 0 4px;color:var(--text-title)}.media-card p{font-family:var(--font-sans);font-size:13px;color:var(--text-second);margin:0 0 10px}.media-card audio,.media-card video{width:100%;display:block;border-radius:6px}.mindmap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}.mindmap-card{border:1px solid var(--line-soft);background:var(--bg-card);border-radius:8px;overflow:hidden}.mindmap-card figure{margin:0;background:#f5f1ea}.mindmap-card iframe{display:block;width:100%;aspect-ratio:16/10;border:0;background:#f5f1ea}.mindmap-body{padding:14px}.mindmap-body h4{font-size:18px;margin:0 0 4px;color:var(--text-title)}.mindmap-meta{font-family:var(--font-sans);font-size:12px;color:var(--text-muted);margin-bottom:10px}.refs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}.ref-group{border:1px solid var(--line-soft);border-radius:8px;background:var(--bg-card);padding:16px}.ref-group h3{margin:0 0 8px;color:var(--text-title);font-size:18px}.ref-group ul{margin:0;padding-left:18px}.ref-group li{font-family:var(--font-sans);font-size:13px;color:var(--text-second);line-height:1.65}.source-link{display:inline-block;margin-top:10px;color:var(--accent);font-family:var(--font-sans);font-size:13px}.wall{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px}.work-card{border:1px solid var(--line-soft);background:var(--bg-card);border-radius:8px;padding:16px}.work-card h4{margin:0 0 8px;color:var(--text-title);font-size:19px}.work-card p{margin:0 0 10px;color:var(--text-second);font-family:var(--font-sans);font-size:14px}.checklist{display:grid;gap:8px;margin:0;padding:0;list-style:none}.checklist li{padding-left:22px;position:relative;font-family:var(--font-sans);font-size:14px}.checklist li:before{content:"";position:absolute;left:0;top:.65em;width:8px;height:8px;background:var(--accent);border-radius:50%}.notice{border:1px solid var(--line-soft);border-left:5px solid var(--accent);border-radius:8px;padding:16px;background:rgba(217,164,65,.08);font-family:var(--font-sans)}footer{padding:26px 24px;text-align:center;color:var(--text-muted);font-family:var(--font-sans);font-size:12px}.badge{display:inline-block;font-family:var(--font-sans);font-size:11px;letter-spacing:.06em;padding:3px 9px;border-radius:999px;border:1px solid var(--line-soft);white-space:nowrap}.badge-event{color:var(--event-color);border-color:var(--event-color)}.badge-pending{color:var(--accent);border-color:var(--accent);background:rgba(217,164,65,.1)}.mindmap-meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap}.wall-step{font-family:var(--font-sans);font-size:12px;letter-spacing:.18em;color:var(--accent);margin-bottom:6px}@media(max-width:820px){.hero{min-height:88vh}.hero h1{font-size:38px}.stats,.two-col,.media-grid,.wall,.mindmap-grid,.refs{grid-template-columns:1fr}.event-head{grid-template-columns:1fr}.event-head img{height:220px}.wrap{padding:0 16px}section{padding:38px 0}}
+/* ---- 主題別名：事件色與金色在淺色版自動換成出版用色 ---- */
+.theme-dark{--c-cepo:var(--color-cepo-dark);--c-dafen:var(--color-dafen-dark);--c-cikasuan:var(--color-cikasuan-dark);--c-truku:var(--color-truku-dark);--ink-red:#E85A52;--paper:#F3ECDD;--paper-ink:#2B2520}
+.theme-light{--c-cepo:var(--color-cepo);--c-dafen:var(--color-dafen);--c-cikasuan:var(--color-cikasuan);--c-truku:var(--color-truku);--accent:#8B5E1F;--ink-red:#C73E3A;--paper:#FFFBF2;--paper-ink:#2B2520}
+*{box-sizing:border-box}html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg-main);color:var(--text-primary);font-family:var(--font-serif);line-height:1.8;overflow-x:hidden}
+.wrap{max-width:1180px;margin:0 auto;padding:0 24px}
+/* ---- 主題切換鈕 ---- */
+.theme-toggle{position:fixed;top:14px;right:14px;z-index:90;border:1px solid var(--line-soft);background:var(--bg-card);color:var(--text-title);font-family:var(--font-sans);font-size:13px;padding:8px 14px;border-radius:999px;cursor:pointer;backdrop-filter:blur(4px)}
+.theme-toggle:hover{border-color:var(--accent);color:var(--accent)}
+/* ---- 幕標 ---- */
+.act-label{font-family:var(--font-sans);font-size:13px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
+.act-label::before{content:'';display:inline-block;width:26px;height:1px;background:var(--accent);vertical-align:middle;margin-right:12px}
+/* ---- Hero ---- */
+.hero{min-height:92vh;display:grid;align-content:end;background:linear-gradient(90deg,rgba(14,11,8,.85),rgba(14,11,8,.3)),url("../assets/images/hero_valley.png") center/cover no-repeat;border-bottom:1px solid var(--line-thin)}
+.hero-inner{max-width:1180px;margin:0 auto;width:100%;padding:44px 24px 56px}
+.eyebrow{font-family:var(--font-sans);font-size:12px;letter-spacing:.28em;color:#D9A441;text-transform:uppercase}
+.hero h1{font-size:56px;line-height:1.16;margin:12px 0 6px;color:#fff;letter-spacing:.02em}
+.hero .sub{font-family:var(--font-sans);font-size:18px;color:#D9A441;letter-spacing:.14em;margin:0 0 14px}
+.hero p.intro{max-width:780px;margin:0;color:rgba(245,241,234,.88);font-family:var(--font-sans);font-size:17px}
+.nav{display:flex;gap:10px;flex-wrap:wrap;margin-top:26px}
+.nav a{color:#fff;text-decoration:none;border:1px solid rgba(255,255,255,.28);padding:8px 13px;border-radius:8px;font-family:var(--font-sans);font-size:13px;background:rgba(0,0,0,.2)}
+.nav a:hover{border-color:#D9A441;color:#D9A441}
+.stats{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:12px;margin-top:28px;max-width:960px}
+.stat{border:1px solid rgba(255,255,255,.22);border-radius:8px;padding:12px;background:rgba(14,11,8,.4)}
+.stat strong{display:block;color:#fff;font-size:30px;line-height:1.1}
+.stat span{font-family:var(--font-sans);font-size:12px;color:rgba(255,255,255,.72)}
+section{padding:64px 0;border-bottom:1px solid var(--line-thin)}
+h2{font-size:36px;color:var(--text-title);line-height:1.3;margin:0 0 10px;letter-spacing:.01em}
+.lead{max-width:840px;color:var(--text-second);font-family:var(--font-sans);font-size:16px;margin:0 0 24px}
+.two-col{display:grid;grid-template-columns:minmax(0,1.05fr) minmax(300px,.95fr);gap:26px;align-items:start}
+/* ---- 第一幕：AI 初稿翻頁書 ---- */
+#draft{background:radial-gradient(ellipse at 50% 20%,rgba(217,164,65,.06),transparent 60%)}
+.book-stage{display:grid;justify-items:center;gap:18px;padding:18px 0 6px}
+/* 攤頁式書本：書脊在容器正中，紙頁佔右半，翻過去正好落在左半，不會超出版面 */
+/* 單頁置中：每一頁都是完整一張紙，繞中軸翻走露出下一頁，不超出版面、無空白半邊 */
+.book{position:relative;width:min(560px,90vw);height:min(620px,74vh);min-height:430px;margin:0 auto;perspective:2400px}
+.sheet{position:absolute;inset:0;transform-origin:center center;transform-style:preserve-3d;transition:transform .85s cubic-bezier(.3,.7,.3,1);cursor:pointer}
+.sheet.flipped{transform:rotateY(-180deg)}
+/* 古意紙頁：宋體、米黃紙、雙線內框、首行縮排、兩端對齊 */
+.face{position:absolute;inset:0;backface-visibility:hidden;-webkit-backface-visibility:hidden;background:var(--paper);background-image:radial-gradient(rgba(120,90,50,.05) 1px,transparent 1px);background-size:7px 7px;color:var(--paper-ink);border:1px solid rgba(43,37,32,.25);border-radius:8px;padding:42px 40px 56px;overflow:hidden;font-family:var(--font-serif);box-shadow:inset 11px 0 22px -16px rgba(43,37,32,.32),0 18px 38px -20px rgba(0,0,0,.6)}
+.face::after{content:'';position:absolute;inset:13px;border:1px solid rgba(43,37,32,.22);box-shadow:inset 0 0 0 3px var(--paper),inset 0 0 0 4px rgba(43,37,32,.12);border-radius:3px;pointer-events:none}
+.face.cover-face::after{border-color:rgba(217,164,65,.4);box-shadow:inset 0 0 0 3px transparent,inset 0 0 0 4px rgba(217,164,65,.22)}
+.face .wm{position:absolute;left:-12%;top:42%;width:124%;text-align:center;transform:rotate(-14deg);font-family:var(--font-serif);font-weight:700;font-size:30px;letter-spacing:.34em;color:rgba(199,62,58,.16);border-top:2px dashed rgba(199,62,58,.22);border-bottom:2px dashed rgba(199,62,58,.22);padding:8px 0;pointer-events:none;user-select:none;z-index:2}
+.face .stamp{position:absolute;right:20px;bottom:16px;font-family:var(--font-serif);font-size:12px;letter-spacing:.14em;color:rgba(199,62,58,.8);border:1.5px solid rgba(199,62,58,.55);border-radius:3px;padding:4px 9px;transform:rotate(-4deg);z-index:2}
+.face h3{font-family:var(--font-serif);font-size:17px;letter-spacing:.34em;text-indent:.34em;color:rgba(43,37,32,.62);margin:0 0 20px;text-align:center;padding-bottom:12px;position:relative}
+.face h3::after{content:'';position:absolute;left:50%;bottom:0;width:48px;height:1px;margin-left:-24px;background:rgba(43,37,32,.3)}
+.face blockquote{margin:0 0 18px;font-size:19.5px;line-height:2.15;color:var(--paper-ink);text-indent:2em;letter-spacing:.06em;text-align:justify;text-justify:inter-character}
+.face blockquote i{font-style:normal;font-weight:700;border-bottom:3px solid rgba(199,62,58,.6);padding-bottom:1px}
+.face .src{font-family:var(--font-serif);font-size:13px;line-height:1.8;color:rgba(43,37,32,.62);border-left:3px solid rgba(199,62,58,.4);padding-left:11px;letter-spacing:.03em}
+.face.cover-face{display:grid;align-content:center;text-align:center;background:linear-gradient(160deg,#3A2F24,#241C13);color:#EFE6D2;border:1px solid rgba(217,164,65,.4);background-image:none}
+.face.cover-face h3{color:#D9A441;letter-spacing:.55em;text-indent:.55em;font-size:14px;margin-bottom:10px}
+.face.cover-face h3::after{background:rgba(217,164,65,.4)}
+.face.cover-face .cov-title{font-size:46px;color:#F5F1EA;margin:0 0 6px;letter-spacing:.18em;text-indent:.18em}
+.face.cover-face .cov-sub{font-family:var(--font-serif);color:#D98B6A;letter-spacing:.26em;text-indent:.26em;font-size:15px;margin:0 0 24px}
+.face.cover-face p{font-family:var(--font-serif);font-size:16px;line-height:2.1;letter-spacing:.04em;color:rgba(239,230,210,.86);margin:0}
+.face.cover-face .wm{color:rgba(217,138,106,.2);border-color:rgba(217,138,106,.25)}
+.book-controls{display:flex;gap:14px;align-items:center;font-family:var(--font-sans);font-size:13.5px;color:var(--text-second)}
+.book-controls button{border:1px solid var(--line-soft);background:var(--bg-card);color:var(--text-title);font-family:var(--font-sans);font-size:14px;padding:8px 16px;border-radius:999px;cursor:pointer}
+.book-controls button:hover{border-color:var(--accent);color:var(--accent)}
+/* ---- 過場提問 ---- */
+.pause{padding:80px 0;text-align:center;background:linear-gradient(180deg,transparent,rgba(0,0,0,.18),transparent)}
+.theme-light .pause{background:linear-gradient(180deg,transparent,rgba(43,37,32,.06),transparent)}
+.pause .q-small{font-family:var(--font-sans);letter-spacing:.3em;font-size:13px;color:var(--accent);margin-bottom:14px}
+.pause h2{font-size:42px;margin-bottom:8px}
+.pause p{color:var(--text-second);font-family:var(--font-sans);margin:0 0 28px}
+.reveal-btn{font-family:var(--font-sans);font-size:17px;letter-spacing:.08em;color:#1A1612;background:var(--accent);border:0;border-radius:999px;padding:14px 34px;cursor:pointer}
+.reveal-btn:hover{filter:brightness(1.08)}
+/* ---- 第二幕：審稿桌 ---- */
+.vote-grid{display:grid;gap:18px;margin-top:10px}
+.vote-card{border:1px solid var(--line-soft);border-radius:10px;background:var(--bg-card);padding:22px 24px}
+.vote-card h3{margin:0 0 16px;font-size:22px;color:var(--text-title)}
+.vote-row{display:grid;grid-template-columns:minmax(0,1fr) 110px 44px;gap:12px;align-items:center;padding:7px 0;font-family:var(--font-sans);font-size:14.5px}
+.vote-row .opt{color:var(--text-second)}
+.vote-row.win .opt{color:var(--text-title);font-weight:700}
+.vote-row .bar{height:12px;border-radius:999px;background:rgba(127,127,127,.16);overflow:hidden}
+.vote-row .bar i{display:block;height:100%;width:0;border-radius:999px;background:var(--text-muted);transition:width 1.1s cubic-bezier(.2,.7,.3,1)}
+.vote-row.win .bar i{background:var(--accent)}
+.revealed .vote-row .bar i{width:var(--w)}
+.vote-row .n{text-align:right;font-variant-numeric:tabular-nums;color:var(--text-title);font-weight:700}
+.verdict{margin-top:14px;border-top:1px dashed var(--line-soft);padding-top:12px;font-family:var(--font-sans);font-size:14.5px;color:var(--accent)}
+/* ---- 紅筆對照 ---- */
+.pairs{display:grid;gap:16px;margin-top:26px}
+.pair{display:grid;grid-template-columns:1fr 1fr;gap:0;border:1px solid var(--line-soft);border-radius:10px;overflow:hidden}
+.pair .side{padding:20px 22px}
+.pair .ai-side{background:var(--paper);color:var(--paper-ink)}
+.pair .ai-side b{display:block;font-family:var(--font-sans);font-size:12px;letter-spacing:.14em;color:rgba(199,62,58,.85);margin-bottom:10px}
+.pair .ai-side p{margin:0;font-size:16.5px;line-height:1.95;text-decoration:line-through;text-decoration-color:rgba(199,62,58,.65);text-decoration-thickness:2px}
+.pair .st-side{background:var(--bg-card);border-left:4px solid var(--accent)}
+.pair .st-side b{display:block;font-family:var(--font-sans);font-size:12px;letter-spacing:.14em;color:var(--accent);margin-bottom:10px}
+.pair .st-side p{margin:0 0 10px;font-size:17.5px;line-height:1.95;color:var(--text-title)}
+.pair .st-side .why{font-family:var(--font-sans);font-size:13.5px;color:var(--text-second);margin:0}
+.pair .st-side .who{font-family:var(--font-sans);font-size:12.5px;color:var(--text-muted);margin-top:10px;display:block}
+/* ---- 事件展區 ---- */
+.event-head{display:grid;grid-template-columns:160px minmax(0,1fr);gap:18px;align-items:stretch}
+.event-head img{width:100%;height:100%;min-height:190px;object-fit:cover;border-radius:8px;border:1px solid var(--line-thin)}
+.event-title{border-left:5px solid var(--event-color);padding-left:16px}
+.event-title .years{font-family:var(--font-sans);font-size:13px;color:var(--event-color);letter-spacing:.18em}
+.event-title h3{font-size:29px;color:var(--text-title);margin:4px 0;line-height:1.35}
+.event-title p{margin:0;color:var(--text-second)}
+.name-note{font-family:var(--font-sans);font-size:13px;color:var(--text-second);background:rgba(127,127,127,.08);border-left:3px solid var(--event-color);padding:8px 12px;border-radius:0 6px 6px 0;margin-top:10px}
+.decision-chip{display:inline-block;font-family:var(--font-sans);font-size:11.5px;letter-spacing:.06em;color:var(--accent);border:1px solid var(--accent);border-radius:999px;padding:3px 10px;margin-top:10px}
+.chips{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}
+.chip{border:1px solid var(--line-soft);border-radius:999px;padding:5px 9px;font-family:var(--font-sans);font-size:12px;color:var(--text-primary)}
+.panel{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:8px;padding:18px}
+.panel h4{margin:0 0 10px;color:var(--text-title);font-size:18px}
+.notebook-list{display:grid;gap:12px}
+.notebook{border-left:3px solid var(--event-color);background:rgba(0,0,0,.12);padding:12px;border-radius:0 8px 8px 0}
+.theme-light .notebook{background:rgba(43,37,32,.05)}
+.notebook h5{margin:0 0 5px;color:var(--text-title);font-size:16px}
+.notebook .meta{font-family:var(--font-sans);font-size:12px;color:var(--text-muted);margin-bottom:8px}
+.quote{margin:8px 0 0;padding:10px;border:1px solid var(--line-thin);border-radius:8px}
+.quote b{display:block;font-family:var(--font-sans);font-size:12px;color:var(--event-color);margin-bottom:4px}
+.quote p{margin:0;font-size:14px;color:var(--text-primary)}
+mark.stance{background:transparent;color:inherit;border-bottom:2px solid var(--ink-red);cursor:help}
+.media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
+.media-card{border:1px solid var(--line-soft);border-radius:8px;padding:14px;background:var(--bg-card)}
+.media-card h5{font-size:16px;margin:0 0 4px;color:var(--text-title)}
+.media-card p{font-family:var(--font-sans);font-size:13px;color:var(--text-second);margin:0 0 10px}
+.media-card audio,.media-card video{width:100%;display:block;border-radius:6px}
+/* ---- 心智圖 ---- */
+.mindmap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.mindmap-card{border:1px solid var(--line-soft);background:var(--bg-card);border-radius:8px;overflow:hidden}
+.mindmap-card figure{margin:0;background:#f5f1ea}
+.mindmap-card iframe{display:block;width:100%;aspect-ratio:16/10;border:0;background:#f5f1ea}
+.mindmap-body{padding:14px}
+.mindmap-body h4{font-size:18px;margin:0 0 4px;color:var(--text-title)}
+.mindmap-meta{display:flex;align-items:center;gap:8px;flex-wrap:wrap;font-family:var(--font-sans);font-size:12px;color:var(--text-muted);margin-bottom:10px}
+.badge{display:inline-block;font-family:var(--font-sans);font-size:11px;letter-spacing:.06em;padding:3px 9px;border-radius:999px;border:1px solid var(--line-soft);white-space:nowrap}
+.badge-event{color:var(--event-color);border-color:var(--event-color)}
+.badge-pending{color:var(--accent);border-color:var(--accent);background:rgba(217,164,65,.1)}
+.badge-archived{color:var(--text-muted);border-color:var(--line-soft);font-size:10.5px}
+/* ---- 桂冠句子牆（桂冠預設收起，點卡片才頒出） ---- */
+#laurels{background:radial-gradient(ellipse at 50% 0%,rgba(217,164,65,.07),transparent 55%)}
+.laurel-featured{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:26px 0 12px}
+.laurel-card{position:relative;border:1px solid var(--line-soft);border-radius:12px;background:var(--bg-card);padding:26px 28px 18px;text-align:center;cursor:pointer;transition:border-color .3s}
+.laurel-card:hover{border-color:var(--accent)}
+.laurel-card p.sent{font-size:23px;line-height:1.85;color:var(--text-title);margin:0 0 16px;text-wrap:balance}
+.laurel-card .meta-line{font-family:var(--font-sans);font-size:13px;color:var(--text-muted)}
+.laurel-card .meta-line b{color:var(--event-color);font-weight:500}
+.laurel-quotes{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:14px;margin-top:18px}
+.quote-card{border:1px solid var(--line-soft);border-radius:10px;background:var(--bg-card);padding:18px 20px 14px;position:relative;text-align:center;cursor:pointer;transition:border-color .3s}
+.quote-card:hover{border-color:var(--accent)}
+.quote-card p{font-size:16px;line-height:1.9;color:var(--text-primary);margin:0 0 12px}
+.quote-card .meta-line{font-family:var(--font-sans);font-size:12.5px;color:var(--text-muted)}
+.quote-card .meta-line b{color:var(--event-color);font-weight:500}
+.medal{position:relative;width:200px;margin:0 auto;max-height:0;opacity:0;transform:translateY(-10px) scale(.65);transition:max-height .45s ease,opacity .45s ease,transform .55s cubic-bezier(.2,.9,.3,1.25);pointer-events:none}
+.awarded .medal{max-height:160px;opacity:1;transform:none;margin-bottom:10px}
+.medal svg{display:block;width:100%;height:auto;color:var(--accent)}
+.medal .medal-text{position:absolute;inset:0 0 14% 0;display:grid;place-content:center;text-align:center}
+.medal .medal-text b{font-family:var(--font-serif);font-size:25px;letter-spacing:.28em;text-indent:.28em;color:var(--accent);font-weight:700}
+.medal .medal-text span{font-family:var(--font-sans);font-size:11px;letter-spacing:.22em;text-indent:.22em;color:var(--accent);margin-top:3px}
+.quote-card .medal{width:150px}
+.quote-card .medal .medal-text b{font-size:19px}
+.quote-card .medal .medal-text span{font-size:10px}
+.award-hint{font-family:var(--font-sans);font-size:11.5px;letter-spacing:.2em;color:var(--text-muted);margin-top:12px;user-select:none}
+.laurel-card:hover .award-hint,.quote-card:hover .award-hint{color:var(--accent)}
+.awarded .award-hint{display:none}
+/* ---- 學習歷程 ---- */
+.literacy-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:8px}
+.literacy-card{border:1px solid var(--line-soft);border-left:4px solid var(--accent);border-radius:8px;background:var(--bg-card);padding:16px 18px}
+.literacy-card p{margin:0 0 8px;font-size:15.5px;color:var(--text-primary)}
+.literacy-card span{font-family:var(--font-sans);font-size:12px;color:var(--text-muted)}
+.prior{margin-top:26px;border:1px solid var(--line-soft);border-radius:10px;background:var(--bg-card);padding:20px 22px;max-width:640px}
+.prior h4{margin:0 0 4px;color:var(--text-title);font-size:18px}
+.prior .pk-note{font-family:var(--font-sans);font-size:13px;color:var(--text-second);margin:0 0 14px}
+.pk-row{display:grid;grid-template-columns:minmax(0,1fr) 130px 36px;gap:12px;align-items:center;padding:5px 0;font-family:var(--font-sans);font-size:14px;color:var(--text-second)}
+.pk-row .bar{height:10px;border-radius:999px;background:rgba(127,127,127,.16);overflow:hidden}
+.pk-row .bar i{display:block;height:100%;background:var(--accent);border-radius:999px}
+.pk-row .n{text-align:right;color:var(--text-title);font-weight:700;font-variant-numeric:tabular-nums}
+.checklist{display:grid;gap:8px;margin:0;padding:0;list-style:none}
+.checklist li{padding-left:22px;position:relative;font-family:var(--font-sans);font-size:14px}
+.checklist li:before{content:"";position:absolute;left:0;top:.65em;width:8px;height:8px;background:var(--accent);border-radius:50%}
+.notice{border:1px solid var(--line-soft);border-left:5px solid var(--accent);border-radius:8px;padding:16px;background:rgba(217,164,65,.08);font-family:var(--font-sans)}
+/* ---- 出口牆 ---- */
+#exit{text-align:center;background:linear-gradient(180deg,transparent,rgba(0,0,0,.22))}
+.theme-light #exit{background:linear-gradient(180deg,transparent,rgba(43,37,32,.07))}
+.exit-list{max-width:760px;margin:30px auto 0;display:grid;gap:18px}
+.exit-list p{margin:0;font-size:19px;line-height:1.9;color:var(--text-primary)}
+.exit-list span{display:block;font-family:var(--font-sans);font-size:12.5px;color:var(--text-muted);margin-top:4px}
+.exit-closer{max-width:820px;margin:48px auto 0;padding-top:36px;border-top:1px solid var(--line-soft)}
+.exit-closer p{font-size:33px;line-height:1.7;color:var(--text-title);margin:0 0 10px;text-wrap:balance}
+.exit-closer span{font-family:var(--font-sans);font-size:13.5px;color:var(--accent)}
+/* ---- 參考資料 ---- */
+.refs{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px;margin-top:16px}
+.ref-group{border:1px solid var(--line-soft);border-radius:8px;background:var(--bg-card);padding:16px}
+.ref-group h3{margin:0 0 8px;color:var(--text-title);font-size:18px}
+.ref-group ul{margin:0;padding-left:18px}
+.ref-group li{font-family:var(--font-sans);font-size:13px;color:var(--text-second);line-height:1.7}
+.source-link{display:inline-block;margin-top:10px;color:var(--accent);font-family:var(--font-sans);font-size:13px}
+footer{padding:26px 24px;text-align:center;color:var(--text-muted);font-family:var(--font-sans);font-size:12px}
+@media(max-width:880px){
+.hero{min-height:88vh}.hero h1{font-size:38px}
+.stats,.two-col,.media-grid,.mindmap-grid,.refs,.laurel-featured,.laurel-quotes,.literacy-grid{grid-template-columns:1fr}
+.event-head{grid-template-columns:1fr}.event-head img{height:220px}
+.wrap{padding:0 16px}section{padding:40px 0}
+.book{width:94vw;height:min(470px,66vh);min-height:330px}
+.face{padding:18px 16px 42px}.face blockquote{font-size:15px;line-height:1.85}.face h3{font-size:13px;margin-bottom:12px}
+.face.cover-face .cov-title{font-size:26px}.face .wm{font-size:17px}.face .src{font-size:11.5px}
+.pair{grid-template-columns:1fr}.pair .st-side{border-left:0;border-top:4px solid var(--accent)}
+.pause h2{font-size:30px}.laurel-card p.sent{font-size:19px}.exit-closer p{font-size:24px}
+.vote-row{grid-template-columns:minmax(0,1fr) 70px 36px}
+}
 </style>
 </head>
 <body class="theme-dark weave-pattern">
+<button id="themeToggle" class="theme-toggle" type="button">☀ 切換淺色版</button>
 <header class="hero">
   <div class="hero-inner">
     <div class="event-color-bar"><div class="seg-cepo"></div><div class="seg-dafen"></div><div class="seg-cikasuan"></div><div class="seg-truku"></div></div>
-    <div class="eyebrow">花蓮高商 多元文化與文學</div>
+    <div class="eyebrow">花蓮高商 多元文化與文學・縱谷無言</div>
     <h1>AI 與原住民族歷史敘事學習展</h1>
-    <p>學生以 NotebookLM 閱讀史料、比較官方文獻與族群記憶；AI 生成的素材經學生審查、歸類與改寫後才上牆。這裡展示的不是 AI 能生成什麼，而是學生如何判斷。</p>
-    <nav class="nav"><a href="#cepo">大港口事件 / Cepo&#x27;</a><a href="#truku">太魯閣戰役</a><a href="#dafen">大分事件 / 布農族抗爭</a><a href="#cikasuan">七腳川事件 / Cikasuan</a><a href="#mindmaps">心智圖</a><a href="#process">學習歷程</a><a href="#wall">學生策展</a><a href="#references">參考資料</a></nav>
+    <div class="sub">「一個被學生改過的展覽」</div>
+    <p class="intro">AI 先寫了一份初稿，但它不是族人，它會說錯話。14 位學生審稿人讀過這份稿、投了票、動了紅筆。你現在看到的每一個標題、每一處用詞，都留著他們改過的痕跡。這個展覽想給你看的，是學生怎麼判斷一份 AI 的稿。</p>
+    <nav class="nav"><a href="#draft">第一幕・AI 初稿</a><a href="#verdicts">第二幕・審稿桌</a><a href="#cepo">大港口事件 / Cepo&#x27;</a><a href="#truku">太魯閣戰役</a><a href="#dafen">大分事件 / 布農族抗爭</a><a href="#cikasuan">七腳川事件 / Cikasuan</a><a href="#mindmaps">心智圖</a><a href="#laurels">句子牆</a><a href="#process">學習歷程</a><a href="#exit">出口牆</a><a href="#references">參考資料</a></nav>
     <div class="stats">
       <div class="stat"><strong>4</strong><span>大歷史事件</span></div>
+      <div class="stat"><strong>14</strong><span>位學生審稿人</span></div>
       <div class="stat"><strong>12</strong><span>本 NotebookLM 筆記本</span></div>
       <div class="stat"><strong>48</strong><span>份 AI 文字輸出</span></div>
-      <div class="stat"><strong>6</strong><span>組影音成果</span></div>
       <div class="stat"><strong>14</strong><span>張學生心智圖</span></div>
     </div>
   </div>
 </header>
 <main>
-  <section id="overview">
-    <div class="wrap two-col">
-      <div>
-        <h2>課程成果總覽</h2>
-        <p class="lead">這不是讓學生交 AI 生成物，而是把 AI 放進史料閱讀、觀點比較與改寫練習中。本站刻意區分「NotebookLM 輸出節錄」與「教師整理說明」，AI 生成文字一律標示，不直接視為史實。</p>
+  <section id="draft">
+    <div class="wrap">
+      <div class="act-label">第一幕・原稿</div>
+      <h2>一份有瑕疵的初稿</h2>
+      <p class="lead">這本冊子是 AI 整理史料後寫出的初稿，每一頁都蓋著「未經審查」的浮水印。<b>畫紅線的詞，正是它說錯話的地方。</b>請先把它翻完，知道 AI 怎麼寫，才看得懂學生改掉了什麼。</p>
+      <div class="book-stage">
+        <div class="book"><div id="bookSheet" class="sheet"><div class="face cover-face"><h3>花蓮高商・多元文化與文學</h3><div class="cov-title">縱谷無言</div><div class="cov-sub">AI 生成初稿・未經審查</div><p>這份初稿由 AI 整理史料而成。<br>它讀起來很順，可是它不是族人，它會說錯話。<br><br><b>請翻頁，看看它怎麼寫。</b></p><p style="margin-top:18px;font-size:12px;color:rgba(239,230,210,.6)">本冊所有文句皆為 AI 生成，僅供學生審查教學使用，不得視為史實。</p><div class="wm">AI 初稿・未經審查</div></div></div></div>
+        <div class="book-controls">
+          <button id="bookPrev" type="button">← 上一頁</button>
+          <span id="bookHint">點頁面或按方向鍵翻頁（1 / 6）</span>
+          <button id="bookNext" type="button">翻頁 →</button>
+        </div>
       </div>
-      <div class="notice">本頁所有標示「AI 生成」的內容，定位都是學生審查與改寫的素材；標示「審查中」者，代表已排入學生審查會進行歸類與判讀。觀展動線建議：四大事件展區 → 心智圖 → 學生策展。</div>
+      <div class="notice" style="max-width:840px;margin:18px auto 0">本冊所有文句皆為 AI 生成、僅供學生審查教學使用，不得單獨引用為史實。「兇蕃」「歸順」「理蕃」等詞為日方／官方文獻用語，照錄時一律標示立場。</div>
+    </div>
+  </section>
+  <section class="pause">
+    <div class="wrap">
+      <div class="q-small">翻完初稿，換你想一下</div>
+      <h2>「兇蕃」這兩個字，你會怎麼處理？</h2>
+      <p>照用？加註？改寫？還是整段撤下？14 位學生審稿人已經做了決定。</p>
+      <button id="revealBtn" class="reveal-btn" type="button">看審稿人的決定</button>
+    </div>
+  </section>
+  <section id="verdicts">
+    <div class="wrap">
+      <div class="act-label">第二幕・審稿桌</div>
+      <h2>三項決議</h2>
+      <p class="lead">開展前審查會（2026 年 6 月 11 日），14 位學生以 Google Form 表決。每一票都直接改變了這個展覽的長相。</p>
+      <div class="vote-grid"><article class="vote-card"><h3>「兇蕃」這兩個字，要不要上牆？</h3><div class="vote-row"><span class="opt">照用，歷史文件就是這樣寫的</span><span class="bar"><i style="--w:0%"></i></span><span class="n">0</span></div><div class="vote-row"><span class="opt">照用，但旁邊加註：這是日方對抵抗者的稱呼</span><span class="bar"><i style="--w:36%"></i></span><span class="n">5</span></div><div class="vote-row win"><span class="opt">改成「太魯閣族人」，並註明原文用語</span><span class="bar"><i style="--w:57%"></i></span><span class="n">8</span></div><div class="vote-row"><span class="opt">整段不要上牆</span><span class="bar"><i style="--w:7%"></i></span><span class="n">1</span></div><div class="verdict">本展全站依最高票執行：改寫並註明原文。14 位審稿人裡，沒有一票願意照貼原文。</div></article><article class="vote-card"><h3>「各社相繼歸順」，由族人的後代來寫會是哪一句？</h3><div class="vote-row"><span class="opt">各社相繼歸順（照原文）</span><span class="bar"><i style="--w:0%"></i></span><span class="n">0</span></div><div class="vote-row win"><span class="opt">各社在火砲與封鎖下，為了讓族人活下去，停止了武裝抵抗</span><span class="bar"><i style="--w:100%"></i></span><span class="n">14</span></div><div class="vote-row"><span class="opt">各社終於接受了現代化的治理</span><span class="bar"><i style="--w:0%"></i></span><span class="n">0</span></div><div class="vote-row"><span class="opt">各社全部被消滅了</span><span class="bar"><i style="--w:0%"></i></span><span class="n">0</span></div><div class="verdict">14:0 全數通過。這一句同時保留了「被迫」，也保留了族人的選擇與尊嚴。</div></article><article class="vote-card"><h3>展覽標題，用誰的名字說故事？</h3><div class="vote-row"><span class="opt">大港口事件（觀眾比較看得懂）</span><span class="bar"><i style="--w:0%"></i></span><span class="n">0</span></div><div class="vote-row"><span class="opt">O lalood i Cepo&#x27;（族人的名字）</span><span class="bar"><i style="--w:0%"></i></span><span class="n">0</span></div><div class="vote-row win"><span class="opt">兩個並列，並說明兩個名字的來歷</span><span class="bar"><i style="--w:100%"></i></span><span class="n">14</span></div><div class="vote-row"><span class="opt">都可以，名字不重要</span><span class="bar"><i style="--w:0%"></i></span><span class="n">0</span></div><div class="verdict">14:0 全數通過。本展四個事件的標題已全部依此決議改為雙名並列。</div></article></div>
+      <h2 style="margin-top:52px">紅筆對照：AI 原句 ✕ 學生修訂</h2>
+      <p class="lead">出自學生的事件理解卡。左邊是被駁回的 AI 原句，右邊是學生的修訂與理由。</p>
+      <div class="pairs"><article class="pair" style="--event-color:var(--c-cepo)"><div class="side ai-side"><b>AI 原句（已駁回）</b><p>這是一場為了維護國家主權與推行法治的「平定叛亂」行動。</p></div><div class="side st-side"><b>學生修訂</b><p>這是一場為自身利益殘害無辜的惡劣行為。</p><p class="why">修訂理由：有種把自己做的壞事合理化的感覺。</p><span class="who">多二甲 13・蔡O君</span></div></article><article class="pair" style="--event-color:var(--c-cepo)"><div class="side ai-side"><b>AI 原句（已駁回）</b><p>清政府將此事件定義為阿美族「兇番」抗拒「開山撫番」政策的叛亂行為，主張必須透過「勦撫兼施」的軍事手段，達成對後山領土的實際佔有。</p></div><div class="side st-side"><b>學生修訂</b><p>清軍認為開發此地必須清掃、驅趕原住民，把開墾土地造成的迫害合理化。</p><p class="why">修訂理由：政府描述的角度和族人的觀點不同。</p><span class="who">英二乙 09・余O璿</span></div></article><article class="pair" style="--event-color:var(--c-truku)"><div class="side ai-side"><b>AI 原句（已駁回）</b><p>日軍官兵因「行為不檢」且「潛通蕃婦」，未能尊重地方之習慣。</p></div><div class="side st-side"><b>學生修訂</b><p>日方記成官兵「行為不檢」；族人記得的是日軍蹂躪族中女性，嚴重觸犯祖訓。</p><p class="why">修訂理由：我想同時寫出兩方的看法：同一件事，兩種記法。</p><span class="who">商二乙 20・林O妏</span></div></article></div>
+    </div>
+  </section>
+  <section id="halls-intro" style="padding:46px 0">
+    <div class="wrap">
+      <div class="act-label">第三幕・修訂後的展覽</div>
+      <h2>四個事件展區</h2>
+      <p class="lead">以下展區已依審查會決議修訂：事件標題雙名並列、殖民用語照錄必標示。AI 節錄僅作為「學生審查素材」展示。</p>
     </div>
   </section>
   
-<section id="cepo" style="--event-color:var(--color-cepo-dark)">
+<section id="cepo" style="--event-color:var(--c-cepo)">
   <div class="wrap two-col">
     <div>
       <div class="event-head">
         <img src="../assets/images/event_cepo.png" alt="">
         <div class="event-title">
           <div class="years">1877-1878｜阿美族・秀姑巒溪口部落</div>
-          <h3>大港口事件 / Cepo&#x27;</h3>
+          <h3>大港口事件 ／ O lalood i Cepo&#x27;</h3>
           <p>花蓮縣豐濱鄉靜浦、Makuta&#x27;ay 一帶</p>
+          <div class="name-note">「大港口」是漢人地名；O lalood i Cepo&#x27; 意為「Cepo&#x27; 的戰爭」，是阿美族人自己的命名。2022 年部落正名「Cepo&#x27; 戰役」。</div>
+          <span class="decision-chip">命名方式：學生審查會 14:0 決議雙名並列</span>
           <div class="chips"><span class="chip">官方治理語言</span><span class="chip">阿美族記憶</span><span class="chip">遷徙與創傷</span><span class="chip">地名與地景改寫</span></div>
         </div>
       </div>
@@ -55,37 +293,40 @@
     <aside class="panel">
       <h4>NotebookLM 輸出節錄</h4>
       <div class="notebook-list">
-<article class="notebook" style="--event-color:var(--color-cepo-dark)">
+<article class="notebook" style="--event-color:var(--c-cepo)">
   <h5>靜浦考古遺址：阿美族的傳承</h5>
   <div class="meta">9 個 AI 輸出｜NotebookLM：Jingpu Archaeological Site: A Legacy of the Amis People</div>
-  <div class="quote"><b>AI 生成｜內容節錄</b><p>本學習指南旨在探討 1877 年至 1878 年間發生於花蓮豐濱地區的「大港口事件」（阿美族語稱為 O lalood i Cepo&#x27;）。透過分析清廷的「開山撫番」政策、部落的口述歷史以及戰爭的慘烈經過，本指南將協助讀者理解此一改變阿美族社會結構與土地命運的重大歷史轉折。</p></div><div class="quote"><b>AI 生成｜AI 摘要</b><p>這些來源詳細記錄了 1877 年至 1878 年間發生的大港口事件，這是一場清朝軍隊與花蓮阿美族人之間的慘烈衝突。起因於清廷推行**「開山撫番」政策，試圖強佔部落傳統領域並過度徵調族人勞役，進而引發原住民族的反抗與土地保衛戰。文中對比了官方文獻與部落口述歷史**，揭示清兵如何透過誘騙手段，在現今靜浦國小附近對 165 名阿美族青年進行閉門屠殺。此事件不僅導致族人被迫向南大規模遷徙，更嚴重破壞了阿美族原有的年齡階級制度與社會結構。</p></div>
+  <div class="quote"><b>AI 生成｜內容節錄</b><p>本學習指南旨在探討 1877 年至 1878 年間發生於花蓮豐濱地區的「大港口事件」（阿美族語稱為 O lalood i Cepo&#x27;）。透過分析清廷的「開山<mark class="stance" title="日方／官方文獻用語。學生審查會決議：照錄時須註明立場。">撫番</mark>」政策、部落的口述歷史以及戰爭的慘烈經過，本指南將協助讀者理解此一改變阿美族社會結構與土地命運的重大歷史轉折。</p></div><div class="quote"><b>AI 生成｜AI 摘要</b><p>這些來源詳細記錄了 1877 年至 1878 年間發生的大港口事件，這是一場清朝軍隊與花蓮阿美族人之間的慘烈衝突。起因於清廷推行**「開山<mark class="stance" title="日方／官方文獻用語。學生審查會決議：照錄時須註明立場。">撫番</mark>」政策，試圖強佔部落傳統領域並過度徵調族人勞役，進而引發原住民族的反抗與土地保衛戰。文中對比了官方文獻與部落口述歷史**，揭示清兵如何透過誘騙手段，在現今靜浦國小附近對 165 名阿美族青年進行閉門屠殺。此事件不僅導致族人被迫向南大規模遷徙，更嚴重破壞了阿美族原有的年齡階級制度與社會結構。</p></div>
 </article>
 
-<article class="notebook" style="--event-color:var(--color-cepo-dark)">
+<article class="notebook" style="--event-color:var(--c-cepo)">
   <h5>Cepo&#x27; 戰役：1877 阿美族的抵抗</h5>
   <div class="meta">1 個 AI 輸出｜NotebookLM：Cepo’ War: The 1877 Amis Resistance at Makuta’ai</div>
   <div class="quote"><p>此筆記本以心智圖、資料表等短格式輸出為主，文字節錄詳見各展區。</p></div>
 </article>
 
-<article class="notebook" style="--event-color:var(--color-cepo-dark)">
+<article class="notebook" style="--event-color:var(--c-cepo)">
   <h5>大港口事件：阿美族抗清與文化衝擊</h5>
   <div class="meta">7 個 AI 輸出</div>
-  <div class="quote"><b>AI 生成｜AI 摘要</b><p>這份教材詳細記錄了 1877 年至 1878 年間發生的大港口事件，並從清廷官方文獻與阿美族口述歷史兩種視角進行對比。受國際局勢影響，晚清政府推行「開山撫番」政策以強化對東臺灣的主權，卻因強徵勞力、侵佔土地及軍紀敗壞，引發阿美族人的強烈抵抗。文中描述了戰事從烏漏社擴散至大港口地區的經過，最終以清軍將領吳光亮設局誘殺族人慘劇收場。透過對通事林東涯遇害等關鍵細節的解讀，讀者能理解國家權力擴張與原住民族生存權之間的衝突。</p></div><div class="quote"><b>AI 生成｜內容節錄</b><p>This study guide provides a comprehensive overview of the Dagangkou Incident (also known as O lalood i Cepo’), a pivotal conflict between the Qing Dynasty and the Amis people of eastern Taiwan. It explores the geopolitical motivations, cultural clash……</p></div>
+  <div class="quote"><b>AI 生成｜AI 摘要</b><p>這份教材詳細記錄了 1877 年至 1878 年間發生的大港口事件，並從清廷官方文獻與阿美族口述歷史兩種視角進行對比。受國際局勢影響，晚清政府推行「開山<mark class="stance" title="日方／官方文獻用語。學生審查會決議：照錄時須註明立場。">撫番</mark>」政策以強化對東臺灣的主權，卻因強徵勞力、侵佔土地及軍紀敗壞，引發阿美族人的強烈抵抗。文中描述了戰事從烏漏社擴散至大港口地區的經過，最終以清軍將領吳光亮設局誘殺族人慘劇收場。透過對通事林東涯遇害等關鍵細節的解讀，讀者能理解國家權力擴張與原住民族生存權之間的衝突。</p></div><div class="quote"><b>AI 生成｜內容節錄</b><p>This study guide provides a comprehensive overview of the Dagangkou Incident (also known as O lalood i Cepo’), a pivotal conflict between the Qing Dynasty and the Amis people of eastern Taiwan. It explores the geopolitical motivations, cultural clash……</p></div>
 </article>
 </div>
+      <p style="margin:10px 0 0;font-family:var(--font-sans);font-size:12px;color:var(--text-muted)">節錄中<mark class="stance">畫紅線</mark>的詞是日方／官方文獻用語，依學生審查決議照錄並標示，不作為本展立場。</p>
     </aside>
   </div>
 </section>
 
-<section id="truku" style="--event-color:var(--color-truku-dark)">
+<section id="truku" style="--event-color:var(--c-truku)">
   <div class="wrap two-col">
     <div>
       <div class="event-head">
         <img src="../assets/images/event_truku.png" alt="">
         <div class="event-title">
           <div class="years">1896-1914｜太魯閣族</div>
-          <h3>太魯閣戰役</h3>
+          <h3>太魯閣戰役 ／ Tnegjyalan Truku</h3>
           <p>立霧溪、木瓜溪上游與太魯閣口</p>
+          <div class="name-note">日方文獻稱「太魯閣蕃討伐」，這個稱呼本身就帶著立場；Tnegjyalan Truku 是太魯閣族語的命名。</div>
+          <span class="decision-chip">命名方式：學生審查會 14:0 決議雙名並列</span>
           <div class="chips"><span class="chip">長期抵抗</span><span class="chip">Gaya 與主權</span><span class="chip">山地治理</span><span class="chip">觀光地景背後的歷史</span></div>
         </div>
       </div>
@@ -95,37 +336,40 @@
     <aside class="panel">
       <h4>NotebookLM 輸出節錄</h4>
       <div class="notebook-list">
-<article class="notebook" style="--event-color:var(--color-truku-dark)">
+<article class="notebook" style="--event-color:var(--c-truku)">
   <h5>太魯閣戰役百年與文化韌性</h5>
   <div class="meta">5 個 AI 輸出｜NotebookLM：A Century of the Truku War and Cultural Resilience</div>
-  <div class="quote"><b>AI 生成｜內容節錄</b><p>本文件旨在彙整 1914 年「太魯閣事件」（亦稱太魯閣戰役）及其前後長達 18 年之武裝衝突。太魯閣事件不僅是臺灣原住民族抗日史上規模最大的戰役之一，更是日本殖民政權推行「五年理蕃計畫」中最後且最具決定性的征服行動。</p></div><div class="quote"><b>AI 生成｜AI 摘要</b><p>這份文獻源自原住民族重大歷史事件系列叢書中的《太魯閣事件1914》，旨在從原住民族主體性的視角重新詮釋這段歷史。書中詳盡記載了從1896年「新城事件」至1914年「太魯閣戰役」間，太魯閣族人為捍衛傳統領域與主權，與日本殖民政權長達十八年的武裝衝突。作者鴻義章透過結合官方檔案、學術研究與部落耆老口述歷史，試圖還原被漢人或殖民者史觀所掩蓋的真相。內容涵蓋了太魯閣族的社會組織、族群生態，以及戰後對原住民社會結構產生的深遠影響。此書不僅是歷史研究的里程碑，更被納入十二年國教課綱，作為推廣多元文化與民族教育的重要教材。</p></div>
+  <div class="quote"><b>AI 生成｜內容節錄</b><p>本文件旨在彙整 1914 年「太魯閣事件」（亦稱太魯閣戰役）及其前後長達 18 年之武裝衝突。太魯閣事件不僅是臺灣原住民族抗日史上規模最大的戰役之一，更是日本殖民政權推行「五年<mark class="stance" title="日方／官方文獻用語。學生審查會決議：照錄時須註明立場。">理蕃</mark>計畫」中最後且最具決定性的征服行動。</p></div><div class="quote"><b>AI 生成｜AI 摘要</b><p>這份文獻源自原住民族重大歷史事件系列叢書中的《太魯閣事件1914》，旨在從原住民族主體性的視角重新詮釋這段歷史。書中詳盡記載了從1896年「新城事件」至1914年「太魯閣戰役」間，太魯閣族人為捍衛傳統領域與主權，與日本殖民政權長達十八年的武裝衝突。作者鴻義章透過結合官方檔案、學術研究與部落耆老口述歷史，試圖還原被漢人或殖民者史觀所掩蓋的真相。內容涵蓋了太魯閣族的社會組織、族群生態，以及戰後對原住民社會結構產生的深遠影響。此書不僅是歷史研究的里程碑，更被納入十二年國教課綱，作為推廣多元文化與民族教育的重要教材。</p></div>
 </article>
 
-<article class="notebook" style="--event-color:var(--color-truku-dark)">
+<article class="notebook" style="--event-color:var(--c-truku)">
   <h5>太魯閣戰爭百年回顧</h5>
   <div class="meta">4 個 AI 輸出｜NotebookLM：Centennial Retrospective of the Truku War</div>
-  <div class="quote"><b>AI 生成｜AI 摘要</b><p>這份資料詳盡介紹了發生於日治時期的太魯閣事件及其深遠的歷史背景。從 1896 年起，太魯閣族人為保衛土地，與日本殖民政府展開了長達 18 年的抗日爭戰，其中以 1914 年由總督佐久間左馬太親自率軍進攻的戰役最為慘烈。這系列衝突的主因源於日本政府對立霧溪金礦資源的覬覦，以及試圖透過「理蕃計畫」收繳民間槍枝並強化行政管控。戰爭結束後，日本當局採取了集團移住政策，強迫族人遷出熟悉的深山峽谷，使原有的部落結構與傳統文化產生巨變。</p></div>
+  <div class="quote"><b>AI 生成｜AI 摘要</b><p>這份資料詳盡介紹了發生於日治時期的太魯閣事件及其深遠的歷史背景。從 1896 年起，太魯閣族人為保衛土地，與日本殖民政府展開了長達 18 年的抗日爭戰，其中以 1914 年由總督佐久間左馬太親自率軍進攻的戰役最為慘烈。這系列衝突的主因源於日本政府對立霧溪金礦資源的覬覦，以及試圖透過「<mark class="stance" title="日方／官方文獻用語。學生審查會決議：照錄時須註明立場。">理蕃</mark>計畫」收繳民間槍枝並強化行政管控。戰爭結束後，日本當局採取了集團移住政策，強迫族人遷出熟悉的深山峽谷，使原有的部落結構與傳統文化產生巨變。</p></div>
 </article>
 
-<article class="notebook" style="--event-color:var(--color-truku-dark)">
+<article class="notebook" style="--event-color:var(--c-truku)">
   <h5>太魯閣戰役：百年抗爭與主權</h5>
   <div class="meta">4 個 AI 輸出｜NotebookLM：The Truku War: A Century of Struggle and Sovereignty</div>
-  <div class="quote"><b>AI 生成｜內容節錄</b><p>「太魯閣事件」並非單一偶發衝突，而是自 1896 年「新城事件」起，至 1914 年「太魯閣蕃討伐戰役」為止，長達 18 年的原住民族武裝抗爭史。此事件標誌著臺灣原住民族為了守護祖靈地與生存主權，對抗日本殖民政權強勢介入的英勇過程。</p></div><div class="quote"><b>AI 生成｜資料表</b><p>太魯閣族突襲監視哨殺死13名日軍。日軍隨後出動二中隊並募集600名阿美族人討伐，但在山區遭遇頑強抵抗與疾病，最終因無法擊敗熟稔山野作戰的族人而在1897年5月撤退。</p></div>
+  <div class="quote"><b>AI 生成｜內容節錄</b><p>「太魯閣事件」並非單一偶發衝突，而是自 1896 年「新城事件」起，至 1914 年「太魯閣蕃<mark class="stance" title="日方／官方文獻用語。學生審查會決議：照錄時須註明立場。">討伐</mark>戰役」為止，長達 18 年的原住民族武裝抗爭史。此事件標誌著臺灣原住民族為了守護祖靈地與生存主權，對抗日本殖民政權強勢介入的英勇過程。</p></div><div class="quote"><b>AI 生成｜資料表</b><p>太魯閣族突襲監視哨殺死13名日軍。日軍隨後出動二中隊並募集600名阿美族人<mark class="stance" title="日方／官方文獻用語。學生審查會決議：照錄時須註明立場。">討伐</mark>，但在山區遭遇頑強抵抗與疾病，最終因無法擊敗熟稔山野作戰的族人而在1897年5月撤退。</p></div>
 </article>
 </div>
+      <p style="margin:10px 0 0;font-family:var(--font-sans);font-size:12px;color:var(--text-muted)">節錄中<mark class="stance">畫紅線</mark>的詞是日方／官方文獻用語，依學生審查決議照錄並標示，不作為本展立場。</p>
     </aside>
   </div>
 </section>
 
-<section id="dafen" style="--event-color:var(--color-dafen-dark)">
+<section id="dafen" style="--event-color:var(--c-dafen)">
   <div class="wrap two-col">
     <div>
       <div class="event-head">
         <img src="../assets/images/event_dafen.png" alt="">
         <div class="event-title">
           <div class="years">1914-1933｜布農族</div>
-          <h3>大分事件 / 布農族抗爭</h3>
+          <h3>大分事件（布農族郡社群抗日 1914-1933）</h3>
           <p>花蓮縣卓溪鄉、大分與拉庫拉庫溪流域</p>
+          <div class="name-note">「大分」是布農語地名的音譯（拉庫拉庫溪流域）。族人記憶中，1933 年的儀式不是「歸順」，而是有條件的和解。</div>
+          <span class="decision-chip">命名方式：學生審查會 14:0 決議雙名並列</span>
           <div class="chips"><span class="chip">收押槍枝</span><span class="chip">交易所制度</span><span class="chip">生計衝突</span><span class="chip">1914-1933 長期抗爭</span></div>
         </div>
       </div>
@@ -135,37 +379,40 @@
     <aside class="panel">
       <h4>NotebookLM 輸出節錄</h4>
       <div class="notebook-list">
-<article class="notebook" style="--event-color:var(--color-dafen-dark)">
+<article class="notebook" style="--event-color:var(--c-dafen)">
   <h5>大分事件與布農族抗爭 1914-1933</h5>
   <div class="meta">1 個 AI 輸出｜NotebookLM：The Dafen Incident and Bunun Resistance (1914-1933)</div>
-  <div class="quote"><b>AI 生成｜AI 摘要</b><p>這些資料詳細記錄了布農族在日治時期的抗日歷史，特別是發生於1914年至1933年間著名的大分事件。內容探討了日本政府「理蕃政策」對原住民生活的衝擊，包含強制沒收槍枝與推動「集團移住」，如何引發族人的強烈反抗。文中重點介紹了拉荷·阿雷（Dahu Ali）與阿里曼·西肯（Aliman Siking）等英雄人物，描述他們如何率領族人利用中央山脈的險要地形開展長達十八年的游擊戰爭。此外，來源也透過地圖與研究文獻，呈現了拉庫拉庫溪流域的舊社文化與當代的族群記憶重構。</p></div>
+  <div class="quote"><b>AI 生成｜AI 摘要</b><p>這些資料詳細記錄了布農族在日治時期的抗日歷史，特別是發生於1914年至1933年間著名的大分事件。內容探討了日本政府「<mark class="stance" title="日方／官方文獻用語。學生審查會決議：照錄時須註明立場。">理蕃</mark>政策」對原住民生活的衝擊，包含強制沒收槍枝與推動「集團移住」，如何引發族人的強烈反抗。文中重點介紹了拉荷·阿雷（Dahu Ali）與阿里曼·西肯（Aliman Siking）等英雄人物，描述他們如何率領族人利用中央山脈的險要地形開展長達十八年的游擊戰爭。此外，來源也透過地圖與研究文獻，呈現了拉庫拉庫溪流域的舊社文化與當代的族群記憶重構。</p></div>
 </article>
 
-<article class="notebook" style="--event-color:var(--color-dafen-dark)">
+<article class="notebook" style="--event-color:var(--c-dafen)">
   <h5>玉山之子：布農族抗爭 1914-1933</h5>
   <div class="meta">2 個 AI 輸出｜NotebookLM：Son of Yushan: The Bunun Resistance 1914-1933</div>
-  <div class="quote"><b>AI 生成｜AI 摘要</b><p>這份資料主要探討大分事件及其背後的理蕃政策，詳述了二十世紀初期布農族與日本統治者之間的激烈衝突。日方當時試圖透過沒收槍枝、限制貿易及推動集團移住等手段，強制改變原住民傳統的狩獵生活，進而引發一系列反抗。文章記錄了由拉荷．阿禮等領袖帶領的長期武裝抗爭，該行動自1915年爆發後持續約十八年，最終於1933年達成歸順與和解。此外，內容也涵蓋了拉庫拉庫溪流域的部落分布調查，以及當代對布農族舊社溯源與文化資產重塑的努力。這些文獻不僅重建了歷史事件的時空背景，更反映了族群記憶在現代社會中的傳承意義。</p></div>
+  <div class="quote"><b>AI 生成｜AI 摘要</b><p>這份資料主要探討大分事件及其背後的<mark class="stance" title="日方／官方文獻用語。學生審查會決議：照錄時須註明立場。">理蕃</mark>政策，詳述了二十世紀初期布農族與日本統治者之間的激烈衝突。日方當時試圖透過沒收槍枝、限制貿易及推動集團移住等手段，強制改變原住民傳統的狩獵生活，進而引發一系列反抗。文章記錄了由拉荷．阿禮等領袖帶領的長期武裝抗爭，該行動自1915年爆發後持續約十八年，最終於1933年達成<mark class="stance" title="日方／官方文獻用語。學生審查會決議：照錄時須註明立場。">歸順</mark>與和解。此外，內容也涵蓋了拉庫拉庫溪流域的部落分布調查，以及當代對布農族舊社溯源與文化資產重塑的努力。這些文獻不僅重建了歷史事件的時空背景，更反映了族群記憶在現代社會中的傳承意義。</p></div>
 </article>
 
-<article class="notebook" style="--event-color:var(--color-dafen-dark)">
+<article class="notebook" style="--event-color:var(--c-dafen)">
   <h5>大分事件：布農族抵抗與殖民政策</h5>
   <div class="meta">4 個 AI 輸出｜NotebookLM：The Dafa Incident: Bunun Resistance and Colonial Policy</div>
   <div class="quote"><b>AI 生成｜內容節錄</b><p>身為原住民歷史的研究者，我常告訴後輩，「大分事件」不應僅被視為一場武裝衝突，它是布農族郡社群（Isbukun）為了捍衛靈魂深處的「生存權」與「族群尊嚴」，所展開的一場史詩級抗爭。這場戰火從 1914 年延續至 1933 年，跨越了整整十八年，是臺灣原住民族對日抗爭史上歷時最久、意志最為堅韌的篇章。</p></div><div class="quote"><b>AI 生成｜AI 摘要</b><p>這些來源詳細記錄了發生於 1915年 的 大分事件，這是日治時期 布農族 反抗日本殖民政權最持久的武裝鬥爭。衝突的核心導火線在於日本政府強行實施 收繳槍枝 政策，嚴重威脅族人的生存權、狩獵文化與尊嚴，導致以 拉荷．阿雷 為首的族人展開長達 18年 的游擊戰爭。文獻中重新審視了歷史真相，指出過往對事件主謀的誤解，並強調布農族堅韌的 氏族制度 是支撐其長期抗戰的關鍵力量。</p></div>
 </article>
 </div>
+      <p style="margin:10px 0 0;font-family:var(--font-sans);font-size:12px;color:var(--text-muted)">節錄中<mark class="stance">畫紅線</mark>的詞是日方／官方文獻用語，依學生審查決議照錄並標示，不作為本展立場。</p>
     </aside>
   </div>
 </section>
 
-<section id="cikasuan" style="--event-color:var(--color-cikasuan-dark)">
+<section id="cikasuan" style="--event-color:var(--c-cikasuan)">
   <div class="wrap two-col">
     <div>
       <div class="event-head">
         <img src="../assets/images/event_cikasuan.png" alt="">
         <div class="event-title">
           <div class="years">1908-1914｜阿美族・南勢阿美</div>
-          <h3>七腳川事件 / Cikasuan</h3>
+          <h3>七腳川事件 ／ Cikasuan</h3>
           <p>花蓮縣吉安鄉七腳川溪流域</p>
+          <div class="name-note">七腳川即阿美語 Cikasuan（柴薪很多的地方）。事件後土地被沒收，設「吉野」移民村，也就是今天的吉安。</div>
+          <span class="decision-chip">命名方式：學生審查會 14:0 決議雙名並列</span>
           <div class="chips"><span class="chip">土地剝奪</span><span class="chip">勞役與治理</span><span class="chip">族群遷徙</span><span class="chip">阿美族韌性</span></div>
         </div>
       </div>
@@ -175,18 +422,19 @@
     <aside class="panel">
       <h4>NotebookLM 輸出節錄</h4>
       <div class="notebook-list">
-<article class="notebook" style="--event-color:var(--color-cikasuan-dark)">
+<article class="notebook" style="--event-color:var(--c-cikasuan)">
   <h5>七腳川事件 1908-1914</h5>
   <div class="meta">2 個 AI 輸出｜NotebookLM：The Cikasuan Incident 1908-1914</div>
-  <div class="quote"><b>AI 生成｜AI 摘要</b><p>這份文獻主要探討臺灣原住民族在不同歷史政權交替下，所面臨的涉外衝突與社會變遷。內容詳盡記錄了從荷治時期到日治時代，族人為了捍衛生存空間與傳統文化，與外來勢力發生的多次戰役，如大分事件、大港口事件及七腳川事件。這些來源透過學者的專題論述、口述歷史與珍貴老照片，從原住民的主體觀點重新詮釋史料。文中特別分析了外來殖民者如何利用軍事力量與理蕃政策，對部落進行土地徵收、勞役剝削及武裝鎮壓。最終，文獻呈現了這些重大歷史事件如何導致族群被迫遷徙、毀社流散，並對當代原住民的社會架構產生了深遠的影響。</p></div>
+  <div class="quote"><b>AI 生成｜AI 摘要</b><p>這份文獻主要探討臺灣原住民族在不同歷史政權交替下，所面臨的涉外衝突與社會變遷。內容詳盡記錄了從荷治時期到日治時代，族人為了捍衛生存空間與傳統文化，與外來勢力發生的多次戰役，如大分事件、大港口事件及七腳川事件。這些來源透過學者的專題論述、口述歷史與珍貴老照片，從原住民的主體觀點重新詮釋史料。文中特別分析了外來殖民者如何利用軍事力量與<mark class="stance" title="日方／官方文獻用語。學生審查會決議：照錄時須註明立場。">理蕃</mark>政策，對部落進行土地徵收、勞役剝削及武裝鎮壓。最終，文獻呈現了這些重大歷史事件如何導致族群被迫遷徙、毀社流散，並對當代原住民的社會架構產生了深遠的影響。</p></div>
 </article>
 
-<article class="notebook" style="--event-color:var(--color-cikasuan-dark)">
+<article class="notebook" style="--event-color:var(--c-cikasuan)">
   <h5>七腳川事件：阿美族的流離與韌性</h5>
   <div class="meta">2 個 AI 輸出｜NotebookLM：The Cikasuan Incident: Dispossession and Resilience of the Amis</div>
-  <div class="quote"><b>AI 生成｜AI 摘要</b><p>這些資料主要探討了七腳川事件的歷史全貌及其對後世的深遠影響，同時觸及勞工權益與社會關懷的當代議題。文中詳細記錄了1908年至1914年間，日本殖民政府如何利用勞資糾紛與隘勇脫逃為藉口，對勢力雄厚的七腳川社進行武力鎮壓與滅社行動。這場衝突的背後動機在於日方覬覦肥沃土地以推動官辦移民村、鐵路建設及山林資源開發，最終迫使族裔四散流離。透過對歷史的正視，資料省思了族群認知的扭曲與土地奪取的傷痕，並輔以現代職災重建的視角，呼籲社會應對受創的靈魂展現包容與韌性。</p></div>
+  <div class="quote"><b>AI 生成｜AI 摘要</b><p>這些資料主要探討了七腳川事件的歷史全貌及其對後世的深遠影響，同時觸及勞工權益與社會關懷的當代議題。文中詳細記錄了1908年至1914年間，日本殖民政府如何利用勞資糾紛與隘勇脫逃為藉口，對勢力雄厚的七腳川社進行武力鎮壓與<mark class="stance" title="日方／官方文獻用語。學生審查會決議：照錄時須註明立場。">滅社</mark>行動。這場衝突的背後動機在於日方覬覦肥沃土地以推動官辦移民村、鐵路建設及山林資源開發，最終迫使族裔四散流離。透過對歷史的正視，資料省思了族群認知的扭曲與土地奪取的傷痕，並輔以現代職災重建的視角，呼籲社會應對受創的靈魂展現包容與韌性。</p></div>
 </article>
 </div>
+      <p style="margin:10px 0 0;font-family:var(--font-sans);font-size:12px;color:var(--text-muted)">節錄中<mark class="stance">畫紅線</mark>的詞是日方／官方文獻用語，依學生審查決議照錄並標示，不作為本展立場。</p>
     </aside>
   </div>
 </section>
@@ -209,15 +457,37 @@
   <section id="mindmaps">
     <div class="wrap">
       <h2>學生心智圖</h2>
-      <p class="lead">以下心智圖來自學生作業資料夾。已能確認事件者以事件色標示；標示「審查中」者，將由學生在審查會中判讀歸類——判斷一張 AI 心智圖屬於哪個事件、依據是哪些關鍵詞，正是本課程要練的 AI 素養。若瀏覽器阻擋嵌入預覽，可點「開啟原始 PNG」。</p>
+      <p class="lead">心智圖由學生以 NotebookLM 生成後上傳。原標示「審查中」的 10 張，已依「作者研究的事件」完成歸檔（卡片上有註記）；其餘 4 張為課堂先行確認。若瀏覽器阻擋嵌入預覽，可點「開啟原始 PNG」。</p>
       <div class="mindmap-grid">
+<article class="mindmap-card">
+  <figure>
+    <iframe src="https://drive.google.com/file/d/1-SAv2DNcviPutduwYgvtJ-z1oySPP7Aw/preview" title="學生上傳 PNG 心智圖 / 截圖 1" loading="lazy" allow="autoplay"></iframe>
+  </figure>
+  <div class="mindmap-body">
+    <h4>學生上傳 PNG 心智圖 / 截圖 1</h4>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-cepo)">大港口事件 / Cepo&#x27;</span><span class="badge badge-archived">依作者研究事件歸檔</span><span>余OO</span></div>
+    <a class="source-link" href="https://drive.google.com/file/d/1-SAv2DNcviPutduwYgvtJ-z1oySPP7Aw/view" target="_blank" rel="noopener">開啟原始 PNG</a>
+  </div>
+</article>
+
+<article class="mindmap-card">
+  <figure>
+    <iframe src="https://drive.google.com/file/d/1CA_y5gA6G9MSX_XrbPeVSMgeZk8C_GCT/preview" title="學生上傳 PNG 心智圖 / 截圖 2" loading="lazy" allow="autoplay"></iframe>
+  </figure>
+  <div class="mindmap-body">
+    <h4>學生上傳 PNG 心智圖 / 截圖 2</h4>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-cepo)">大港口事件 / Cepo&#x27;</span><span class="badge badge-archived">依作者研究事件歸檔</span><span>余OO</span></div>
+    <a class="source-link" href="https://drive.google.com/file/d/1CA_y5gA6G9MSX_XrbPeVSMgeZk8C_GCT/view" target="_blank" rel="noopener">開啟原始 PNG</a>
+  </div>
+</article>
+
 <article class="mindmap-card">
   <figure>
     <iframe src="https://drive.google.com/file/d/1JyEVL3idjt9-OA2fa1vai1sIEwNRO3MX/preview" title="大港口事件 NotebookLM 心智圖" loading="lazy" allow="autoplay"></iframe>
   </figure>
   <div class="mindmap-body">
     <h4>大港口事件 NotebookLM 心智圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--color-cepo-dark)">大港口事件 / Cepo&#x27;</span><span>蔡OO</span></div>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-cepo)">大港口事件 / Cepo&#x27;</span><span>蔡OO</span></div>
     <a class="source-link" href="https://drive.google.com/file/d/1JyEVL3idjt9-OA2fa1vai1sIEwNRO3MX/view" target="_blank" rel="noopener">開啟原始 PNG</a>
   </div>
 </article>
@@ -228,8 +498,19 @@
   </figure>
   <div class="mindmap-body">
     <h4>大港口事件 NotebookLM 輸出截圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--color-cepo-dark)">大港口事件 / Cepo&#x27;</span><span>蔡OO</span></div>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-cepo)">大港口事件 / Cepo&#x27;</span><span>蔡OO</span></div>
     <a class="source-link" href="https://drive.google.com/file/d/1SIscvG9OGMDOpmtYBM_xQxgM1ONSi5rq/view" target="_blank" rel="noopener">開啟原始 PNG</a>
+  </div>
+</article>
+
+<article class="mindmap-card">
+  <figure>
+    <iframe src="https://drive.google.com/file/d/1pjtgbuspq5LW-GPBawGNFR8Mtty_eUb7/preview" title="大港口事件 心智圖" loading="lazy" allow="autoplay"></iframe>
+  </figure>
+  <div class="mindmap-body">
+    <h4>大港口事件 心智圖</h4>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-cepo)">大港口事件 / Cepo&#x27;</span><span class="badge badge-archived">依作者研究事件歸檔</span><span>潘OO</span></div>
+    <a class="source-link" href="https://drive.google.com/file/d/1pjtgbuspq5LW-GPBawGNFR8Mtty_eUb7/view" target="_blank" rel="noopener">開啟原始 PNG</a>
   </div>
 </article>
 
@@ -239,8 +520,41 @@
   </figure>
   <div class="mindmap-body">
     <h4>大港口事件心智圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--color-cepo-dark)">大港口事件 / Cepo&#x27;</span><span>鍾OO</span></div>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-cepo)">大港口事件 / Cepo&#x27;</span><span>鍾OO</span></div>
     <a class="source-link" href="https://drive.google.com/file/d/1zvnaercNuEX32qNyRk-O9hQRRajQrQoE/view" target="_blank" rel="noopener">開啟原始 PNG</a>
+  </div>
+</article>
+
+<article class="mindmap-card">
+  <figure>
+    <iframe src="https://drive.google.com/file/d/1dVu0XbHZyxY5vlKM13qrqEXVfrmNR1hy/preview" title="學生上傳 PNG 心智圖 / 截圖" loading="lazy" allow="autoplay"></iframe>
+  </figure>
+  <div class="mindmap-body">
+    <h4>學生上傳 PNG 心智圖 / 截圖</h4>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-truku)">太魯閣戰役</span><span class="badge badge-archived">依作者研究事件歸檔</span><span>林OO</span></div>
+    <a class="source-link" href="https://drive.google.com/file/d/1dVu0XbHZyxY5vlKM13qrqEXVfrmNR1hy/view" target="_blank" rel="noopener">開啟原始 PNG</a>
+  </div>
+</article>
+
+<article class="mindmap-card">
+  <figure>
+    <iframe src="https://drive.google.com/file/d/1aDSdfdcfwF0YhJV4epuczPbzVa9YjIOD/preview" title="太魯閣戰役 心智圖" loading="lazy" allow="autoplay"></iframe>
+  </figure>
+  <div class="mindmap-body">
+    <h4>太魯閣戰役 心智圖</h4>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-truku)">太魯閣戰役</span><span class="badge badge-archived">依作者研究事件歸檔</span><span>林OO</span></div>
+    <a class="source-link" href="https://drive.google.com/file/d/1aDSdfdcfwF0YhJV4epuczPbzVa9YjIOD/view" target="_blank" rel="noopener">開啟原始 PNG</a>
+  </div>
+</article>
+
+<article class="mindmap-card">
+  <figure>
+    <iframe src="https://drive.google.com/file/d/1_gzIMmIjulLc_8OHckCn6GxcwHau1pMl/preview" title="大分事件 心智圖" loading="lazy" allow="autoplay"></iframe>
+  </figure>
+  <div class="mindmap-body">
+    <h4>大分事件 心智圖</h4>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-dafen)">大分事件 / 布農族抗爭</span><span class="badge badge-archived">依作者研究事件歸檔</span><span>杜OO</span></div>
+    <a class="source-link" href="https://drive.google.com/file/d/1_gzIMmIjulLc_8OHckCn6GxcwHau1pMl/view" target="_blank" rel="noopener">開啟原始 PNG</a>
   </div>
 </article>
 
@@ -250,158 +564,181 @@
   </figure>
   <div class="mindmap-body">
     <h4>大分事件 NotebookLM Mind Map</h4>
-    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--color-dafen-dark)">大分事件 / 布農族抗爭</span><span>梁OO</span></div>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-dafen)">大分事件 / 布農族抗爭</span><span>梁OO</span></div>
     <a class="source-link" href="https://drive.google.com/file/d/1CIBkv6kyN3VXTC6eXBPGGvVcGi-qMiBM/view" target="_blank" rel="noopener">開啟原始 PNG</a>
   </div>
 </article>
 
 <article class="mindmap-card">
   <figure>
-    <iframe src="https://drive.google.com/file/d/1-SAv2DNcviPutduwYgvtJ-z1oySPP7Aw/preview" title="NotebookLM 心智圖" loading="lazy" allow="autoplay"></iframe>
+    <iframe src="https://drive.google.com/file/d/1XD_iWOUzmjpiji30Acx5qQFzimmw9Hno/preview" title="大分事件 心智圖" loading="lazy" allow="autoplay"></iframe>
   </figure>
   <div class="mindmap-body">
-    <h4>NotebookLM 心智圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-pending">審查中｜待學生歸類</span><span>余OO</span></div>
-    <a class="source-link" href="https://drive.google.com/file/d/1-SAv2DNcviPutduwYgvtJ-z1oySPP7Aw/view" target="_blank" rel="noopener">開啟原始 PNG</a>
-  </div>
-</article>
-
-<article class="mindmap-card">
-  <figure>
-    <iframe src="https://drive.google.com/file/d/1CA_y5gA6G9MSX_XrbPeVSMgeZk8C_GCT/preview" title="NotebookLM 心智圖" loading="lazy" allow="autoplay"></iframe>
-  </figure>
-  <div class="mindmap-body">
-    <h4>NotebookLM 心智圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-pending">審查中｜待學生歸類</span><span>余OO</span></div>
-    <a class="source-link" href="https://drive.google.com/file/d/1CA_y5gA6G9MSX_XrbPeVSMgeZk8C_GCT/view" target="_blank" rel="noopener">開啟原始 PNG</a>
-  </div>
-</article>
-
-<article class="mindmap-card">
-  <figure>
-    <iframe src="https://drive.google.com/file/d/1_gzIMmIjulLc_8OHckCn6GxcwHau1pMl/preview" title="NotebookLM 心智圖" loading="lazy" allow="autoplay"></iframe>
-  </figure>
-  <div class="mindmap-body">
-    <h4>NotebookLM 心智圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-pending">審查中｜待學生歸類</span><span>杜OO</span></div>
-    <a class="source-link" href="https://drive.google.com/file/d/1_gzIMmIjulLc_8OHckCn6GxcwHau1pMl/view" target="_blank" rel="noopener">開啟原始 PNG</a>
-  </div>
-</article>
-
-<article class="mindmap-card">
-  <figure>
-    <iframe src="https://drive.google.com/file/d/17xdEjz_mZZAQ03uWDEnRqPjlAIrrDYDK/preview" title="NotebookLM 心智圖" loading="lazy" allow="autoplay"></iframe>
-  </figure>
-  <div class="mindmap-body">
-    <h4>NotebookLM 心智圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-pending">審查中｜待學生歸類</span><span>張OO</span></div>
-    <a class="source-link" href="https://drive.google.com/file/d/17xdEjz_mZZAQ03uWDEnRqPjlAIrrDYDK/view" target="_blank" rel="noopener">開啟原始 PNG</a>
-  </div>
-</article>
-
-<article class="mindmap-card">
-  <figure>
-    <iframe src="https://drive.google.com/file/d/1pjtgbuspq5LW-GPBawGNFR8Mtty_eUb7/preview" title="NotebookLM 心智圖" loading="lazy" allow="autoplay"></iframe>
-  </figure>
-  <div class="mindmap-body">
-    <h4>NotebookLM 心智圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-pending">審查中｜待學生歸類</span><span>潘OO</span></div>
-    <a class="source-link" href="https://drive.google.com/file/d/1pjtgbuspq5LW-GPBawGNFR8Mtty_eUb7/view" target="_blank" rel="noopener">開啟原始 PNG</a>
-  </div>
-</article>
-
-<article class="mindmap-card">
-  <figure>
-    <iframe src="https://drive.google.com/file/d/1mkJDFA2BvL63Lp3RODvl_51dwsWHhZT-/preview" title="NotebookLM 心智圖" loading="lazy" allow="autoplay"></iframe>
-  </figure>
-  <div class="mindmap-body">
-    <h4>NotebookLM 心智圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-pending">審查中｜待學生歸類</span><span>張OO</span></div>
-    <a class="source-link" href="https://drive.google.com/file/d/1mkJDFA2BvL63Lp3RODvl_51dwsWHhZT-/view" target="_blank" rel="noopener">開啟原始 PNG</a>
-  </div>
-</article>
-
-<article class="mindmap-card">
-  <figure>
-    <iframe src="https://drive.google.com/file/d/1dVu0XbHZyxY5vlKM13qrqEXVfrmNR1hy/preview" title="NotebookLM 心智圖" loading="lazy" allow="autoplay"></iframe>
-  </figure>
-  <div class="mindmap-body">
-    <h4>NotebookLM 心智圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-pending">審查中｜待學生歸類</span><span>林OO</span></div>
-    <a class="source-link" href="https://drive.google.com/file/d/1dVu0XbHZyxY5vlKM13qrqEXVfrmNR1hy/view" target="_blank" rel="noopener">開啟原始 PNG</a>
-  </div>
-</article>
-
-<article class="mindmap-card">
-  <figure>
-    <iframe src="https://drive.google.com/file/d/1aDSdfdcfwF0YhJV4epuczPbzVa9YjIOD/preview" title="NotebookLM 心智圖" loading="lazy" allow="autoplay"></iframe>
-  </figure>
-  <div class="mindmap-body">
-    <h4>NotebookLM 心智圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-pending">審查中｜待學生歸類</span><span>林OO</span></div>
-    <a class="source-link" href="https://drive.google.com/file/d/1aDSdfdcfwF0YhJV4epuczPbzVa9YjIOD/view" target="_blank" rel="noopener">開啟原始 PNG</a>
-  </div>
-</article>
-
-<article class="mindmap-card">
-  <figure>
-    <iframe src="https://drive.google.com/file/d/1XD_iWOUzmjpiji30Acx5qQFzimmw9Hno/preview" title="NotebookLM 心智圖" loading="lazy" allow="autoplay"></iframe>
-  </figure>
-  <div class="mindmap-body">
-    <h4>NotebookLM 心智圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-pending">審查中｜待學生歸類</span><span>吳OO</span></div>
+    <h4>大分事件 心智圖</h4>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-dafen)">大分事件 / 布農族抗爭</span><span class="badge badge-archived">依作者研究事件歸檔</span><span>吳OO</span></div>
     <a class="source-link" href="https://drive.google.com/file/d/1XD_iWOUzmjpiji30Acx5qQFzimmw9Hno/view" target="_blank" rel="noopener">開啟原始 PNG</a>
   </div>
 </article>
 
 <article class="mindmap-card">
   <figure>
-    <iframe src="https://drive.google.com/file/d/14HFghxXwt4j1yy_IdZzg_XPj_HD7BdbQ/preview" title="NotebookLM 心智圖" loading="lazy" allow="autoplay"></iframe>
+    <iframe src="https://drive.google.com/file/d/17xdEjz_mZZAQ03uWDEnRqPjlAIrrDYDK/preview" title="七腳川事件 心智圖" loading="lazy" allow="autoplay"></iframe>
   </figure>
   <div class="mindmap-body">
-    <h4>NotebookLM 心智圖</h4>
-    <div class="mindmap-meta"><span class="badge badge-pending">審查中｜待學生歸類</span><span>李OO</span></div>
+    <h4>七腳川事件 心智圖</h4>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-cikasuan)">七腳川事件 / Cikasuan</span><span class="badge badge-archived">依作者研究事件歸檔</span><span>張OO</span></div>
+    <a class="source-link" href="https://drive.google.com/file/d/17xdEjz_mZZAQ03uWDEnRqPjlAIrrDYDK/view" target="_blank" rel="noopener">開啟原始 PNG</a>
+  </div>
+</article>
+
+<article class="mindmap-card">
+  <figure>
+    <iframe src="https://drive.google.com/file/d/1mkJDFA2BvL63Lp3RODvl_51dwsWHhZT-/preview" title="七腳川事件 心智圖" loading="lazy" allow="autoplay"></iframe>
+  </figure>
+  <div class="mindmap-body">
+    <h4>七腳川事件 心智圖</h4>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-cikasuan)">七腳川事件 / Cikasuan</span><span class="badge badge-archived">依作者研究事件歸檔</span><span>張OO</span></div>
+    <a class="source-link" href="https://drive.google.com/file/d/1mkJDFA2BvL63Lp3RODvl_51dwsWHhZT-/view" target="_blank" rel="noopener">開啟原始 PNG</a>
+  </div>
+</article>
+
+<article class="mindmap-card">
+  <figure>
+    <iframe src="https://drive.google.com/file/d/14HFghxXwt4j1yy_IdZzg_XPj_HD7BdbQ/preview" title="學生上傳 PNG 心智圖 / 截圖" loading="lazy" allow="autoplay"></iframe>
+  </figure>
+  <div class="mindmap-body">
+    <h4>學生上傳 PNG 心智圖 / 截圖</h4>
+    <div class="mindmap-meta"><span class="badge badge-event" style="--event-color:var(--c-cikasuan)">七腳川事件 / Cikasuan</span><span class="badge badge-archived">依作者研究事件歸檔</span><span>李OO</span></div>
     <a class="source-link" href="https://drive.google.com/file/d/14HFghxXwt4j1yy_IdZzg_XPj_HD7BdbQ/view" target="_blank" rel="noopener">開啟原始 PNG</a>
   </div>
 </article>
 </div>
     </div>
   </section>
-  <section id="process">
-    <div class="wrap two-col">
-      <div>
-        <h2>生成工具與學習歷程</h2>
-        <p class="lead">學生用 NotebookLM 將權威史料 PDF 轉為摘要、Study Guide、資料表、音訊與影片，再回到課堂的三句寫作：事實句、差異句、省思句。</p>
-      </div>
-      <ul class="checklist">
-        <li>選定事件，建立自己的研究問題。</li>
-        <li>用 NotebookLM 摘要史料，保留人工判讀。</li>
-        <li>審查 AI 輸出：歸類心智圖、辨認有立場的用詞。</li>
-        <li>比較官方說法與族群記憶，寫出差異。</li>
-        <li>把 AI 輸出改寫成自己的話，並補上來源。</li>
-      </ul>
+  <section id="laurels">
+    <div class="wrap">
+      <div class="act-label">入選名單</div>
+      <h2>桂冠句子牆</h2>
+      <p class="lead">本展以影片形式送到審查委員面前，這面牆就是它的入選名單。「完整審稿入選」頒給三句展示稿（事實句、差異句、省思句）全數完成的審稿人；「佳句入選」頒給留下一句值得上牆的話的人。<b>點擊卡片，為這句話頒發桂冠。</b>桂冠標記的是學生的審稿工作，不是歷史事件本身，所以由觀者親手頒出，不預先掛上。</p>
+      <div class="laurel-featured"><article class="laurel-card" style="--event-color:var(--c-cepo)"><div class="medal"><svg class="laurel" viewBox="0 0 200 132" aria-hidden="true"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g><g transform="translate(200,0) scale(-1,1)"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g></g><g fill="currentColor"><path d="M100 122 l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"/></g></svg><div class="medal-text"><b>入選</b><span>完整審稿</span></div></div><p class="sent">官方說「事件」，但族人記得的是「戰爭」。</p><div class="meta-line">多二甲 13・蔡O君｜<b>大港口事件 / Cepo&#x27;</b>｜差異句</div><div class="award-hint">▾ 點擊頒發桂冠</div></article><article class="laurel-card" style="--event-color:var(--c-dafen)"><div class="medal"><svg class="laurel" viewBox="0 0 200 132" aria-hidden="true"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g><g transform="translate(200,0) scale(-1,1)"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g></g><g fill="currentColor"><path d="M100 122 l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"/></g></svg><div class="medal-text"><b>入選</b><span>完整審稿</span></div></div><p class="sent">我今天才知道，在簡單一句記載後，是血與淚寫成的。</p><div class="meta-line">多二甲 16・杜O蕎｜<b>大分事件 / 布農族抗爭</b>｜事實句</div><div class="award-hint">▾ 點擊頒發桂冠</div></article><article class="laurel-card" style="--event-color:var(--c-truku)"><div class="medal"><svg class="laurel" viewBox="0 0 200 132" aria-hidden="true"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g><g transform="translate(200,0) scale(-1,1)"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g></g><g fill="currentColor"><path d="M100 122 l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"/></g></svg><div class="medal-text"><b>入選</b><span>完整審稿</span></div></div><p class="sent">如此慘烈的事件，最後都成了寥寥幾筆文字和圖示，心像是被大石頭壓著，怎麼也無法鬆口氣。</p><div class="meta-line">多二甲 11・王O庭｜<b>太魯閣戰役</b>｜心智圖感想</div><div class="award-hint">▾ 點擊頒發桂冠</div></article><article class="laurel-card" style="--event-color:var(--c-cepo)"><div class="medal"><svg class="laurel" viewBox="0 0 200 132" aria-hidden="true"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g><g transform="translate(200,0) scale(-1,1)"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g></g><g fill="currentColor"><path d="M100 122 l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"/></g></svg><div class="medal-text"><b>入選</b><span>完整審稿</span></div></div><p class="sent">官方說大港口事件是平亂行動，但族人記得的是保衛家園與土地的抗爭。</p><div class="meta-line">商二乙 30・潘O澕｜<b>大港口事件 / Cepo&#x27;</b>｜差異句</div><div class="award-hint">▾ 點擊頒發桂冠</div></article><article class="laurel-card" style="--event-color:var(--c-cepo)"><div class="medal"><svg class="laurel" viewBox="0 0 200 132" aria-hidden="true"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g><g transform="translate(200,0) scale(-1,1)"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g></g><g fill="currentColor"><path d="M100 122 l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"/></g></svg><div class="medal-text"><b>入選</b><span>完整審稿</span></div></div><p class="sent">這個地名看起來很平常，但背後其實是被掩蓋的歷史。</p><div class="meta-line">英二乙 09・余O璿｜<b>大港口事件 / Cepo&#x27;</b>｜省思句</div><div class="award-hint">▾ 點擊頒發桂冠</div></article><article class="laurel-card" style="--event-color:var(--c-truku)"><div class="medal"><svg class="laurel" viewBox="0 0 200 132" aria-hidden="true"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g><g transform="translate(200,0) scale(-1,1)"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g></g><g fill="currentColor"><path d="M100 122 l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"/></g></svg><div class="medal-text"><b>入選</b><span>完整審稿</span></div></div><p class="sent">官方寫的是強勢文化的統治史觀；族人記得的是對抗侵略、捍衛主權的正當性。</p><div class="meta-line">商二乙 20・林O妏｜<b>太魯閣戰役</b>｜差異句</div><div class="award-hint">▾ 點擊頒發桂冠</div></article></div><div class="laurel-quotes"><article class="quote-card" style="--event-color:var(--c-cikasuan)"><div class="medal"><svg class="laurel" viewBox="0 0 200 132" aria-hidden="true"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g><g transform="translate(200,0) scale(-1,1)"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g></g><g fill="currentColor"><path d="M100 122 l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"/></g></svg><div class="medal-text"><b>入選</b><span>佳句</span></div></div><p>這種從受害者手中「奪走故事」的權力鬥爭，比戰爭本身更令我震撼。</p><div class="meta-line">商二乙 25・張O茹｜<b>七腳川事件 / Cikasuan</b></div><div class="award-hint">▾ 點擊頒發桂冠</div></article><article class="quote-card" style="--event-color:var(--c-cikasuan)"><div class="medal"><svg class="laurel" viewBox="0 0 200 132" aria-hidden="true"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g><g transform="translate(200,0) scale(-1,1)"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g></g><g fill="currentColor"><path d="M100 122 l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"/></g></svg><div class="medal-text"><b>入選</b><span>佳句</span></div></div><p>滅社後的七腳川平原被改建為吉野移民村，如今成了觀光勝地；這麼悲痛的事件，卻被遺忘成人們休閒娛樂的地方。</p><div class="meta-line">多二甲 05・張O瑞｜<b>七腳川事件 / Cikasuan</b></div><div class="award-hint">▾ 點擊頒發桂冠</div></article><article class="quote-card" style="--event-color:var(--c-cepo)"><div class="medal"><svg class="laurel" viewBox="0 0 200 132" aria-hidden="true"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g><g transform="translate(200,0) scale(-1,1)"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g></g><g fill="currentColor"><path d="M100 122 l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"/></g></svg><div class="medal-text"><b>入選</b><span>佳句</span></div></div><p>以前從來沒聽說過的故事，因為上了這堂課才有所了解；這些事全部都該知道，畢竟發生在台灣這塊土地上。</p><div class="meta-line">商二乙 24・鍾O瑄｜<b>大港口事件 / Cepo&#x27;</b></div><div class="award-hint">▾ 點擊頒發桂冠</div></article><article class="quote-card" style="--event-color:var(--c-dafen)"><div class="medal"><svg class="laurel" viewBox="0 0 200 132" aria-hidden="true"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g><g transform="translate(200,0) scale(-1,1)"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g></g><g fill="currentColor"><path d="M100 122 l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"/></g></svg><div class="medal-text"><b>入選</b><span>佳句</span></div></div><p>布農族為守護家園長期抗爭，令人敬佩，也深感殖民壓迫與歷史傷痕沉重。</p><div class="meta-line">商二乙 01・李O揚｜<b>大分事件 / 布農族抗爭</b></div><div class="award-hint">▾ 點擊頒發桂冠</div></article><article class="quote-card" style="--event-color:var(--c-dafen)"><div class="medal"><svg class="laurel" viewBox="0 0 200 132" aria-hidden="true"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g><g transform="translate(200,0) scale(-1,1)"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g></g><g fill="currentColor"><path d="M100 122 l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"/></g></svg><div class="medal-text"><b>入選</b><span>佳句</span></div></div><p>風景優美的「多美麗」（Tomiri）步道，背後其實是日方為監控布農族人建立的駐在所地景，一段一點也不美麗的「十三里」壓迫史。</p><div class="meta-line">商二乙 01・李O揚｜<b>大分事件 / 布農族抗爭</b></div><div class="award-hint">▾ 點擊頒發桂冠</div></article><article class="quote-card" style="--event-color:var(--c-dafen)"><div class="medal"><svg class="laurel" viewBox="0 0 200 132" aria-hidden="true"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g><g transform="translate(200,0) scale(-1,1)"><path d="M89.2 116.9 L83.1 115.2 L77.2 112.7 L71.7 109.6 L66.6 105.8 L62.0 101.5 L57.9 96.6 L54.5 91.2 L51.8 85.5 L49.8 79.5 L48.5 73.2 L48.0 66.9 L48.3 60.6 L49.3 54.3 L51.1 48.2 L53.7 42.4 L56.9 36.9 L60.8 31.9 L65.2 27.4 L70.2 23.4 L75.6 20.1 L81.4 17.5 L87.4 15.5" fill="none" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/><g fill="currentColor"><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(89.2 116.9) rotate(142) scale(1.0)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(83.1 115.2) rotate(149) scale(0.98)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(77.2 112.7) rotate(156) scale(0.96)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(71.7 109.6) rotate(163) scale(0.94)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(66.6 105.8) rotate(170) scale(0.92)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(62.0 101.5) rotate(177) scale(0.9)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(57.9 96.6) rotate(184) scale(0.88)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(54.5 91.2) rotate(191) scale(0.86)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.8 85.5) rotate(198) scale(0.84)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.8 79.5) rotate(205) scale(0.82)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.5 73.2) rotate(212) scale(0.8)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.0 66.9) rotate(219) scale(0.78)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(48.3 60.6) rotate(226) scale(0.76)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(49.3 54.3) rotate(233) scale(0.74)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(51.1 48.2) rotate(240) scale(0.72)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(53.7 42.4) rotate(247) scale(0.7)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(56.9 36.9) rotate(254) scale(0.68)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(60.8 31.9) rotate(261) scale(0.66)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(65.2 27.4) rotate(268) scale(0.64)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(70.2 23.4) rotate(275) scale(0.62)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(75.6 20.1) rotate(282) scale(0.6)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(81.4 17.5) rotate(289) scale(0.58)"/><path d="M0 0 Q8 -1.9 16.5 0 Q8 1.9 0 0 Z" transform="translate(87.4 15.5) rotate(296) scale(0.56)"/></g></g><g fill="currentColor"><path d="M100 122 l1.8 3.7 4.1.6-3 2.9.7 4.1-3.6-1.9-3.6 1.9.7-4.1-3-2.9 4.1-.6z"/></g></svg><div class="medal-text"><b>入選</b><span>佳句</span></div></div><p>過去在這片土地上的祖先們遇到的事，才有現在的我們。</p><div class="meta-line">商二乙 18・吳O瑤｜<b>大分事件 / 布農族抗爭</b></div><div class="award-hint">▾ 點擊頒發桂冠</div></article></div>
     </div>
   </section>
-  <section id="wall">
+  <section id="process">
     <div class="wrap">
-      <h2>學生策展：AI 素材的三道審查</h2>
-      <p class="lead">AI 生成的素材要登上這面牆，必須先通過全班的三道審查程序。</p>
-      <div class="wall">
-        <article class="work-card"><div class="wall-step">第一道</div><h4>歸類</h4><p>判讀心智圖與摘要屬於哪個事件，說出判斷依據的關鍵詞。</p></article>
-        <article class="work-card"><div class="wall-step">第二道</div><h4>挑錯與票選</h4><p>找出 AI 錯置的內容與有立場的用詞（招撫、平亂、歸順、理蕃……），票選最值得上牆的段落。</p></article>
-        <article class="work-card"><div class="wall-step">第三道</div><h4>三句展示</h4><p>事實句、差異句、省思句——用自己的話寫下一句可上牆的理解。</p></article>
+      <div class="two-col">
+        <div>
+          <h2>生成工具與學習歷程</h2>
+          <p class="lead">學生用 NotebookLM 把權威史料 PDF 轉成摘要、心智圖、音訊與影片，再回到課堂完成三句寫作與審稿。下面這些話是學生自己寫的，他們很清楚 AI 的限制在哪裡。</p>
+          <div class="literacy-grid"><article class="literacy-card"><p>「不能百分之百交給 AI，它只能達到輔助的作用，幫忙整理資料、圈出重點。」</p><span>商二乙 18・吳O瑤</span></article><article class="literacy-card"><p>「很方便，但用深度思考時會參雜一些類似但無關的事件。」</p><span>多二甲 11・王O庭</span></article><article class="literacy-card"><p>「記載與事實往往有偏差，研究時要收集不同立場的資料，以免減少客觀性。」</p><span>多二甲 16・杜O蕎</span></article><article class="literacy-card"><p>「能快速統整出重點，在學習的同時，也另外得到了處理資料的能力。」</p><span>多二甲 05・張O瑞</span></article><article class="literacy-card"><p>「最近準備報告時也跟組員提到能用這個軟體，壓力小了也更方便了，未來會繼續用它協助作業和報告。」</p><span>多二甲 13・蔡O君</span></article><article class="literacy-card"><p>「我更了解七腳川事件的經過，也知道歷史不能只從單一角度看待。」</p><span>商二乙 25・張O茹</span></article><article class="literacy-card"><p>「覺得好特別，以前從來沒聽說過的故事，因為上了這堂課才有所了解。」</p><span>商二乙 24・鍾O瑄</span></article><article class="literacy-card"><p>「不僅讓我知道原住民的歷史，也讓我更會用 NotebookLM 和 AI 去做作業。」</p><span>商二乙 03・李O諺</span></article><article class="literacy-card"><p>「非常實用的工具，整理、製成報告、學習卡都很有用。」</p><span>英二乙 09・余O璿</span></article><article class="literacy-card"><p>「比我一個一個找還要快，能夠快速提升學習、整理資料。」</p><span>商二乙 19・梁O芝</span></article></div>
+        </div>
+        <div>
+          <ul class="checklist">
+            <li>選定事件，建立自己的研究問題。</li>
+            <li>用 NotebookLM 摘要史料，保留人工判讀。</li>
+            <li>審查 AI 輸出：歸類心智圖、辨認有立場的用詞。</li>
+            <li>比較官方說法與族群記憶，寫出差異。</li>
+            <li>把 AI 輸出改寫成自己的話，並補上來源。</li>
+          </ul>
+          <div class="prior"><h4>上這門課之前，你認識這些事件嗎？</h4><p class="pk-note">開展前審查會問卷，14 位學生作答，超過七成不是從課堂認識這段歷史的。</p><div class="pk-row"><span>完全沒聽過這些事件</span><span class="bar"><i style="width:21%"></i></span><span class="n">3</span></div><div class="pk-row"><span>聽過，但不是在課堂上</span><span class="bar"><i style="width:50%"></i></span><span class="n">7</span></div><div class="pk-row"><span>在課堂學過</span><span class="bar"><i style="width:29%"></i></span><span class="n">4</span></div></div>
+        </div>
       </div>
-      <p class="lead" style="margin-top:18px">審查會後，本區將更新全班票選結果與入選的學生句子。</p>
+    </div>
+  </section>
+  <section id="exit">
+    <div class="wrap">
+      <div class="act-label" style="justify-content:center">尾聲・出口牆</div>
+      <h2>離場之前，他們想讓臺灣知道的事</h2>
+      <p class="lead" style="margin:0 auto">問卷最後一題：「我認為臺灣的所有人民，應該要知道的事情是？」以下是 14 位審稿人的回答。</p>
+      <div class="exit-list"><p>「我們不該忘記原住民祖先們的英勇對抗。」<span>多二甲 11・王O庭</span></p><p>「該知道的是完整歷史的事實，而非偏向某方的歷史。」<span>多二甲 16・杜O蕎</span></p><p>「不論族群，生長在台灣這片土地的我們，都該記得原住民族受過的、無法挽回的迫害。」<span>英二乙 09・余O璿</span></p><p>「應該要知道許多歷史，而不是讓它被忘記。」<span>商二乙 19・梁O芝</span></p><p>「對於發生的憾事必須重視，也必須對族群給予尊重與理解，讓台灣固有的人文得以永續。」<span>多二甲 05・張O瑞</span></p><p>「不要打仗。」<span>商二乙 30・潘O澕</span></p></div><div class="exit-closer"><p>「這片土地並非一片祥和，請將歷史銘記在心。」</p><span>多二甲 13・蔡O君</span></div>
     </div>
   </section>
   <section id="references">
     <div class="wrap">
-      <h2>NotebookLM 總參考資料來源</h2>
-      <p class="lead">以下列出本次 12 本 NotebookLM 所使用或匯出紀錄中可辨識的主要來源。這裡是全站總參考資料，不對應單一學生作品。</p>
-      <div class="refs"><article class="ref-group"><h3>大港口事件 / Cepo&#x27;</h3><ul><li>原民會叢書-大港口事件1877-1878.pdf</li><li>國教院補充教材-大港口事件.pdf</li><li>140年前「大港口事件」阿美族遭清兵殺戮 - 公視新聞網 PNN</li><li>靜浦考古遺址｜國家文化記憶庫</li><li>大港口Cepo&#x27;事件口傳歷史寫生/聲及其對應之阿美族文化智慧調查與研究報告書</li><li>南島近代史-清領時期【ZALAN見識南島】第三季逐字稿</li></ul></article><article class="ref-group"><h3>太魯閣戰役</h3><ul><li>原民會叢書-太魯閣事件1914.pdf</li><li>國教院補充教材-太魯閣事件.pdf</li><li>太魯閣戰爭百年回顧.pdf</li><li>太魯閣事件-1914 Tnegjyalan Truku</li><li>太魯閣-歷史背景 - 原住民族文化事業基金會</li><li>太魯閣國家公園全球資訊網｜蘇花道今昔</li></ul></article><article class="ref-group"><h3>大分事件 / 布農族抗爭</h3><ul><li>原民會叢書-大分事件1914-1933.pdf</li><li>國教院補充教材-大分事件.pdf</li><li>1915年Dahu Ali（拉荷・阿雷）發動布農族大分抗日事件說之探討</li><li>先祖「大分事件」抗日百年故事 - 國家文化記憶庫</li><li>大分事件 - 國家文化記憶庫</li><li>大分事件 - 臺灣原住民族事典</li><li>大分事件一百周年紀念回顧 - 原住民族文獻</li></ul></article><article class="ref-group"><h3>七腳川事件 / Cikasuan</h3><ul><li>原民會叢書-七腳川事件1908-1914.pdf</li><li>國教院補充教材-七腳川事件.pdf</li><li>原住民族重大歷史事件：七腳川事件故事地圖系列</li><li>The Cikasuan Incident 1908-1914 NotebookLM 來源資料</li></ul></article></div>
+      <h2>參考資料來源</h2>
+      <p class="lead">本展史實數字與事件敘述一律以【政府出版品】為準（原住民族委員會「原住民族重大歷史事件系列叢書」、國家教育研究院補充教材）；其餘來源依層級標示。此為全站總參考資料，不對應單一學生作品。</p>
+      <div class="refs"><article class="ref-group"><h3>大港口事件 / Cepo&#x27;</h3><ul><li>【政府出版品】原住民族委員會《原住民族重大歷史事件系列叢書：大港口事件 1877-1878》</li><li>【政府出版品】國家教育研究院 原住民族重大歷史事件補充教材：大港口事件</li><li>【政府委託研究】《大港口 Cepo&#x27; 事件口傳歷史寫生／聲及其對應之阿美族文化智慧調查與研究報告書》</li><li>【官方資料庫】靜浦考古遺址｜文化部 國家文化記憶庫</li><li>【公廣媒體】140 年前「大港口事件」阿美族遭清兵殺戮｜公視新聞網 PNN</li><li>【公廣媒體】南島近代史．清領時期｜原住民族電視台【ZALAN 見識南島】第三季</li></ul></article><article class="ref-group"><h3>太魯閣戰役</h3><ul><li>【政府出版品】原住民族委員會《原住民族重大歷史事件系列叢書：太魯閣事件 1914》</li><li>【政府出版品】國家教育研究院 原住民族重大歷史事件補充教材：太魯閣事件</li><li>【學術研討】《太魯閣戰爭百年回顧》研討會論文集</li><li>【官方影音】《太魯閣事件-1914 Tnegjyalan Truku》｜原住民族文化事業基金會</li><li>【官方網站】太魯閣．歷史背景｜原住民族文化事業基金會</li><li>【官方網站】蘇花道今昔｜太魯閣國家公園全球資訊網</li></ul></article><article class="ref-group"><h3>大分事件 / 布農族抗爭</h3><ul><li>【政府出版品】原住民族委員會《原住民族重大歷史事件系列叢書：大分事件 1914-1933》</li><li>【政府出版品】國家教育研究院 原住民族重大歷史事件補充教材：大分事件</li><li>【官方期刊】大分事件一百周年紀念回顧｜原住民族委員會《原住民族文獻》</li><li>【官方資料庫】大分事件、先祖「大分事件」抗日百年故事｜文化部 國家文化記憶庫</li><li>【官方辭書】大分事件｜臺灣原住民族事典</li><li>【學術論文】〈1915 年 Dahu Ali（拉荷・阿雷）發動布農族大分抗日事件說之探討〉</li></ul></article><article class="ref-group"><h3>七腳川事件 / Cikasuan</h3><ul><li>【政府出版品】原住民族委員會《原住民族重大歷史事件系列叢書：七腳川事件 1908-1914》</li><li>【政府出版品】國家教育研究院 原住民族重大歷史事件補充教材：七腳川事件</li><li>【官方資料庫】原住民族重大歷史事件：七腳川事件故事地圖系列（原民會委託製作）</li><li>【課程素材】The Cikasuan Incident 1908-1914｜NotebookLM 筆記本來源紀錄</li></ul></article></div>
     </div>
   </section>
 </main>
-<footer>花蓮高商「多元文化與文學」縱谷無言單元｜素材：NotebookLM 匯出與學生課堂作業｜頁面更新：2026-06-10</footer>
+<footer>花蓮高商「多元文化與文學」縱谷無言單元｜素材：NotebookLM 匯出、學生事件理解卡與開展前審查會問卷（2026-06-11）｜學生姓名一律屏蔽，以班級＋座號代號顯示｜頁面更新：2026-06-12</footer>
+<script>window.FLIP_PAGES=["<div class=\"face cover-face\"><h3>花蓮高商・多元文化與文學</h3><div class=\"cov-title\">縱谷無言</div><div class=\"cov-sub\">AI 生成初稿・未經審查</div><p>這份初稿由 AI 整理史料而成。<br>它讀起來很順，可是它不是族人，它會說錯話。<br><br><b>請翻頁，看看它怎麼寫。</b></p><p style=\"margin-top:18px;font-size:12px;color:rgba(239,230,210,.6)\">本冊所有文句皆為 AI 生成，僅供學生審查教學使用，不得視為史實。</p><div class=\"wm\">AI 初稿・未經審查</div></div>", "<div class=\"face\" style=\"border-top:5px solid var(--c-truku)\"><h3>太魯閣（AI 初稿）</h3><blockquote>「日方為徹底征服「<i>兇蕃</i>」以開鑿橫斷道路並掌控山地資源（樟腦、礦產），發動海陸東西夾擊。」</blockquote><blockquote>「太魯閣族 3,000 戰士憑天險與傳統戰術抵抗，但在強大火力與資源封鎖下，<i>各社相繼歸順</i>。」</blockquote><div class=\"src\">出自學生班上 NotebookLM 匯出檔。</div><div class=\"wm\">AI 初稿・未經審查</div><div class=\"stamp\">AI 生成・不得視為史實</div></div>", "<div class=\"face\" style=\"border-top:5px solid var(--c-cepo)\"><h3>大港口（AI 初稿）</h3><blockquote>「受國際局勢影響，晚清政府推行「<i>開山撫番</i>」政策以強化對東臺灣的主權，卻因強徵勞力、侵佔土地及軍紀敗壞，引發阿美族人的強烈抵抗。」</blockquote><blockquote>「清兵透過誘騙手段，在現今靜浦國小附近，對 165 名阿美族青年進行閉門屠殺。」</blockquote><div class=\"src\">出自學生班上 NotebookLM 匯出檔。整段都以朝廷當主詞，阿美族人成了「被引發」的受詞。</div><div class=\"wm\">AI 初稿・未經審查</div><div class=\"stamp\">AI 生成・不得視為史實</div></div>", "<div class=\"face\" style=\"border-top:5px solid var(--c-cikasuan)\"><h3>七腳川（AI 初稿）</h3><blockquote>「日本政府<i>平定</i>了七腳川社的<i>叛亂</i>。」</blockquote><div class=\"src\">課堂示範用 AI 原句。一個「平定」、一個「叛亂」，整場滅社只剩九個字。</div><div class=\"wm\">AI 初稿・未經審查</div><div class=\"stamp\">AI 生成・不得視為史實</div></div>", "<div class=\"face\" style=\"border-top:5px solid var(--c-dafen)\"><h3>大分（AI 初稿）</h3><blockquote>「該行動自 1915 年爆發後持續約十八年，最終於 1933 年<i>達成歸順與和解</i>。」</blockquote><div class=\"src\">出自學生班上 NotebookLM 匯出檔。AI 把事件寫成「結束了」。可是被遷走的部落，後來回去了嗎？</div><div class=\"wm\">AI 初稿・未經審查</div><div class=\"stamp\">AI 生成・不得視為史實</div></div>", "<div class=\"face cover-face\"><h3>花蓮高商・多元文化與文學</h3><div class=\"cov-title\">初稿到此為止。</div><div class=\"cov-sub\">它尚未經過審查。</div><p>14 位學生審稿人讀過這份稿。<br>接下來，是他們的決定。</p><div class=\"wm\">AI 初稿・未經審查</div></div>"];</script>
+<script>
+(function(){
+  var body=document.body,root=document.documentElement;
+  function setTheme(t){
+    ['theme-dark','theme-light'].forEach(function(c){root.classList.remove(c);body.classList.remove(c);});
+    root.classList.add(t);body.classList.add(t);
+    var b=document.getElementById('themeToggle');
+    if(b){b.textContent=(t==='theme-dark')?'☀ 切換淺色版':'🌙 切換深色版';}
+    try{localStorage.setItem('exhibitTheme',t);}catch(e){}
+  }
+  var saved=null;
+  try{saved=localStorage.getItem('exhibitTheme');}catch(e){}
+  setTheme(saved==='theme-light'?'theme-light':'theme-dark');
+  document.getElementById('themeToggle').addEventListener('click',function(){
+    setTheme(body.classList.contains('theme-dark')?'theme-light':'theme-dark');
+  });
+
+  // 翻頁書：整本只用一張紙 #bookSheet，翻到側面看不見時抽換內容，避免多層 3D 穿透
+  var pages=(window.FLIP_PAGES||[]),sheet=document.getElementById('bookSheet');
+  var total=pages.length,last=total-1,current=0,busy=false;
+  function setHint(){
+    var hint=document.getElementById('bookHint');
+    if(hint){hint.textContent=(current>=last)?'翻完了，往下走，看審稿人的決定':'點頁面或按方向鍵翻頁（'+(current+1)+' / '+total+'）';}
+  }
+  function go(target){
+    if(busy||!sheet||target<0||target>last||target===current)return;
+    busy=true;
+    var dir=(target>current)?1:-1;
+    sheet.style.transition='transform .42s ease-in';
+    sheet.style.transform='rotateY('+(dir>0?-90:90)+'deg)';
+    setTimeout(function(){
+      current=target;
+      sheet.innerHTML=pages[current];          // 側面瞬間換頁
+      sheet.style.transition='none';
+      sheet.style.transform='rotateY('+(dir>0?90:-90)+'deg)';
+      void sheet.offsetWidth;                    // 強制重排，讓回轉動畫生效
+      sheet.style.transition='transform .42s ease-out';
+      sheet.style.transform='rotateY(0deg)';
+      setHint();
+      setTimeout(function(){busy=false;},430);
+    },420);
+  }
+  function next(){go(current+1);}
+  function prev(){go(current-1);}
+  if(sheet){sheet.addEventListener('click',next);}
+  var bp=document.getElementById('bookPrev'),bn=document.getElementById('bookNext');
+  if(bp){bp.addEventListener('click',prev);}
+  if(bn){bn.addEventListener('click',next);}
+  document.addEventListener('keydown',function(e){
+    if(e.key==='ArrowRight'){next();}
+    if(e.key==='ArrowLeft'){prev();}
+  });
+  setHint();
+
+  Array.prototype.forEach.call(document.querySelectorAll('.laurel-card,.quote-card'),function(card){
+    card.addEventListener('click',function(){card.classList.toggle('awarded');});
+  });
+
+  var verdicts=document.getElementById('verdicts');
+  var revealBtn=document.getElementById('revealBtn');
+  if(revealBtn&&verdicts){revealBtn.addEventListener('click',function(){
+    verdicts.classList.add('revealed');
+    verdicts.scrollIntoView({behavior:'smooth'});
+  });}
+  if(verdicts){
+    if('IntersectionObserver' in window){
+      var io=new IntersectionObserver(function(entries){
+        entries.forEach(function(en){
+          if(en.isIntersecting){verdicts.classList.add('revealed');io.disconnect();}
+        });
+      },{threshold:0.25});
+      io.observe(verdicts);
+    }else{
+      verdicts.classList.add('revealed');
+    }
+  }
+})();
+</script>
 </body>
 </html>

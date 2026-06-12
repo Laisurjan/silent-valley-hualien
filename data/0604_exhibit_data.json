@@ -1,7 +1,7 @@
 {
   "meta": {
     "title": "AI 與原住民族歷史敘事學習展",
-    "generated_at": "2026-06-10",
+    "generated_at": "2026-06-12",
     "notebook_count": 12,
     "txt_count": 48,
     "media_count": 6,
@@ -11,11 +11,13 @@
     {
       "id": "cepo",
       "name": "大港口事件 / Cepo'",
+      "name_dual": "大港口事件 ／ O lalood i Cepo'",
+      "name_note": "「大港口」是漢人地名；O lalood i Cepo' 意為「Cepo' 的戰爭」，是阿美族人自己的命名。2022 年部落正名「Cepo' 戰役」。",
       "years": "1877-1878",
       "ethnic": "阿美族・秀姑巒溪口部落",
       "place": "花蓮縣豐濱鄉靜浦、Makuta'ay 一帶",
       "image": "../assets/images/event_cepo.png",
-      "color": "var(--color-cepo-dark)",
+      "color": "var(--c-cepo)",
       "brief": "學生從清帝國治理、阿美族口述記憶與地名變遷切入，理解同一事件如何被寫成招撫、衝突、誘殺或族群創傷。",
       "focus": [
         "官方治理語言",
@@ -137,11 +139,13 @@
     {
       "id": "truku",
       "name": "太魯閣戰役",
+      "name_dual": "太魯閣戰役 ／ Tnegjyalan Truku",
+      "name_note": "日方文獻稱「太魯閣蕃討伐」，這個稱呼本身就帶著立場；Tnegjyalan Truku 是太魯閣族語的命名。",
       "years": "1896-1914",
       "ethnic": "太魯閣族",
       "place": "立霧溪、木瓜溪上游與太魯閣口",
       "image": "../assets/images/event_truku.png",
-      "color": "var(--color-truku-dark)",
+      "color": "var(--c-truku)",
       "brief": "展區呈現學生如何把 1914 年戰役放回更長的抵抗脈絡，看見 Gaya、山地治理、槍械收繳與主權衝突。",
       "focus": [
         "長期抵抗",
@@ -247,11 +251,13 @@
     {
       "id": "dafen",
       "name": "大分事件 / 布農族抗爭",
+      "name_dual": "大分事件（布農族郡社群抗日 1914-1933）",
+      "name_note": "「大分」是布農語地名的音譯（拉庫拉庫溪流域）。族人記憶中，1933 年的儀式不是「歸順」，而是有條件的和解。",
       "years": "1914-1933",
       "ethnic": "布農族",
       "place": "花蓮縣卓溪鄉、大分與拉庫拉庫溪流域",
       "image": "../assets/images/event_dafen.png",
-      "color": "var(--color-dafen-dark)",
+      "color": "var(--c-dafen)",
       "brief": "學生整理大分事件時，將交易所、槍枝收押、生計壓力與拉荷・阿雷的長期抵抗放在同一條歷史線上。",
       "focus": [
         "收押槍枝",
@@ -328,11 +334,13 @@
     {
       "id": "cikasuan",
       "name": "七腳川事件 / Cikasuan",
+      "name_dual": "七腳川事件 ／ Cikasuan",
+      "name_note": "七腳川即阿美語 Cikasuan（柴薪很多的地方）。事件後土地被沒收，設「吉野」移民村，也就是今天的吉安。",
       "years": "1908-1914",
       "ethnic": "阿美族・南勢阿美",
       "place": "花蓮縣吉安鄉七腳川溪流域",
       "image": "../assets/images/event_cikasuan.png",
-      "color": "var(--color-cikasuan-dark)",
+      "color": "var(--c-cikasuan)",
       "brief": "展區聚焦土地、勞役與殖民治理，並把學生的觀點比較整理成官方秩序與族群生存之間的差異。",
       "focus": [
         "土地剝奪",
@@ -663,6 +671,26 @@
   ],
   "mindmaps": [
     {
+      "student": "余OO",
+      "event": "cepo",
+      "archived_by": "author_event",
+      "title": "學生上傳 PNG 心智圖 / 截圖 1",
+      "file_name": "unnamed (1).png",
+      "id": "1-SAv2DNcviPutduwYgvtJ-z1oySPP7Aw",
+      "drive_url": "https://drive.google.com/file/d/1-SAv2DNcviPutduwYgvtJ-z1oySPP7Aw/view",
+      "preview_url": "https://drive.google.com/file/d/1-SAv2DNcviPutduwYgvtJ-z1oySPP7Aw/preview"
+    },
+    {
+      "student": "余OO",
+      "event": "cepo",
+      "archived_by": "author_event",
+      "title": "學生上傳 PNG 心智圖 / 截圖 2",
+      "file_name": "unnamed.png",
+      "id": "1CA_y5gA6G9MSX_XrbPeVSMgeZk8C_GCT",
+      "drive_url": "https://drive.google.com/file/d/1CA_y5gA6G9MSX_XrbPeVSMgeZk8C_GCT/view",
+      "preview_url": "https://drive.google.com/file/d/1CA_y5gA6G9MSX_XrbPeVSMgeZk8C_GCT/preview"
+    },
+    {
       "student": "蔡OO",
       "event": "cepo",
       "title": "大港口事件 NotebookLM 心智圖",
@@ -681,6 +709,16 @@
       "preview_url": "https://drive.google.com/file/d/1SIscvG9OGMDOpmtYBM_xQxgM1ONSi5rq/preview"
     },
     {
+      "student": "潘OO",
+      "event": "cepo",
+      "archived_by": "author_event",
+      "title": "NotebookLM Mind Map",
+      "file_name": "NotebookLM Mind Map.png",
+      "id": "1pjtgbuspq5LW-GPBawGNFR8Mtty_eUb7",
+      "drive_url": "https://drive.google.com/file/d/1pjtgbuspq5LW-GPBawGNFR8Mtty_eUb7/view",
+      "preview_url": "https://drive.google.com/file/d/1pjtgbuspq5LW-GPBawGNFR8Mtty_eUb7/preview"
+    },
+    {
       "student": "鍾OO",
       "event": "cepo",
       "title": "大港口事件心智圖",
@@ -688,6 +726,36 @@
       "id": "1zvnaercNuEX32qNyRk-O9hQRRajQrQoE",
       "drive_url": "https://drive.google.com/file/d/1zvnaercNuEX32qNyRk-O9hQRRajQrQoE/view",
       "preview_url": "https://drive.google.com/file/d/1zvnaercNuEX32qNyRk-O9hQRRajQrQoE/preview"
+    },
+    {
+      "student": "林OO",
+      "event": "truku",
+      "archived_by": "author_event",
+      "title": "學生上傳 PNG 心智圖 / 截圖",
+      "file_name": "unnamed.png",
+      "id": "1dVu0XbHZyxY5vlKM13qrqEXVfrmNR1hy",
+      "drive_url": "https://drive.google.com/file/d/1dVu0XbHZyxY5vlKM13qrqEXVfrmNR1hy/view",
+      "preview_url": "https://drive.google.com/file/d/1dVu0XbHZyxY5vlKM13qrqEXVfrmNR1hy/preview"
+    },
+    {
+      "student": "林OO",
+      "event": "truku",
+      "archived_by": "author_event",
+      "title": "NotebookLM Mind Map",
+      "file_name": "NotebookLM Mind Map.png",
+      "id": "1aDSdfdcfwF0YhJV4epuczPbzVa9YjIOD",
+      "drive_url": "https://drive.google.com/file/d/1aDSdfdcfwF0YhJV4epuczPbzVa9YjIOD/view",
+      "preview_url": "https://drive.google.com/file/d/1aDSdfdcfwF0YhJV4epuczPbzVa9YjIOD/preview"
+    },
+    {
+      "student": "杜OO",
+      "event": "dafen",
+      "archived_by": "author_event",
+      "title": "NotebookLM Mind Map",
+      "file_name": "NotebookLM Mind Map.png",
+      "id": "1_gzIMmIjulLc_8OHckCn6GxcwHau1pMl",
+      "drive_url": "https://drive.google.com/file/d/1_gzIMmIjulLc_8OHckCn6GxcwHau1pMl/view",
+      "preview_url": "https://drive.google.com/file/d/1_gzIMmIjulLc_8OHckCn6GxcwHau1pMl/preview"
     },
     {
       "student": "梁OO",
@@ -699,80 +767,9 @@
       "preview_url": "https://drive.google.com/file/d/1CIBkv6kyN3VXTC6eXBPGGvVcGi-qMiBM/preview"
     },
     {
-      "student": "余OO",
-      "event": "unknown",
-      "title": "學生上傳 PNG 心智圖 / 截圖 1",
-      "file_name": "unnamed (1).png",
-      "id": "1-SAv2DNcviPutduwYgvtJ-z1oySPP7Aw",
-      "drive_url": "https://drive.google.com/file/d/1-SAv2DNcviPutduwYgvtJ-z1oySPP7Aw/view",
-      "preview_url": "https://drive.google.com/file/d/1-SAv2DNcviPutduwYgvtJ-z1oySPP7Aw/preview"
-    },
-    {
-      "student": "余OO",
-      "event": "unknown",
-      "title": "學生上傳 PNG 心智圖 / 截圖 2",
-      "file_name": "unnamed.png",
-      "id": "1CA_y5gA6G9MSX_XrbPeVSMgeZk8C_GCT",
-      "drive_url": "https://drive.google.com/file/d/1CA_y5gA6G9MSX_XrbPeVSMgeZk8C_GCT/view",
-      "preview_url": "https://drive.google.com/file/d/1CA_y5gA6G9MSX_XrbPeVSMgeZk8C_GCT/preview"
-    },
-    {
-      "student": "杜OO",
-      "event": "unknown",
-      "title": "NotebookLM Mind Map",
-      "file_name": "NotebookLM Mind Map.png",
-      "id": "1_gzIMmIjulLc_8OHckCn6GxcwHau1pMl",
-      "drive_url": "https://drive.google.com/file/d/1_gzIMmIjulLc_8OHckCn6GxcwHau1pMl/view",
-      "preview_url": "https://drive.google.com/file/d/1_gzIMmIjulLc_8OHckCn6GxcwHau1pMl/preview"
-    },
-    {
-      "student": "張OO",
-      "event": "unknown",
-      "title": "NotebookLM Mind Map",
-      "file_name": "NotebookLM Mind Map.png",
-      "id": "17xdEjz_mZZAQ03uWDEnRqPjlAIrrDYDK",
-      "drive_url": "https://drive.google.com/file/d/17xdEjz_mZZAQ03uWDEnRqPjlAIrrDYDK/view",
-      "preview_url": "https://drive.google.com/file/d/17xdEjz_mZZAQ03uWDEnRqPjlAIrrDYDK/preview"
-    },
-    {
-      "student": "潘OO",
-      "event": "unknown",
-      "title": "NotebookLM Mind Map",
-      "file_name": "NotebookLM Mind Map.png",
-      "id": "1pjtgbuspq5LW-GPBawGNFR8Mtty_eUb7",
-      "drive_url": "https://drive.google.com/file/d/1pjtgbuspq5LW-GPBawGNFR8Mtty_eUb7/view",
-      "preview_url": "https://drive.google.com/file/d/1pjtgbuspq5LW-GPBawGNFR8Mtty_eUb7/preview"
-    },
-    {
-      "student": "張OO",
-      "event": "unknown",
-      "title": "NotebookLM Mind Map",
-      "file_name": "NotebookLM Mind Map (1).png",
-      "id": "1mkJDFA2BvL63Lp3RODvl_51dwsWHhZT-",
-      "drive_url": "https://drive.google.com/file/d/1mkJDFA2BvL63Lp3RODvl_51dwsWHhZT-/view",
-      "preview_url": "https://drive.google.com/file/d/1mkJDFA2BvL63Lp3RODvl_51dwsWHhZT-/preview"
-    },
-    {
-      "student": "林OO",
-      "event": "unknown",
-      "title": "學生上傳 PNG 心智圖 / 截圖",
-      "file_name": "unnamed.png",
-      "id": "1dVu0XbHZyxY5vlKM13qrqEXVfrmNR1hy",
-      "drive_url": "https://drive.google.com/file/d/1dVu0XbHZyxY5vlKM13qrqEXVfrmNR1hy/view",
-      "preview_url": "https://drive.google.com/file/d/1dVu0XbHZyxY5vlKM13qrqEXVfrmNR1hy/preview"
-    },
-    {
-      "student": "林OO",
-      "event": "unknown",
-      "title": "NotebookLM Mind Map",
-      "file_name": "NotebookLM Mind Map.png",
-      "id": "1aDSdfdcfwF0YhJV4epuczPbzVa9YjIOD",
-      "drive_url": "https://drive.google.com/file/d/1aDSdfdcfwF0YhJV4epuczPbzVa9YjIOD/view",
-      "preview_url": "https://drive.google.com/file/d/1aDSdfdcfwF0YhJV4epuczPbzVa9YjIOD/preview"
-    },
-    {
       "student": "吳OO",
-      "event": "unknown",
+      "event": "dafen",
+      "archived_by": "author_event",
       "title": "NotebookLM Mind Map",
       "file_name": "NotebookLM Mind Map (1).png",
       "id": "1XD_iWOUzmjpiji30Acx5qQFzimmw9Hno",
@@ -780,8 +777,29 @@
       "preview_url": "https://drive.google.com/file/d/1XD_iWOUzmjpiji30Acx5qQFzimmw9Hno/preview"
     },
     {
+      "student": "張OO",
+      "event": "cikasuan",
+      "archived_by": "author_event",
+      "title": "NotebookLM Mind Map",
+      "file_name": "NotebookLM Mind Map.png",
+      "id": "17xdEjz_mZZAQ03uWDEnRqPjlAIrrDYDK",
+      "drive_url": "https://drive.google.com/file/d/17xdEjz_mZZAQ03uWDEnRqPjlAIrrDYDK/view",
+      "preview_url": "https://drive.google.com/file/d/17xdEjz_mZZAQ03uWDEnRqPjlAIrrDYDK/preview"
+    },
+    {
+      "student": "張OO",
+      "event": "cikasuan",
+      "archived_by": "author_event",
+      "title": "NotebookLM Mind Map",
+      "file_name": "NotebookLM Mind Map (1).png",
+      "id": "1mkJDFA2BvL63Lp3RODvl_51dwsWHhZT-",
+      "drive_url": "https://drive.google.com/file/d/1mkJDFA2BvL63Lp3RODvl_51dwsWHhZT-/view",
+      "preview_url": "https://drive.google.com/file/d/1mkJDFA2BvL63Lp3RODvl_51dwsWHhZT-/preview"
+    },
+    {
       "student": "李OO",
-      "event": "unknown",
+      "event": "cikasuan",
+      "archived_by": "author_event",
       "title": "學生上傳 PNG 心智圖 / 截圖",
       "file_name": "unnamed.png",
       "id": "14HFghxXwt4j1yy_IdZzg_XPj_HD7BdbQ",
@@ -791,35 +809,288 @@
   ],
   "reference_sources": {
     "大港口事件 / Cepo'": [
-      "原民會叢書-大港口事件1877-1878.pdf",
-      "國教院補充教材-大港口事件.pdf",
-      "140年前「大港口事件」阿美族遭清兵殺戮 - 公視新聞網 PNN",
-      "靜浦考古遺址｜國家文化記憶庫",
-      "大港口Cepo'事件口傳歷史寫生/聲及其對應之阿美族文化智慧調查與研究報告書",
-      "南島近代史-清領時期【ZALAN見識南島】第三季逐字稿"
+      "【政府出版品】原住民族委員會《原住民族重大歷史事件系列叢書：大港口事件 1877-1878》",
+      "【政府出版品】國家教育研究院 原住民族重大歷史事件補充教材：大港口事件",
+      "【政府委託研究】《大港口 Cepo' 事件口傳歷史寫生／聲及其對應之阿美族文化智慧調查與研究報告書》",
+      "【官方資料庫】靜浦考古遺址｜文化部 國家文化記憶庫",
+      "【公廣媒體】140 年前「大港口事件」阿美族遭清兵殺戮｜公視新聞網 PNN",
+      "【公廣媒體】南島近代史．清領時期｜原住民族電視台【ZALAN 見識南島】第三季"
     ],
     "太魯閣戰役": [
-      "原民會叢書-太魯閣事件1914.pdf",
-      "國教院補充教材-太魯閣事件.pdf",
-      "太魯閣戰爭百年回顧.pdf",
-      "太魯閣事件-1914 Tnegjyalan Truku",
-      "太魯閣-歷史背景 - 原住民族文化事業基金會",
-      "太魯閣國家公園全球資訊網｜蘇花道今昔"
+      "【政府出版品】原住民族委員會《原住民族重大歷史事件系列叢書：太魯閣事件 1914》",
+      "【政府出版品】國家教育研究院 原住民族重大歷史事件補充教材：太魯閣事件",
+      "【學術研討】《太魯閣戰爭百年回顧》研討會論文集",
+      "【官方影音】《太魯閣事件-1914 Tnegjyalan Truku》｜原住民族文化事業基金會",
+      "【官方網站】太魯閣．歷史背景｜原住民族文化事業基金會",
+      "【官方網站】蘇花道今昔｜太魯閣國家公園全球資訊網"
     ],
     "大分事件 / 布農族抗爭": [
-      "原民會叢書-大分事件1914-1933.pdf",
-      "國教院補充教材-大分事件.pdf",
-      "1915年Dahu Ali（拉荷・阿雷）發動布農族大分抗日事件說之探討",
-      "先祖「大分事件」抗日百年故事 - 國家文化記憶庫",
-      "大分事件 - 國家文化記憶庫",
-      "大分事件 - 臺灣原住民族事典",
-      "大分事件一百周年紀念回顧 - 原住民族文獻"
+      "【政府出版品】原住民族委員會《原住民族重大歷史事件系列叢書：大分事件 1914-1933》",
+      "【政府出版品】國家教育研究院 原住民族重大歷史事件補充教材：大分事件",
+      "【官方期刊】大分事件一百周年紀念回顧｜原住民族委員會《原住民族文獻》",
+      "【官方資料庫】大分事件、先祖「大分事件」抗日百年故事｜文化部 國家文化記憶庫",
+      "【官方辭書】大分事件｜臺灣原住民族事典",
+      "【學術論文】〈1915 年 Dahu Ali（拉荷・阿雷）發動布農族大分抗日事件說之探討〉"
     ],
     "七腳川事件 / Cikasuan": [
-      "原民會叢書-七腳川事件1908-1914.pdf",
-      "國教院補充教材-七腳川事件.pdf",
-      "原住民族重大歷史事件：七腳川事件故事地圖系列",
-      "The Cikasuan Incident 1908-1914 NotebookLM 來源資料"
+      "【政府出版品】原住民族委員會《原住民族重大歷史事件系列叢書：七腳川事件 1908-1914》",
+      "【政府出版品】國家教育研究院 原住民族重大歷史事件補充教材：七腳川事件",
+      "【官方資料庫】原住民族重大歷史事件：七腳川事件故事地圖系列（原民會委託製作）",
+      "【課程素材】The Cikasuan Incident 1908-1914｜NotebookLM 筆記本來源紀錄"
+    ]
+  },
+  "review_board": {
+    "date": "2026-06-11",
+    "reviewers": 14,
+    "prior_knowledge": [
+      {
+        "label": "完全沒聽過這些事件",
+        "count": 3
+      },
+      {
+        "label": "聽過，但不是在課堂上",
+        "count": 7
+      },
+      {
+        "label": "在課堂學過",
+        "count": 4
+      }
+    ],
+    "votes": [
+      {
+        "question": "「兇蕃」這兩個字，要不要上牆？",
+        "options": [
+          {
+            "label": "照用，歷史文件就是這樣寫的",
+            "count": 0
+          },
+          {
+            "label": "照用，但旁邊加註：這是日方對抵抗者的稱呼",
+            "count": 5
+          },
+          {
+            "label": "改成「太魯閣族人」，並註明原文用語",
+            "count": 8,
+            "win": true
+          },
+          {
+            "label": "整段不要上牆",
+            "count": 1
+          }
+        ],
+        "verdict": "本展全站依最高票執行：改寫並註明原文。14 位審稿人裡，沒有一票願意照貼原文。"
+      },
+      {
+        "question": "「各社相繼歸順」，由族人的後代來寫會是哪一句？",
+        "options": [
+          {
+            "label": "各社相繼歸順（照原文）",
+            "count": 0
+          },
+          {
+            "label": "各社在火砲與封鎖下，為了讓族人活下去，停止了武裝抵抗",
+            "count": 14,
+            "win": true
+          },
+          {
+            "label": "各社終於接受了現代化的治理",
+            "count": 0
+          },
+          {
+            "label": "各社全部被消滅了",
+            "count": 0
+          }
+        ],
+        "verdict": "14:0 全數通過。這一句同時保留了「被迫」，也保留了族人的選擇與尊嚴。"
+      },
+      {
+        "question": "展覽標題，用誰的名字說故事？",
+        "options": [
+          {
+            "label": "大港口事件（觀眾比較看得懂）",
+            "count": 0
+          },
+          {
+            "label": "O lalood i Cepo'（族人的名字）",
+            "count": 0
+          },
+          {
+            "label": "兩個並列，並說明兩個名字的來歷",
+            "count": 14,
+            "win": true
+          },
+          {
+            "label": "都可以，名字不重要",
+            "count": 0
+          }
+        ],
+        "verdict": "14:0 全數通過。本展四個事件的標題已全部依此決議改為雙名並列。"
+      }
+    ],
+    "rewrite_pairs": [
+      {
+        "student": "多二甲 13・蔡O君",
+        "event": "cepo",
+        "ai": "這是一場為了維護國家主權與推行法治的「平定叛亂」行動。",
+        "rewrite": "這是一場為自身利益殘害無辜的惡劣行為。",
+        "reason": "有種把自己做的壞事合理化的感覺。"
+      },
+      {
+        "student": "英二乙 09・余O璿",
+        "event": "cepo",
+        "ai": "清政府將此事件定義為阿美族「兇番」抗拒「開山撫番」政策的叛亂行為，主張必須透過「勦撫兼施」的軍事手段，達成對後山領土的實際佔有。",
+        "rewrite": "清軍認為開發此地必須清掃、驅趕原住民，把開墾土地造成的迫害合理化。",
+        "reason": "政府描述的角度和族人的觀點不同。"
+      },
+      {
+        "student": "商二乙 20・林O妏",
+        "event": "truku",
+        "ai": "日軍官兵因「行為不檢」且「潛通蕃婦」，未能尊重地方之習慣。",
+        "rewrite": "日方記成官兵「行為不檢」；族人記得的是日軍蹂躪族中女性，嚴重觸犯祖訓。",
+        "reason": "我想同時寫出兩方的看法：同一件事，兩種記法。"
+      }
+    ],
+    "laurel_featured": [
+      {
+        "student": "多二甲 13・蔡O君",
+        "event": "cepo",
+        "text": "官方說「事件」，但族人記得的是「戰爭」。",
+        "tag": "差異句"
+      },
+      {
+        "student": "多二甲 16・杜O蕎",
+        "event": "dafen",
+        "text": "我今天才知道，在簡單一句記載後，是血與淚寫成的。",
+        "tag": "事實句"
+      },
+      {
+        "student": "多二甲 11・王O庭",
+        "event": "truku",
+        "text": "如此慘烈的事件，最後都成了寥寥幾筆文字和圖示，心像是被大石頭壓著，怎麼也無法鬆口氣。",
+        "tag": "心智圖感想"
+      },
+      {
+        "student": "商二乙 30・潘O澕",
+        "event": "cepo",
+        "text": "官方說大港口事件是平亂行動，但族人記得的是保衛家園與土地的抗爭。",
+        "tag": "差異句"
+      },
+      {
+        "student": "英二乙 09・余O璿",
+        "event": "cepo",
+        "text": "這個地名看起來很平常，但背後其實是被掩蓋的歷史。",
+        "tag": "省思句"
+      },
+      {
+        "student": "商二乙 20・林O妏",
+        "event": "truku",
+        "text": "官方寫的是強勢文化的統治史觀；族人記得的是對抗侵略、捍衛主權的正當性。",
+        "tag": "差異句"
+      }
+    ],
+    "laurel_quotes": [
+      {
+        "student": "商二乙 25・張O茹",
+        "event": "cikasuan",
+        "text": "這種從受害者手中「奪走故事」的權力鬥爭，比戰爭本身更令我震撼。"
+      },
+      {
+        "student": "多二甲 05・張O瑞",
+        "event": "cikasuan",
+        "text": "滅社後的七腳川平原被改建為吉野移民村，如今成了觀光勝地；這麼悲痛的事件，卻被遺忘成人們休閒娛樂的地方。"
+      },
+      {
+        "student": "商二乙 24・鍾O瑄",
+        "event": "cepo",
+        "text": "以前從來沒聽說過的故事，因為上了這堂課才有所了解；這些事全部都該知道，畢竟發生在台灣這塊土地上。"
+      },
+      {
+        "student": "商二乙 01・李O揚",
+        "event": "dafen",
+        "text": "布農族為守護家園長期抗爭，令人敬佩，也深感殖民壓迫與歷史傷痕沉重。"
+      },
+      {
+        "student": "商二乙 01・李O揚",
+        "event": "dafen",
+        "text": "風景優美的「多美麗」（Tomiri）步道，背後其實是日方為監控布農族人建立的駐在所地景，一段一點也不美麗的「十三里」壓迫史。"
+      },
+      {
+        "student": "商二乙 18・吳O瑤",
+        "event": "dafen",
+        "text": "過去在這片土地上的祖先們遇到的事，才有現在的我們。"
+      }
+    ],
+    "ai_literacy": [
+      {
+        "student": "商二乙 18・吳O瑤",
+        "text": "不能百分之百交給 AI，它只能達到輔助的作用，幫忙整理資料、圈出重點。"
+      },
+      {
+        "student": "多二甲 11・王O庭",
+        "text": "很方便，但用深度思考時會參雜一些類似但無關的事件。"
+      },
+      {
+        "student": "多二甲 16・杜O蕎",
+        "text": "記載與事實往往有偏差，研究時要收集不同立場的資料，以免減少客觀性。"
+      },
+      {
+        "student": "多二甲 05・張O瑞",
+        "text": "能快速統整出重點，在學習的同時，也另外得到了處理資料的能力。"
+      },
+      {
+        "student": "多二甲 13・蔡O君",
+        "text": "最近準備報告時也跟組員提到能用這個軟體，壓力小了也更方便了，未來會繼續用它協助作業和報告。"
+      },
+      {
+        "student": "商二乙 25・張O茹",
+        "text": "我更了解七腳川事件的經過，也知道歷史不能只從單一角度看待。"
+      },
+      {
+        "student": "商二乙 24・鍾O瑄",
+        "text": "覺得好特別，以前從來沒聽說過的故事，因為上了這堂課才有所了解。"
+      },
+      {
+        "student": "商二乙 03・李O諺",
+        "text": "不僅讓我知道原住民的歷史，也讓我更會用 NotebookLM 和 AI 去做作業。"
+      },
+      {
+        "student": "英二乙 09・余O璿",
+        "text": "非常實用的工具，整理、製成報告、學習卡都很有用。"
+      },
+      {
+        "student": "商二乙 19・梁O芝",
+        "text": "比我一個一個找還要快，能夠快速提升學習、整理資料。"
+      }
+    ],
+    "exit_wall": [
+      {
+        "student": "多二甲 11・王O庭",
+        "text": "我們不該忘記原住民祖先們的英勇對抗。"
+      },
+      {
+        "student": "多二甲 16・杜O蕎",
+        "text": "該知道的是完整歷史的事實，而非偏向某方的歷史。"
+      },
+      {
+        "student": "英二乙 09・余O璿",
+        "text": "不論族群，生長在台灣這片土地的我們，都該記得原住民族受過的、無法挽回的迫害。"
+      },
+      {
+        "student": "商二乙 19・梁O芝",
+        "text": "應該要知道許多歷史，而不是讓它被忘記。"
+      },
+      {
+        "student": "多二甲 05・張O瑞",
+        "text": "對於發生的憾事必須重視，也必須對族群給予尊重與理解，讓台灣固有的人文得以永續。"
+      },
+      {
+        "student": "商二乙 30・潘O澕",
+        "text": "不要打仗。"
+      },
+      {
+        "student": "多二甲 13・蔡O君",
+        "text": "這片土地並非一片祥和，請將歷史銘記在心。"
+      }
     ]
   }
 }
