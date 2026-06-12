@@ -165,7 +165,7 @@ GLOBAL_REFERENCE_SOURCES = {
 # 原本就確認的（蔡/鍾/梁）不加註。
 MINDMAP_MANIFEST = [
     {
-        "student": "余OO",
+        "student": "英二乙 09・余O璿",
         "event": "cepo",
         "archived_by": "author_event",
         "title": "學生上傳 PNG 心智圖 / 截圖 1",
@@ -173,7 +173,7 @@ MINDMAP_MANIFEST = [
         "id": "1-SAv2DNcviPutduwYgvtJ-z1oySPP7Aw",
     },
     {
-        "student": "余OO",
+        "student": "英二乙 09・余O璿",
         "event": "cepo",
         "archived_by": "author_event",
         "title": "學生上傳 PNG 心智圖 / 截圖 2",
@@ -181,7 +181,7 @@ MINDMAP_MANIFEST = [
         "id": "1CA_y5gA6G9MSX_XrbPeVSMgeZk8C_GCT",
     },
     {
-        "student": "杜OO",
+        "student": "多二甲 16・杜O蕎",
         "event": "dafen",
         "archived_by": "author_event",
         "title": "NotebookLM Mind Map",
@@ -189,21 +189,21 @@ MINDMAP_MANIFEST = [
         "id": "1_gzIMmIjulLc_8OHckCn6GxcwHau1pMl",
     },
     {
-        "student": "蔡OO",
+        "student": "多二甲 13・蔡O君",
         "event": "cepo",
         "title": "大港口事件 NotebookLM 心智圖",
         "file_name": "NotebookLM Mind Map (2).png",
         "id": "1JyEVL3idjt9-OA2fa1vai1sIEwNRO3MX",
     },
     {
-        "student": "蔡OO",
+        "student": "多二甲 13・蔡O君",
         "event": "cepo",
         "title": "大港口事件 NotebookLM 輸出截圖",
         "file_name": "unnamed.png",
         "id": "1SIscvG9OGMDOpmtYBM_xQxgM1ONSi5rq",
     },
     {
-        "student": "張OO",
+        "student": "多二甲 05・張O瑞",
         "event": "cikasuan",
         "archived_by": "author_event",
         "title": "NotebookLM Mind Map",
@@ -211,7 +211,7 @@ MINDMAP_MANIFEST = [
         "id": "17xdEjz_mZZAQ03uWDEnRqPjlAIrrDYDK",
     },
     {
-        "student": "潘OO",
+        "student": "商二乙 30・潘O澕",
         "event": "cepo",
         "archived_by": "author_event",
         "title": "NotebookLM Mind Map",
@@ -219,14 +219,14 @@ MINDMAP_MANIFEST = [
         "id": "1pjtgbuspq5LW-GPBawGNFR8Mtty_eUb7",
     },
     {
-        "student": "梁OO",
+        "student": "商二乙 19・梁O芝",
         "event": "dafen",
         "title": "大分事件 NotebookLM Mind Map",
         "file_name": "NotebookLM Mind Map.png",
         "id": "1CIBkv6kyN3VXTC6eXBPGGvVcGi-qMiBM",
     },
     {
-        "student": "張OO",
+        "student": "多二甲 05・張O瑞",
         "event": "cikasuan",
         "archived_by": "author_event",
         "title": "NotebookLM Mind Map",
@@ -234,14 +234,14 @@ MINDMAP_MANIFEST = [
         "id": "1mkJDFA2BvL63Lp3RODvl_51dwsWHhZT-",
     },
     {
-        "student": "鍾OO",
+        "student": "商二乙 24・鍾O瑄",
         "event": "cepo",
         "title": "大港口事件心智圖",
         "file_name": "大港口事件-心智圖.png",
         "id": "1zvnaercNuEX32qNyRk-O9hQRRajQrQoE",
     },
     {
-        "student": "林OO",
+        "student": "商二乙 20・林O妏",
         "event": "truku",
         "archived_by": "author_event",
         "title": "學生上傳 PNG 心智圖 / 截圖",
@@ -249,7 +249,7 @@ MINDMAP_MANIFEST = [
         "id": "1dVu0XbHZyxY5vlKM13qrqEXVfrmNR1hy",
     },
     {
-        "student": "林OO",
+        "student": "商二乙 20・林O妏",
         "event": "truku",
         "archived_by": "author_event",
         "title": "NotebookLM Mind Map",
@@ -257,7 +257,7 @@ MINDMAP_MANIFEST = [
         "id": "1aDSdfdcfwF0YhJV4epuczPbzVa9YjIOD",
     },
     {
-        "student": "吳OO",
+        "student": "商二乙 18・吳O瑤",
         "event": "dafen",
         "archived_by": "author_event",
         "title": "NotebookLM Mind Map",
@@ -265,7 +265,7 @@ MINDMAP_MANIFEST = [
         "id": "1XD_iWOUzmjpiji30Acx5qQFzimmw9Hno",
     },
     {
-        "student": "李OO",
+        "student": "商二乙 03・李O諺",
         "event": "cikasuan",
         "archived_by": "author_event",
         "title": "學生上傳 PNG 心智圖 / 截圖",
@@ -556,6 +556,32 @@ EXIT_WALL = [
 
 EXIT_WALL_CLOSER = {"student": "多二甲 13・蔡O君", "text": "這片土地並非一片祥和，請將歷史銘記在心。"}
 
+# 各事件的學生產出對照（依事件理解卡的 Studio 選擇＋實際上傳的心智圖判定）。
+# 用班級＋座號＋屏蔽名，座號唯一可追蹤；兩位完全空白未產出者（潘鴻宇、邢越樺）不列。
+STUDENT_OUTPUTS = {
+    "cepo": [
+        {"student": "商二乙 30・潘O澕", "output": "心智圖"},
+        {"student": "多二甲 13・蔡O君", "output": "心智圖"},
+        {"student": "英二乙 09・余O璿", "output": "心智圖"},
+        {"student": "商二乙 24・鍾O瑄", "output": "簡報"},
+    ],
+    "truku": [
+        {"student": "多二甲 11・王O庭", "output": "心智圖"},
+        {"student": "商二乙 20・林O妏", "output": "簡報"},
+    ],
+    "dafen": [
+        {"student": "多二甲 16・杜O蕎", "output": "心智圖"},
+        {"student": "商二乙 01・李O揚", "output": "心智圖"},
+        {"student": "商二乙 19・梁O芝", "output": "心智圖"},
+        {"student": "商二乙 18・吳O瑤", "output": "心智圖"},
+    ],
+    "cikasuan": [
+        {"student": "多二甲 05・張O瑞", "output": "心智圖"},
+        {"student": "商二乙 25・張O茹", "output": "音訊摘要"},
+        {"student": "商二乙 03・李O諺", "output": "心智圖"},
+    ],
+}
+
 # AI 節錄中的立場詞自動加註（學生審查決議的全站執行）
 STANCE_TERMS = ["兇蕃", "兇番", "歸順", "理蕃", "理番", "招撫", "撫番", "平定", "平亂", "討伐", "滅社", "叛亂"]
 STANCE_PATTERN = re.compile("(" + "|".join(STANCE_TERMS) + ")")
@@ -837,6 +863,7 @@ def build_data() -> dict:
             "ai_literacy": AI_LITERACY_QUOTES,
             "exit_wall": [*EXIT_WALL, EXIT_WALL_CLOSER],
         },
+        "student_outputs": STUDENT_OUTPUTS,
     }
 
 
@@ -946,6 +973,13 @@ h2{font-size:36px;color:var(--text-title);line-height:1.3;margin:0 0 10px;letter
 .chip{border:1px solid var(--line-soft);border-radius:999px;padding:5px 9px;font-family:var(--font-sans);font-size:12px;color:var(--text-primary)}
 .panel{background:var(--bg-card);border:1px solid var(--line-soft);border-radius:8px;padding:18px}
 .panel h4{margin:0 0 10px;color:var(--text-title);font-size:18px}
+.contrib{margin-top:16px;padding-top:14px;border-top:1px solid var(--line-soft)}
+.contrib h4{margin:0 0 10px;color:var(--text-title);font-size:16px}
+.contrib-list{list-style:none;margin:0;padding:0;display:grid;gap:7px}
+.contrib-list li{display:flex;justify-content:space-between;align-items:center;gap:10px;font-family:var(--font-sans);font-size:13.5px;border-left:3px solid var(--event-color);background:rgba(127,127,127,.06);padding:6px 10px;border-radius:0 6px 6px 0}
+.contrib-list .who{color:var(--text-primary)}
+.contrib-list .out{color:var(--event-color);font-size:12px;border:1px solid var(--event-color);border-radius:999px;padding:2px 9px;white-space:nowrap}
+.contrib-note{margin:10px 0 0;font-family:var(--font-sans);font-size:11.5px;color:var(--text-muted);line-height:1.6}
 .notebook-list{display:grid;gap:12px}
 .notebook{border-left:3px solid var(--event-color);background:rgba(0,0,0,.12);padding:12px;border-radius:0 8px 8px 0}
 .theme-light .notebook{background:rgba(43,37,32,.05)}
@@ -1252,6 +1286,23 @@ def render_laurel_wall() -> str:
     )
 
 
+def render_contributors(event_id: str) -> str:
+    rows = STUDENT_OUTPUTS.get(event_id, [])
+    if not rows:
+        return ""
+    items = "".join(
+        f'<li><span class="who">{esc(r["student"])}</span>'
+        f'<span class="out">{esc(r["output"])}</span></li>'
+        for r in rows
+    )
+    return (
+        '<div class="contrib"><h4>本事件・學生產出</h4>'
+        f'<ul class="contrib-list">{items}</ul>'
+        '<p class="contrib-note">以班級＋座號代號標示產出者，座號唯一可追蹤；姓名依個資原則屏蔽。</p>'
+        "</div>"
+    )
+
+
 def render_literacy() -> str:
     cards = "".join(
         f'<article class="literacy-card"><p>「{esc(item["text"])}」</p><span>{esc(item["student"])}</span></article>'
@@ -1420,6 +1471,7 @@ def build_html(data: dict) -> str:
       <h4>NotebookLM 輸出節錄</h4>
       <div class="notebook-list">{notebooks}</div>
       <p style="margin:10px 0 0;font-family:var(--font-sans);font-size:12px;color:var(--text-muted)">節錄中<mark class="stance">畫紅線</mark>的詞是日方／官方文獻用語，依學生審查決議照錄並標示，不作為本展立場。</p>
+      {render_contributors(event["id"])}
     </aside>
   </div>
 </section>
