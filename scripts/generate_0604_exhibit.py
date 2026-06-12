@@ -3,9 +3,10 @@ Build the 0604 professor-facing learning exhibit.
 
 Inputs are the local NotebookLM exports and media files listed in
 0604_成果網頁兩週工作清單.md. The script keeps the existing class_showcase.html
-unchanged and writes a standalone exhibit page:
+unchanged and writes standalone exhibit pages:
 
-  outputs/ai_history_learning_exhibit.html
+  outputs/ai_history_learning_exhibit.html         日常版（無開場動畫）
+  outputs/ai_history_learning_exhibit_cinema.html  展示版（片頭墨色顯影＋Ken Burns＋晨霧）
   data/0604_exhibit_data.json
   outputs/media/notebooklm/*
 """
@@ -25,6 +26,7 @@ ROOT = Path(__file__).resolve().parent.parent
 EXPORT_DIR = Path(r"C:\Users\godof\Downloads\0604\notebooklm_exports")
 MEDIA_DIR = Path(r"C:\Users\godof\Downloads\0604\notebooklm_media")
 OUTPUT_HTML = ROOT / "outputs" / "ai_history_learning_exhibit.html"
+OUTPUT_HTML_CINEMA = ROOT / "outputs" / "ai_history_learning_exhibit_cinema.html"
 OUTPUT_JSON = ROOT / "data" / "0604_exhibit_data.json"
 OUTPUT_MEDIA = ROOT / "outputs" / "media" / "notebooklm"
 
@@ -880,9 +882,12 @@ body{margin:0;background:var(--bg-main);color:var(--text-primary);font-family:va
 /* ---- 幕標 ---- */
 .act-label{font-family:var(--font-sans);font-size:13px;letter-spacing:.4em;color:var(--accent);text-transform:uppercase;margin-bottom:10px}
 .act-label::before{content:'';display:inline-block;width:26px;height:1px;background:var(--accent);vertical-align:middle;margin-right:12px}
-/* ---- Hero ---- */
-.hero{min-height:92vh;display:grid;align-content:end;background:linear-gradient(90deg,rgba(14,11,8,.85),rgba(14,11,8,.3)),url("../assets/images/hero_valley.png") center/cover no-repeat;border-bottom:1px solid var(--line-thin)}
-.hero-inner{max-width:1180px;margin:0 auto;width:100%;padding:44px 24px 56px}
+/* ---- Hero（背景獨立圖層，展示版做 Ken Burns 與晨霧） ---- */
+.hero{position:relative;min-height:92vh;display:grid;align-content:end;overflow:hidden;border-bottom:1px solid var(--line-thin);background:var(--bg-page)}
+.hero-bg{position:absolute;inset:0;background:linear-gradient(90deg,rgba(14,11,8,.85),rgba(14,11,8,.3)),url("../assets/images/hero_valley.png") center/cover no-repeat;will-change:transform}
+.hero-mist{display:none}
+.hero-veil{display:none}
+.hero-inner{position:relative;z-index:2;max-width:1180px;margin:0 auto;width:100%;padding:44px 24px 56px}
 .eyebrow{font-family:var(--font-sans);font-size:12px;letter-spacing:.28em;color:#D9A441;text-transform:uppercase}
 .hero h1{font-size:56px;line-height:1.16;margin:12px 0 6px;color:#fff;letter-spacing:.02em}
 .hero .sub{font-family:var(--font-sans);font-size:18px;color:#D9A441;letter-spacing:.14em;margin:0 0 14px}
@@ -903,7 +908,7 @@ h2{font-size:36px;color:var(--text-title);line-height:1.3;margin:0 0 10px;letter
 .book-stage{display:grid;justify-items:center;gap:18px;padding:18px 0 6px}
 /* 攤頁式書本：書脊在容器正中，紙頁佔右半，翻過去正好落在左半，不會超出版面 */
 /* 單頁置中：每一頁都是完整一張紙，繞中軸翻走露出下一頁，不超出版面、無空白半邊 */
-.book{position:relative;width:min(560px,90vw);height:min(620px,74vh);min-height:430px;margin:0 auto;perspective:2400px}
+.book{position:relative;width:min(660px,92vw);height:min(700px,80vh);min-height:460px;margin:0 auto;perspective:2400px}
 .sheet{position:absolute;inset:0;transform-origin:center center;transform-style:preserve-3d;transition:transform .85s cubic-bezier(.3,.7,.3,1);cursor:pointer}
 .sheet.flipped{transform:rotateY(-180deg)}
 /* 古意紙頁：宋體、米黃紙、雙線內框、首行縮排、兩端對齊 */
@@ -915,7 +920,8 @@ h2{font-size:36px;color:var(--text-title);line-height:1.3;margin:0 0 10px;letter
 .face h3{font-family:var(--font-serif);font-size:17px;letter-spacing:.34em;text-indent:.34em;color:rgba(43,37,32,.62);margin:0 0 20px;text-align:center;padding-bottom:12px;position:relative}
 .face h3::after{content:'';position:absolute;left:50%;bottom:0;width:48px;height:1px;margin-left:-24px;background:rgba(43,37,32,.3)}
 .face blockquote{margin:0 0 18px;font-size:19.5px;line-height:2.15;color:var(--paper-ink);text-indent:2em;letter-spacing:.06em;text-align:justify;text-justify:inter-character}
-.face blockquote i{font-style:normal;font-weight:700;border-bottom:3px solid rgba(199,62,58,.6);padding-bottom:1px}
+.face blockquote i{font-style:normal;font-weight:700;background-image:linear-gradient(rgba(199,62,58,.6),rgba(199,62,58,.6));background-repeat:no-repeat;background-position:left bottom;padding-bottom:2px;animation:lineDraw .9s ease .4s both}
+@keyframes lineDraw{from{background-size:0% 3px}to{background-size:100% 3px}}
 .face .src{font-family:var(--font-serif);font-size:13px;line-height:1.8;color:rgba(43,37,32,.62);border-left:3px solid rgba(199,62,58,.4);padding-left:11px;letter-spacing:.03em}
 .face.cover-face{display:grid;align-content:center;text-align:center;background:linear-gradient(160deg,#3A2F24,#241C13);color:#EFE6D2;border:1px solid rgba(217,164,65,.4);background-image:none}
 .face.cover-face h3{color:#D9A441;letter-spacing:.55em;text-indent:.55em;font-size:14px;margin-bottom:10px}
@@ -988,7 +994,10 @@ h2{font-size:36px;color:var(--text-title);line-height:1.3;margin:0 0 10px;letter
 .quote{margin:8px 0 0;padding:10px;border:1px solid var(--line-thin);border-radius:8px}
 .quote b{display:block;font-family:var(--font-sans);font-size:12px;color:var(--event-color);margin-bottom:4px}
 .quote p{margin:0;font-size:14px;color:var(--text-primary)}
-mark.stance{background:transparent;color:inherit;border-bottom:2px solid var(--ink-red);cursor:help}
+/* 立場詞紅線：以背景漸層當底線，進場時由左而右畫出（D-1 紅線顯影） */
+mark.stance{color:inherit;cursor:help;background-image:linear-gradient(var(--ink-red),var(--ink-red));background-repeat:no-repeat;background-position:left bottom;background-size:100% 2px;background-color:transparent;padding-bottom:2px}
+html.js .rv mark.stance{background-size:0% 2px}
+html.js .rv.on mark.stance{background-size:100% 2px;transition:background-size .8s ease .45s}
 .media-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:14px}
 .media-card{border:1px solid var(--line-soft);border-radius:8px;padding:14px;background:var(--bg-card)}
 .media-card h5{font-size:16px;margin:0 0 4px;color:var(--text-title)}
@@ -1088,10 +1097,10 @@ h2{font-size:46px}
 .stat strong{font-size:40px}
 .stat span{font-size:15px}
 .theme-toggle{font-size:16px;padding:10px 18px}
-.face blockquote{font-size:27px;line-height:2.1}
-.face h3{font-size:22px}
-.face .src{font-size:16.5px;line-height:1.85}
-.face .wm{font-size:37px}
+.face blockquote{font-size:21px;line-height:1.95}
+.face h3{font-size:19px}
+.face .src{font-size:14.5px;line-height:1.8}
+.face .wm{font-size:34px}
 .face .stamp{font-size:15px}
 .face.cover-face .cov-title{font-size:54px}
 .face.cover-face .cov-sub{font-size:19px}
@@ -1161,6 +1170,44 @@ h2{font-size:34px}.lead{font-size:18px}
 .pause h2{font-size:32px}.laurel-card p.sent{font-size:23px}.exit-closer p{font-size:27px}
 .vote-card h3{font-size:22px}.vote-row{font-size:16px}.pair .ai-side p,.pair .st-side p{font-size:18px}
 .event-title h3{font-size:28px}.quote-card p{font-size:18px}.exit-list p{font-size:20px}
+}
+/* ============ 墨色顯影（A-2 捲動浮現／只演一次） ============ */
+html.js .rv{opacity:0;transform:translateY(16px);filter:blur(6px)}
+html.js .rv.on{opacity:1;transform:none;filter:none;transition:opacity .9s ease-out,transform .9s cubic-bezier(.2,.7,.3,1),filter .9s ease-out}
+html.js #exit .rv.on{transition-duration:1.4s}
+/* 含 3D／iframe 的元素不上模糊，避免破壞翻頁立體與預覽載入 */
+html.js .book-stage.rv,html.js .mindmap-card.rv{filter:none}
+/* ============ 電影顆粒（B-10） ============ */
+.grain{position:fixed;inset:0;z-index:70;pointer-events:none;opacity:.05;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='180' height='180'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='2' stitchTiles='stitch'/%3E%3CfeColorMatrix type='saturate' values='0'/%3E%3C/filter%3E%3Crect width='180' height='180' filter='url(%23n)' opacity='0.55'/%3E%3C/svg%3E")}
+.theme-light .grain{opacity:.035}
+/* ============ 四色閱讀進度線（D-3） ============ */
+.progress{position:fixed;top:0;left:0;height:3px;width:0;z-index:95;background:linear-gradient(90deg,var(--c-cepo),var(--c-truku),var(--c-dafen),var(--c-cikasuan));background-attachment:fixed;background-size:100vw 100%}
+/* ============ 展示版片頭（A-1，只在 .cinema）：黑幕亮起→山谷推近→霧起→片名顯影 ============ */
+@keyframes inkIn{from{opacity:0;filter:blur(8px);transform:translateY(14px)}to{opacity:1;filter:none;transform:none}}
+@keyframes titleIn{from{opacity:0;filter:blur(12px);letter-spacing:.3em;transform:translateY(18px)}to{opacity:1;filter:none;letter-spacing:.02em;transform:none}}
+@keyframes veilUp{to{opacity:0}}
+@keyframes kenburns{from{transform:scale(1.14) translateY(-1.5%)}to{transform:scale(1) translateY(0)}}
+@keyframes mistA{from{transform:translateX(-14%) translateY(1%)}to{transform:translateX(12%) translateY(-1%)}}
+@keyframes mistB{from{transform:translateX(10%)}to{transform:translateX(-12%)}}
+@keyframes barScan{from{transform:scaleX(0)}to{transform:scaleX(1)}}
+.cinema .hero-veil{display:block;position:absolute;inset:0;z-index:4;background:#0E0B08;pointer-events:none;animation:veilUp 2s ease .25s forwards}
+.cinema .hero-bg{animation:kenburns 16s cubic-bezier(.2,.5,.3,1) forwards}
+.cinema .hero-mist{display:block;position:absolute;inset:-6%;z-index:1;pointer-events:none;filter:blur(16px);background:radial-gradient(48% 34% at 24% 70%,rgba(222,212,192,.22),transparent 70%),radial-gradient(40% 26% at 72% 52%,rgba(222,212,192,.13),transparent 72%);animation:mistA 26s ease-in-out infinite alternate}
+.cinema .hero-mist::after{content:'';position:absolute;inset:0;filter:blur(20px);background:radial-gradient(52% 30% at 55% 80%,rgba(210,198,176,.16),transparent 70%),radial-gradient(30% 22% at 10% 40%,rgba(210,198,176,.1),transparent 75%);animation:mistB 42s ease-in-out infinite alternate}
+.cinema .event-color-bar{transform-origin:left center;animation:barScan 1.6s cubic-bezier(.2,.7,.2,1) .6s both;box-shadow:0 0 14px rgba(217,164,65,.35)}
+.cinema .hero .eyebrow{opacity:0;animation:inkIn 1.1s ease-out 1s forwards}
+.cinema .hero h1{opacity:0;animation:titleIn 1.7s cubic-bezier(.2,.6,.25,1) 1.25s forwards}
+.cinema .hero .sub{opacity:0;animation:inkIn 1.2s ease-out 2s forwards}
+.cinema .hero p.intro{opacity:0;animation:inkIn 1.2s ease-out 2.4s forwards}
+.cinema .hero .nav{opacity:0;animation:inkIn 1s ease-out 2.85s forwards}
+.cinema .hero .stats{opacity:0;animation:inkIn 1s ease-out 3.15s forwards}
+/* ============ 動態減量：一律直接顯示 ============ */
+@media(prefers-reduced-motion:reduce){
+html.js .rv{opacity:1;transform:none;filter:none}
+html.js .rv mark.stance{background-size:100% 2px}
+.face blockquote i{animation:none;background-size:100% 3px}
+.cinema .hero-veil{animation:none;opacity:0}
+.cinema .hero-bg,.cinema .hero-mist,.cinema .hero-mist::after,.cinema .event-color-bar,.cinema .hero .eyebrow,.cinema .hero h1,.cinema .hero .sub,.cinema .hero p.intro,.cinema .hero .nav,.cinema .hero .stats{animation:none;opacity:1;transform:none}
 }
 """
 
@@ -1426,6 +1473,8 @@ def render_exit_wall() -> str:
 JS_CODE = r"""
 (function(){
   var body=document.body,root=document.documentElement;
+  root.classList.add('js');
+  var reduceMotion=!!(window.matchMedia&&window.matchMedia('(prefers-reduced-motion: reduce)').matches);
   function setTheme(t){
     ['theme-dark','theme-light'].forEach(function(c){root.classList.remove(c);body.classList.remove(c);});
     root.classList.add(t);body.classList.add(t);
@@ -1481,30 +1530,126 @@ JS_CODE = r"""
     card.addEventListener('click',function(){card.classList.toggle('awarded');});
   });
 
+  // 數字滾動（B-8）：等寬數字由 0 緩升至目標值，動態減量時直接顯示
+  function countUp(el,ms){
+    var target=parseInt((el.textContent||'').replace(/[^0-9]/g,''),10);
+    if(isNaN(target)){return;}
+    if(reduceMotion){el.textContent=String(target);return;}
+    el.textContent='0';
+    var start=null;
+    function tick(ts){
+      if(start===null){start=ts;}
+      var p=Math.min((ts-start)/ms,1);
+      p=1-Math.pow(1-p,3);
+      el.textContent=String(Math.round(target*p));
+      if(p<1){requestAnimationFrame(tick);}
+    }
+    requestAnimationFrame(tick);
+  }
+
   var verdicts=document.getElementById('verdicts');
+  var votesCounted=false;
+  function countVotes(){
+    if(votesCounted||!verdicts){return;}
+    votesCounted=true;
+    Array.prototype.forEach.call(verdicts.querySelectorAll('.vote-row .n'),function(n){countUp(n,1100);});
+  }
+  function revealVerdicts(){
+    if(verdicts&&!verdicts.classList.contains('revealed')){
+      verdicts.classList.add('revealed');
+      countVotes();
+    }
+  }
   var revealBtn=document.getElementById('revealBtn');
   if(revealBtn&&verdicts){revealBtn.addEventListener('click',function(){
-    verdicts.classList.add('revealed');
+    revealVerdicts();
     verdicts.scrollIntoView({behavior:'smooth'});
   });}
   if(verdicts){
     if('IntersectionObserver' in window){
       var io=new IntersectionObserver(function(entries){
         entries.forEach(function(en){
-          if(en.isIntersecting){verdicts.classList.add('revealed');io.disconnect();}
+          if(en.isIntersecting){revealVerdicts();io.disconnect();}
         });
       },{threshold:0.25});
       io.observe(verdicts);
     }else{
-      verdicts.classList.add('revealed');
+      revealVerdicts();
     }
+  }
+
+  // 先備知識長條的數字
+  var prior=document.querySelector('.prior');
+  if(prior){
+    if('IntersectionObserver' in window&&!reduceMotion){
+      var pio=new IntersectionObserver(function(es){
+        es.forEach(function(en){
+          if(en.isIntersecting){
+            Array.prototype.forEach.call(prior.querySelectorAll('.pk-row .n'),function(n){countUp(n,900);});
+            pio.disconnect();
+          }
+        });
+      },{threshold:0.3});
+      pio.observe(prior);
+    }
+  }
+
+  // 展示版片頭：hero 統計數字在標題顯影後滾動
+  if(body.classList.contains('cinema')&&!reduceMotion){
+    setTimeout(function(){
+      Array.prototype.forEach.call(document.querySelectorAll('.hero .stat strong'),function(s){countUp(s,1200);});
+    },3200);
+  }
+
+  // 墨色顯影（A-2）：標記元素、進入視窗時顯影，同區內錯落，只演一次
+  var rvSel='.act-label,main h2,.lead,.notice,.event-head,.book-stage,.pause .q-small,.pause h2,.pause p,.reveal-btn,'
+    +'.vote-card,.pair,.laurel-card,.quote-card,.literacy-card,.media-card,.notebook,.mindmap-card,.ref-group,'
+    +'.exit-list p,.exit-closer,.prior,.contrib,.checklist';
+  var rvEls=Array.prototype.slice.call(document.querySelectorAll(rvSel));
+  var rvCount={};
+  rvEls.forEach(function(el){
+    var sec=el.closest?el.closest('section'):null;
+    var key=(sec&&sec.id)?sec.id:'x';
+    var i=rvCount[key]=(rvCount[key]||0)+1;
+    el.classList.add('rv');
+    var step=(key==='exit')?400:120;
+    el.style.transitionDelay=Math.min((i-1)*step,1600)+'ms';
+  });
+  if(reduceMotion||!('IntersectionObserver' in window)){
+    rvEls.forEach(function(el){el.classList.add('on');});
+  }else{
+    var rvIO=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(en.isIntersecting){en.target.classList.add('on');rvIO.unobserve(en.target);}
+      });
+    },{threshold:0.12,rootMargin:'0px 0px -8% 0px'});
+    rvEls.forEach(function(el){rvIO.observe(el);});
+  }
+
+  // 四色閱讀進度線（D-3）
+  var prog=document.getElementById('progressBar');
+  if(prog){
+    var ticking=false;
+    function setProg(){
+      var h=document.documentElement;
+      var max=h.scrollHeight-window.innerHeight;
+      var p=max>0?((h.scrollTop||body.scrollTop||0)/max):0;
+      prog.style.width=(p*100)+'%';
+      ticking=false;
+    }
+    window.addEventListener('scroll',function(){
+      if(!ticking){ticking=true;requestAnimationFrame(setProg);}
+    },{passive:true});
+    setProg();
   }
 })();
 """
 
 
-def build_html(data: dict) -> str:
+def build_html(data: dict, cinema: bool = False) -> str:
+    """cinema=True 產出展示版（含片頭墨色顯影、Ken Burns、晨霧）；False 為日常版（無開場動畫）。"""
     meta = data["meta"]
+    body_class = "theme-dark weave-pattern cinema" if cinema else "theme-dark weave-pattern"
     nav = "".join(f'<a href="#{event["id"]}">{esc(event["name"])}</a>' for event in data["events"])
     mindmaps = "".join(render_mindmap(item) for item in data["mindmaps"])
     reference_sources = render_reference_sources(data["reference_sources"])
@@ -1572,9 +1717,14 @@ def build_html(data: dict) -> str:
 <link rel="stylesheet" href="../assets/styles/design_tokens.css">
 <style>{CSS}</style>
 </head>
-<body class="theme-dark weave-pattern">
+<body class="{body_class}">
+<div class="progress" id="progressBar"></div>
+<div class="grain" aria-hidden="true"></div>
 <button id="themeToggle" class="theme-toggle" type="button">☀ 切換淺色版</button>
 <header class="hero">
+  <div class="hero-bg" aria-hidden="true"></div>
+  <div class="hero-mist" aria-hidden="true"></div>
+  <div class="hero-veil" aria-hidden="true"></div>
   <div class="hero-inner">
     <div class="event-color-bar"><div class="seg-cepo"></div><div class="seg-dafen"></div><div class="seg-cikasuan"></div><div class="seg-truku"></div></div>
     <div class="eyebrow">花蓮高商 多元文化與文學・縱谷無言</div>
@@ -1700,9 +1850,11 @@ def main() -> None:
     OUTPUT_JSON.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_HTML.parent.mkdir(parents=True, exist_ok=True)
     OUTPUT_JSON.write_text(json.dumps(data, ensure_ascii=False, indent=2), encoding="utf-8")
-    OUTPUT_HTML.write_text(build_html(data), encoding="utf-8")
+    OUTPUT_HTML.write_text(build_html(data, cinema=False), encoding="utf-8")
+    OUTPUT_HTML_CINEMA.write_text(build_html(data, cinema=True), encoding="utf-8")
     print(f"wrote {OUTPUT_JSON.relative_to(ROOT)}")
     print(f"wrote {OUTPUT_HTML.relative_to(ROOT)}")
+    print(f"wrote {OUTPUT_HTML_CINEMA.relative_to(ROOT)}")
     print(f"copied media: {data['meta']['media_count']}")
 
 
