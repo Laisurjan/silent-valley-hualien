@@ -1581,7 +1581,7 @@ def build_html(data: dict) -> str:
     <h1>{esc(meta["title"])}</h1>
     <div class="sub">「一個被學生改過的展覽」</div>
     <p class="intro">AI 先寫了一份初稿，但它不是族人，它會說錯話。14 位學生審稿人讀過這份稿、投了票、動了紅筆。你現在看到的每一個標題、每一處用詞，都留著他們改過的痕跡。這個展覽想給你看的，是學生怎麼判斷一份 AI 的稿。</p>
-    <nav class="nav"><a href="#draft">第一幕・AI 初稿</a><a href="#verdicts">第二幕・審稿桌</a>{nav}<a href="#mindmaps">心智圖</a><a href="#laurels">句子牆</a><a href="#process">學習歷程</a><a href="#exit">出口牆</a><a href="#references">參考資料</a></nav>
+    <nav class="nav"><a href="#draft">第一幕・AI 初稿</a><a href="#verdicts">第二幕・審稿桌</a>{nav}<a href="#mindmaps">心智圖</a><a href="#laurels">審稿專家牆</a><a href="#process">學習歷程</a><a href="#exit">出口牆</a><a href="#references">參考資料</a></nav>
     <div class="stats">
       <div class="stat"><strong>4</strong><span>大歷史事件</span></div>
       <div class="stat"><strong>14</strong><span>位學生審稿人</span></div>
@@ -1646,7 +1646,7 @@ def build_html(data: dict) -> str:
   <section id="laurels">
     <div class="wrap">
       <div class="act-label">入選名單</div>
-      <h2>桂冠句子牆</h2>
+      <h2>審稿專家牆</h2>
       <p class="lead">本展以影片形式送到審查委員面前，這面牆就是它的入選名單。「完整審稿入選」頒給三句展示稿（事實句、差異句、省思句）全數完成的審稿人；「佳句入選」頒給留下一句值得上牆的話的人。<b>點擊卡片，為這句話頒發桂冠。</b>桂冠標記的是學生的審稿工作，不是歷史事件本身，所以由觀者親手頒出，不預先掛上。</p>
       {render_laurel_wall()}
     </div>
