@@ -832,7 +832,7 @@ def build_data() -> dict:
 
     return {
         "meta": {
-            "title": "AI 與原住民族歷史敘事學習展",
+            "title": "原住民十大歷史事件敘事展覽",
             "generated_at": date.today().isoformat(),
             "notebook_count": len(notebooks),
             "txt_count": sum(n["txt_count"] for n in notebooks),
@@ -1579,8 +1579,8 @@ def build_html(data: dict) -> str:
     <div class="event-color-bar"><div class="seg-cepo"></div><div class="seg-dafen"></div><div class="seg-cikasuan"></div><div class="seg-truku"></div></div>
     <div class="eyebrow">花蓮高商 多元文化與文學・縱谷無言</div>
     <h1>{esc(meta["title"])}</h1>
-    <div class="sub">「一個被學生改過的展覽」</div>
-    <p class="intro">AI 先寫了一份初稿，但它不是族人，它會說錯話。14 位學生審稿人讀過這份稿、投了票、動了紅筆。你現在看到的每一個標題、每一處用詞，都留著他們改過的痕跡。這個展覽想給你看的，是學生怎麼判斷一份 AI 的稿。</p>
+    <div class="sub">「全班同學善用 AI、從無到有的深度展覽」</div>
+    <p class="intro">這學期的「多元文化與文學」，全班從臺灣原住民十大歷史事件出發，深入花東縱谷的四個重大事件。學生用 NotebookLM 讀進政府出版的史料、向 AI 提問、生成自己的摘要、心智圖與簡報，再回頭審查 AI 寫出來的稿：看它哪裡站錯了位置、哪個詞帶著殖民者的立場、哪一句該改寫。從蒐集資料、AI 生成到逐句審查，這個展覽是全班從無到有做出來的。</p>
     <nav class="nav"><a href="#draft">第一幕・AI 初稿</a><a href="#verdicts">第二幕・審稿桌</a>{nav}<a href="#mindmaps">心智圖</a><a href="#laurels">審稿專家牆</a><a href="#process">學習歷程</a><a href="#exit">出口牆</a><a href="#references">參考資料</a></nav>
     <div class="stats">
       <div class="stat"><strong>4</strong><span>大歷史事件</span></div>
