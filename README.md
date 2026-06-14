@@ -8,10 +8,10 @@
 
 ## 線上 Demo（不必 clone 也能看）
 
-- 🏛️ [AI 與原住民族歷史敘事學習展](https://laisurjan.github.io/silent-valley-hualien/outputs/ai_history_learning_exhibit.html) — 觀課成果展：四大事件展區、NotebookLM 輸出節錄、學生心智圖與策展歷程
+- 🏛️ [原住民十大歷史事件敘事展覽（瀏覽版）](https://laisurjan.github.io/silent-valley-hualien/outputs/ai_history_learning_exhibit.html) — 觀課成果展：三幕式「蒐集 → 生成 → 審查」、四大事件展區、學生審稿專家牆與心智圖歸屬（無開場動畫，適合日常瀏覽）
+- 🎬 [同展・展示版（片頭動畫）](https://laisurjan.github.io/silent-valley-hualien/outputs/ai_history_learning_exhibit_cinema.html) — 內容相同，加片頭墨色顯影與晨霧，適合投影／錄影
 - 🎮 [總督的算盤](https://laisurjan.github.io/silent-valley-hualien/outputs/governor_game.html) — 滑牌歷史模擬遊戲：扮演理蕃官僚，從制度內部看見「縱谷無言」
 - 🗺️ [互動事件地圖](https://laisurjan.github.io/silent-valley-hualien/outputs/event_map_interactive.html) — 四個事件在縱谷上的位置，點 marker 看詳細
-- 🎓 [班級成果頁](https://laisurjan.github.io/silent-valley-hualien/outputs/class_showcase.html) — 學生三句展示（目前為測試資料）
 - 📋 [學生資源頁](https://laisurjan.github.io/silent-valley-hualien/teaching_materials/student_resources_handout.html) — 學生上課用的入口頁
 - 📝 [學習單 HTML 版](https://laisurjan.github.io/silent-valley-hualien/teaching_materials/student_report_template.html) — 事件理解卡
 - ✅ [NotebookLM 教師端建置清單](https://laisurjan.github.io/silent-valley-hualien/teaching_materials/notebooklm_teacher_setup.html) — 教師備課用
@@ -53,12 +53,12 @@
 │   ├── student_sop_poster.html
 │   └── notebooklm_teacher_setup.html # NotebookLM 教師端建置清單
 │
-├── outputs/                    # 產出（地圖、班級成果頁、觀課展、遊戲）
-│   ├── ai_history_learning_exhibit.html # 觀課成果展
+├── outputs/                    # 產出（地圖、觀課展、遊戲）
+│   ├── ai_history_learning_exhibit.html        # 觀課成果展（瀏覽版）
+│   ├── ai_history_learning_exhibit_cinema.html # 觀課成果展（展示版，片頭動畫）
 │   ├── governor_game.html               # 總督的算盤（教學遊戲，手寫單檔）
 │   ├── event_map_interactive.html
-│   ├── event_map_print.pdf
-│   └── class_showcase.html
+│   └── event_map_print.pdf
 │
 ├── assets/                     # 圖片與樣式
 │   ├── images/                 # AI 生成的水墨風配圖

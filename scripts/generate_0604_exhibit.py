@@ -2,8 +2,7 @@
 Build the 0604 professor-facing learning exhibit.
 
 Inputs are the local NotebookLM exports and media files listed in
-0604_成果網頁兩週工作清單.md. The script keeps the existing class_showcase.html
-unchanged and writes standalone exhibit pages:
+0604_成果網頁兩週工作清單.md. The script writes standalone exhibit pages:
 
   outputs/ai_history_learning_exhibit.html         日常版（無開場動畫）
   outputs/ai_history_learning_exhibit_cinema.html  展示版（片頭墨色顯影＋Ken Burns＋晨霧）

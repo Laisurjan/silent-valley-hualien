@@ -569,7 +569,6 @@ def build_html(class_data):
     <div class="topbar-eyebrow">{esc(meta.get('school', ''))}　‧　{esc(meta.get('course', ''))}</div>
     <h1 class="topbar-title">縱谷無言．事件地圖</h1>
   </div>
-  <a href="class_showcase.html" class="topbar-back">← 班級成果</a>
 </header>
 
 <main class="map-stage">
