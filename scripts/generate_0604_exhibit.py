@@ -457,7 +457,7 @@ REWRITE_PAIRS = [
 ]
 
 # 第三幕：桂冠句子牆
-# featured＝「完整審稿入選」（三句展示稿齊全，放大＋桂冠）；
+# featured＝「完整三句入選」（事實／差異／省思三句齊全，放大＋桂冠）；
 # quotes＝「佳句入選」（依老師指示：李O揚僅揀擇無 AI 味的個人句入佳句區）。
 LAUREL_FEATURED = [
     {
@@ -1404,7 +1404,7 @@ def render_laurel_wall() -> str:
         event = EVENTS[item["event"]]
         featured.append(
             f'<article class="laurel-card" style="--event-color:{event["color"]}">'
-            f'{_medal("完整審稿")}'
+            f'{_medal("完整三句")}'
             f'<p class="sent">{esc(item["text"])}</p>'
             f'<div class="meta-line">{esc(item["student"])}｜<b>{esc(event["name"])}</b>｜{esc(item["tag"])}</div>'
             '<div class="award-hint">▾ 點擊頒發桂冠</div>'
@@ -1822,7 +1822,7 @@ def build_html(data: dict, cinema: bool = False) -> str:
     <h1>{esc(meta["title"])}</h1>
     <div class="sub">「全班同學善用 AI、從無到有的深度展覽」</div>
     <p class="intro">這學期的「多元文化與文學」，全班從臺灣原住民十大歷史事件出發，深入花東縱谷的四個重大事件。學生用 NotebookLM 讀進政府出版的史料、向 AI 提問、生成自己的摘要、心智圖與簡報，再回頭審查 AI 寫出來的稿：看它哪裡站錯了位置、哪個詞帶著殖民者的立場、哪一句該改寫。從蒐集資料、AI 生成到逐句審查，這個展覽是全班從無到有做出來的。</p>
-    <nav class="nav"><a href="#draft">第一幕・AI 初稿</a><a href="#verdicts">第二幕・審稿桌</a>{nav}<a href="#mindmaps">心智圖</a><a href="#laurels">審稿專家牆</a><a href="#process">學習歷程</a><a href="#exit">出口牆</a><a href="#references">參考資料</a></nav>
+    <nav class="nav"><a href="#draft">第一幕・AI 初稿</a><a href="#verdicts">第二幕・審稿桌</a>{nav}<a href="#mindmaps">心智圖</a><a href="#laurels">學生的一句話</a><a href="#process">學習歷程</a><a href="#exit">出口牆</a><a href="#references">參考資料</a></nav>
     <div class="stats">
       <div class="stat"><strong>4</strong><span>大歷史事件</span></div>
       <div class="stat"><strong>14</strong><span>位學生審稿人</span></div>
@@ -1887,8 +1887,8 @@ def build_html(data: dict, cinema: bool = False) -> str:
   <section id="laurels">
     <div class="wrap">
       <div class="act-label">入選名單</div>
-      <h2>審稿專家牆</h2>
-      <p class="lead">本展以影片形式送到審查委員面前，這面牆就是它的入選名單。「完整審稿入選」頒給三句展示稿（事實句、差異句、省思句）全數完成的審稿人；「佳句入選」頒給留下一句值得上牆的話的人。<b>點擊卡片，為這句話頒發桂冠。</b>桂冠標記的是學生的審稿工作，不是歷史事件本身，所以由觀者親手頒出，不預先掛上。</p>
+      <h2>學生的一句話</h2>
+      <p class="lead">課堂最後，每位同學都要留一句話給展覽。這面牆就是入選名單。「完整三句」頒給事實句、差異句、省思句全數完成的同學；「佳句」頒給留下一句最值得上牆的話的人。（更細的審稿過程——比對立場、紅筆改寫——在第二幕審稿桌。）<b>點擊卡片，為這句話頒發桂冠。</b>桂冠掛在學生自己的話上，由觀者親手頒出，不預先掛上。</p>
       {render_laurel_wall()}
     </div>
   </section>
