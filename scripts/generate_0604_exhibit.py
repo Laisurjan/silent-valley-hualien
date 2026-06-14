@@ -1002,6 +1002,16 @@ html.js .rv.on mark.stance{background-size:100% 2px;transition:background-size .
 .media-card h5{font-size:16px;margin:0 0 4px;color:var(--text-title)}
 .media-card p{font-family:var(--font-sans);font-size:13px;color:var(--text-second);margin:0 0 10px}
 .media-card audio,.media-card video{width:100%;display:block;border-radius:6px}
+/* 每事件縱谷位置小圖（內嵌 SVG，不捲動） */
+.locator{text-align:center}
+.locator h4{margin:0 0 8px;color:var(--text-title);font-size:16px}
+.locator-map{background:rgba(127,127,127,.06);border:1px solid var(--line-soft);border-radius:8px;padding:8px}
+.locator-map svg{display:block;width:auto;max-width:100%;height:auto;max-height:300px;margin:0 auto;color:var(--text-muted)}
+.locator-map text{font-family:var(--font-sans)}
+.locator-map .loc-on{fill:var(--event-color);font-size:13px;font-weight:700}
+.locator-map .loc-off{fill:var(--text-muted);font-size:11px}
+.locator-map .loc-compass{fill:var(--text-muted);font-size:10px;letter-spacing:.1em}
+.locator-link{display:inline-block;margin-top:8px;color:var(--accent);font-family:var(--font-sans);font-size:13px}
 /* ---- 心智圖 ---- */
 .mindmap-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .mindmap-card{border:1px solid var(--line-soft);background:var(--bg-card);border-radius:8px;overflow:hidden}
@@ -1417,6 +1427,87 @@ def render_laurel_wall() -> str:
     )
 
 
+# 四事件真實經緯度（與互動／列印地圖共用），用花蓮縣界輪廓畫 locator
+LOCATOR_EVENTS = {
+    "truku": (121.6213, 24.1572, "太魯閣"),
+    "cikasuan": (121.5775, 23.9700, "七腳川"),
+    "cepo": (121.5025, 23.4720, "大港口"),
+    "dafen": (121.0830, 23.2780, "大分"),
+}
+GEO_OUTLINE_FILE = ROOT / "data" / "geo" / "hualien_outline.json"
+_LOC_VIEW_W = 200.0
+_LOC_PAD = 12.0
+
+
+def _load_locator_geometry():
+    """載入花蓮縣界並建立投影，回傳 (viewBox 高, 縣界 path, 投影函式)。失敗回 None。"""
+    try:
+        outline = json.loads(GEO_OUTLINE_FILE.read_text(encoding="utf-8"))
+        ring = outline["main"]
+    except Exception:
+        return None
+    # 點數降採樣，小圖不需高解析，縮小檔案
+    step = max(1, len(ring) // 130)
+    ring = ring[::step]
+    lngs = [p[0] for p in ring]
+    lats = [p[1] for p in ring]
+    lng_min, lng_max = min(lngs), max(lngs)
+    lat_min, lat_max = min(lats), max(lats)
+    scale = (_LOC_VIEW_W - 2 * _LOC_PAD) / (lng_max - lng_min)
+    view_h = round((lat_max - lat_min) * scale + 2 * _LOC_PAD, 1)
+
+    def project(lng, lat):
+        x = _LOC_PAD + (lng - lng_min) * scale
+        y = _LOC_PAD + (lat_max - lat) * scale
+        return round(x, 1), round(y, 1)
+
+    pts = [project(lng, lat) for lng, lat in ring]
+    path = "M" + " L".join(f"{x} {y}" for x, y in pts) + " Z"
+    return view_h, path, project
+
+
+_LOCATOR_GEO = _load_locator_geometry()
+
+
+def render_locator(active_id: str) -> str:
+    """每事件一張花蓮縣界位置小圖（內嵌 SVG，不捲動、離線可用），當前事件亮起。"""
+    active_color = EVENTS[active_id]["color"]
+    if _LOCATOR_GEO is None:
+        svg = ""  # 縣界資料缺漏時略過小圖，仍保留完整地圖連結
+    else:
+        view_h, outline_path, project = _LOCATOR_GEO
+        dots, labels = [], []
+        for eid, (lng, lat, short) in LOCATOR_EVENTS.items():
+            x, y = project(lng, lat)
+            if eid == active_id:
+                dots.append(
+                    f'<circle cx="{x}" cy="{y}" r="13" fill="{EVENTS[eid]["color"]}" opacity="0.2"/>'
+                    f'<circle cx="{x}" cy="{y}" r="6.5" fill="{EVENTS[eid]["color"]}"/>'
+                    f'<circle cx="{x}" cy="{y}" r="2.3" fill="#fff" opacity="0.9"/>'
+                )
+                anchor, lx = ("end", x - 12) if x > _LOC_VIEW_W / 2 else ("start", x + 12)
+                labels.append(
+                    f'<text class="loc-on" x="{lx}" y="{y + 4}" text-anchor="{anchor}">{short}</text>'
+                )
+            else:
+                dots.append(f'<circle cx="{x}" cy="{y}" r="3" fill="currentColor" opacity="0.45"/>')
+        svg = (
+            f'<svg viewBox="0 0 200 {view_h}" role="img" aria-label="本事件在花蓮縣的位置">'
+            f'<path d="{outline_path}" fill="rgba(245,241,234,0.06)" stroke="currentColor" '
+            'stroke-width="1" stroke-linejoin="round" opacity="0.55"/>'
+            '<text class="loc-compass" x="14" y="22">北 ↑</text>'
+            f'{"".join(dots)}{"".join(labels)}'
+            "</svg>"
+        )
+    return (
+        f'<div class="locator" style="--event-color:{active_color}">'
+        '<h4>本事件位置</h4>'
+        f'<div class="locator-map">{svg}</div>'
+        '<a class="locator-link" href="event_map_interactive.html" target="_blank" rel="noopener">看完整互動地圖 ↗</a>'
+        "</div>"
+    )
+
+
 def render_contributors(event_id: str) -> str:
     rows = STUDENT_OUTPUTS.get(event_id, [])
     if not rows:
@@ -1697,7 +1788,8 @@ def build_html(data: dict, cinema: bool = False) -> str:
       <div class="media-grid">{media}</div>
     </div>
     <aside class="panel">
-      <h4>NotebookLM 輸出節錄</h4>
+      {render_locator(event["id"])}
+      <h4 style="margin-top:18px;padding-top:16px;border-top:1px solid var(--line-soft)">NotebookLM 輸出節錄</h4>
       <div class="notebook-list">{notebooks}</div>
       <p style="margin:10px 0 0;font-family:var(--font-sans);font-size:12px;color:var(--text-muted)">節錄中<mark class="stance">畫紅線</mark>的詞是日方／官方文獻用語，依學生審查決議照錄並標示，不作為本展立場。</p>
       {render_contributors(event["id"])}
@@ -1780,7 +1872,7 @@ def build_html(data: dict, cinema: bool = False) -> str:
     <div class="wrap">
       <div class="act-label">第三幕・修訂後的展覽</div>
       <h2>四個事件展區</h2>
-      <p class="lead">以下展區已依審查會決議修訂：事件標題雙名並列、殖民用語照錄必標示。AI 節錄僅作為「學生審查素材」展示。</p>
+      <p class="lead">四個事件沿著花東縱谷由北而南：太魯閣口、七腳川（吉安）、大港口（豐濱海邊）、大分（卓溪深山）。每個展區右側附一張「本事件位置」小圖，告訴你它在縱谷的哪裡；想看可縮放的完整地圖，點圖下方連結即可。以下展區皆已依審查會決議修訂：事件標題雙名並列、殖民用語照錄必標示。</p>
     </div>
   </section>
   {''.join(events_html)}

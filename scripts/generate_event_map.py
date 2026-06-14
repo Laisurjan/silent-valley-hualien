@@ -143,10 +143,10 @@ def count_students(students, event_id):
 
 
 def render_panel_data(students):
+    # 此地圖定位為「地理導覽」，內嵌於成果展四個事件展區開頭，不呈現學生個別句子。
     data = {}
     for eid in EVENT_ORDER:
         ev = EVENTS[eid]
-        quotes = collect_highlights(students, eid)
         data[eid] = {
             'name':     ev['name'],
             'eng':      ev['eng'],
@@ -157,8 +157,6 @@ def render_panel_data(students):
             'lat':      ev['lat'],
             'lng':      ev['lng'],
             'color':    EVENT_COLORS_HEX[eid],
-            'count':    count_students(students, eid),
-            'quotes':   quotes,
             'image':    f'../assets/images/event_{eid}.png',
         }
     return data
@@ -172,7 +170,7 @@ def render_default_panel_html(n):
       <h2 class="panel-empty-title">縱谷把痛苦悄悄埋起來。<br/>地圖把它們指出來。</h2>
       <p class="panel-empty-body">
         花蓮的山與海之間，發生過四場讓族人失語的大事。
-        我們用 {n} 位學生的省思亮點，重新說一次。
+        從吉安、太魯閣口、豐濱到卓溪，先看見它們在縱谷上的位置。
       </p>
       <p class="panel-empty-hint">
         <span class="hint-arrow">←</span> 點地圖上任一個事件
@@ -584,7 +582,7 @@ def build_html(class_data):
 </main>
 
 <footer class="map-foot">
-  花蓮高商．多元文化與文學．原住民族單元　‧　共 {len(students)} 位學生　‧　地圖底圖：© OpenStreetMap、© CARTO
+  花蓮高商．多元文化與文學．原住民族單元　‧　縱谷四事件地理導覽　‧　地圖底圖：© OpenStreetMap、© CARTO
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
@@ -636,7 +634,7 @@ def build_html(class_data):
       title: ev.name + ' ' + ev.year,
     }}).addTo(map);
 
-    m.bindTooltip(`${{ev.name}}<span class="tt-year">${{ev.year}}　${{ev.count}} 位學生</span>`, {{
+    m.bindTooltip(`${{ev.name}}<span class="tt-year">${{ev.year}}　${{ev.ethnic}}</span>`, {{
       permanent: true,
       direction: 'right',
       offset: [12, 0],
@@ -678,19 +676,6 @@ def build_html(class_data):
     // 平移到該點
     map.panTo([ev.lat, ev.lng], {{ animate: true, duration: 0.5 }});
 
-    let quotesHtml = '';
-    if (ev.quotes.length === 0) {{
-      quotesHtml = '<div class="quote-empty">這個事件還沒有學生作品</div>';
-    }} else {{
-      quotesHtml = ev.quotes.map(q => `
-        <article class="quote-card" style="border-left-color: ${{ev.color}};">
-          <div class="quote-prompt" style="color: ${{ev.color}};">${{escapeHtml(q.prompt)}}</div>
-          <p class="quote-text">${{escapeHtml(q.text)}}</p>
-          <div class="quote-byline">— ${{escapeHtml(q.class_name)}}　${{escapeHtml(q.seat)}}　${{escapeHtml(q.name)}}</div>
-        </article>
-      `).join('');
-    }}
-
     pane.innerHTML = `
       <button class="panel-close" id="panel-close" aria-label="返回">×</button>
       <img class="panel-hero-img" src="${{ev.image}}" alt="">
@@ -702,8 +687,6 @@ def build_html(class_data):
       <h2 class="panel-event-name">${{escapeHtml(ev.name)}}</h2>
       <p class="panel-event-place">${{escapeHtml(ev.place)}}</p>
       <p class="panel-event-tagline" style="border-left-color: ${{ev.color}};">${{escapeHtml(ev.tagline)}}</p>
-      <div class="panel-event-count">學生省思亮點　‧　共 ${{ev.count}} 位學生</div>
-      <div class="quote-list">${{quotesHtml}}</div>
     `;
     document.getElementById('panel-close').addEventListener('click', resetPane);
 

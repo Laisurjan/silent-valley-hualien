@@ -371,7 +371,7 @@ body {
       <h2 class="panel-empty-title">縱谷把痛苦悄悄埋起來。<br/>地圖把它們指出來。</h2>
       <p class="panel-empty-body">
         花蓮的山與海之間，發生過四場讓族人失語的大事。
-        我們用 2 位學生的省思亮點，重新說一次。
+        從吉安、太魯閣口、豐濱到卓溪，先看見它們在縱谷上的位置。
       </p>
       <p class="panel-empty-hint">
         <span class="hint-arrow">←</span> 點地圖上任一個事件
@@ -392,15 +392,15 @@ body {
 </main>
 
 <footer class="map-foot">
-  花蓮高商．多元文化與文學．原住民族單元　‧　共 2 位學生　‧　地圖底圖：© OpenStreetMap、© CARTO
+  花蓮高商．多元文化與文學．原住民族單元　‧　縱谷四事件地理導覽　‧　地圖底圖：© OpenStreetMap、© CARTO
 </footer>
 
 <script src="https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"
         integrity="sha256-20nQCchB9co0qIjJZRGuk2/Z9VM+kNiyxNV1lvTlZBo="
         crossorigin=""></script>
 <script>
-  const PANEL_DATA = {"truku": {"name": "太魯閣戰役", "eng": "Truku 戰役", "year": "1914", "ethnic": "太魯閣族（含部分賽德克族）", "place": "主戰場立霧溪、木瓜溪上游山區", "tagline": "兩萬軍警對三千族人。佐久間死了，族人退下山。今天那裡叫太魯閣國家公園。", "lat": 24.1572, "lng": 121.6213, "color": "#B84741", "count": 1, "quotes": [{"text": "我重新理解山路和古道不只是觀光路線，也連著族人保護土地的故事。", "name": "測O乙", "class_name": "商二甲", "seat": "02", "prompt": "省思句"}, {"text": "官方說法看見統治推進，族人說法看見守護家園。", "name": "測O乙", "class_name": "商二甲", "seat": "02", "prompt": "差異句"}], "image": "../assets/images/event_truku.png"}, "cikasuan": {"name": "七腳川事件", "eng": "Cikasuan", "year": "1908", "ethnic": "阿美族 ‧ 南勢阿美", "place": "花蓮縣吉安鄉（古名 Cikasuan）", "tagline": "一個社被滅，地名換了兩次：Cikasuan → 吉野村 → 吉安。", "lat": 23.97, "lng": 121.5775, "color": "#E8C56B", "count": 1, "quotes": [{"text": "我重新理解花蓮的溪流不只是地景，也可能保存族人遷徙與受傷的記憶。", "name": "測O甲", "class_name": "商二甲", "seat": "01", "prompt": "省思句"}, {"text": "官方說法強調治理秩序，部落觀點強調土地與生存被壓迫。", "name": "測O甲", "class_name": "商二甲", "seat": "01", "prompt": "差異句"}], "image": "../assets/images/event_cikasuan.png"}, "cepo": {"name": "大港口事件", "eng": "Cepo' 戰役", "year": "1877", "ethnic": "阿美族 ‧ 秀姑巒阿美", "place": "花蓮縣豐濱鄉靜浦村", "tagline": "清軍以「招撫」之名誘殺阿美青年。事後於屠殺地建靜浦國小、靜浦營，地名也被「靜浦」取代。", "lat": 23.472, "lng": 121.5025, "color": "#E85A52", "count": 0, "quotes": [], "image": "../assets/images/event_cepo.png"}, "dafen": {"name": "大分事件", "eng": "布農抗日", "year": "1915", "ethnic": "布農族 ‧ 巒社群、丹社群", "place": "花蓮縣卓溪鄉（玉山國家公園）", "tagline": "拉荷．阿雷與族人從 1915 抵抗到 1933，整整 18 年；1933 才以「歸順」名義落幕。", "lat": 23.278, "lng": 121.083, "color": "#5B7CA8", "count": 0, "quotes": [], "image": "../assets/images/event_dafen.png"}};
-  const DEFAULT_HTML = "\n    <div class=\"panel-empty\">\n      <img class=\"panel-hero-img\" src=\"../assets/images/hero_valley.png\" alt=\"\">\n      <div class=\"panel-eyebrow\">縱谷無言．事件地圖</div>\n      <h2 class=\"panel-empty-title\">縱谷把痛苦悄悄埋起來。<br/>地圖把它們指出來。</h2>\n      <p class=\"panel-empty-body\">\n        花蓮的山與海之間，發生過四場讓族人失語的大事。\n        我們用 2 位學生的省思亮點，重新說一次。\n      </p>\n      <p class=\"panel-empty-hint\">\n        <span class=\"hint-arrow\">←</span> 點地圖上任一個事件\n      </p>\n      <div class=\"event-color-bar\" style=\"margin-top: 2rem;\">\n        <div class=\"seg-cepo\"></div>\n        <div class=\"seg-dafen\"></div>\n        <div class=\"seg-cikasuan\"></div>\n        <div class=\"seg-truku\"></div>\n      </div>\n      <p class=\"panel-empty-foot\">\n        地圖底圖：OpenStreetMap 貢獻者　／　CARTO Dark Matter\n      </p>\n    </div>\n    ";
+  const PANEL_DATA = {"truku": {"name": "太魯閣戰役", "eng": "Truku 戰役", "year": "1914", "ethnic": "太魯閣族（含部分賽德克族）", "place": "主戰場立霧溪、木瓜溪上游山區", "tagline": "兩萬軍警對三千族人。佐久間死了，族人退下山。今天那裡叫太魯閣國家公園。", "lat": 24.1572, "lng": 121.6213, "color": "#B84741", "image": "../assets/images/event_truku.png"}, "cikasuan": {"name": "七腳川事件", "eng": "Cikasuan", "year": "1908", "ethnic": "阿美族 ‧ 南勢阿美", "place": "花蓮縣吉安鄉（古名 Cikasuan）", "tagline": "一個社被滅，地名換了兩次：Cikasuan → 吉野村 → 吉安。", "lat": 23.97, "lng": 121.5775, "color": "#E8C56B", "image": "../assets/images/event_cikasuan.png"}, "cepo": {"name": "大港口事件", "eng": "Cepo' 戰役", "year": "1877", "ethnic": "阿美族 ‧ 秀姑巒阿美", "place": "花蓮縣豐濱鄉靜浦村", "tagline": "清軍以「招撫」之名誘殺阿美青年。事後於屠殺地建靜浦國小、靜浦營，地名也被「靜浦」取代。", "lat": 23.472, "lng": 121.5025, "color": "#E85A52", "image": "../assets/images/event_cepo.png"}, "dafen": {"name": "大分事件", "eng": "布農抗日", "year": "1915", "ethnic": "布農族 ‧ 巒社群、丹社群", "place": "花蓮縣卓溪鄉（玉山國家公園）", "tagline": "拉荷．阿雷與族人從 1915 抵抗到 1933，整整 18 年；1933 才以「歸順」名義落幕。", "lat": 23.278, "lng": 121.083, "color": "#5B7CA8", "image": "../assets/images/event_dafen.png"}};
+  const DEFAULT_HTML = "\n    <div class=\"panel-empty\">\n      <img class=\"panel-hero-img\" src=\"../assets/images/hero_valley.png\" alt=\"\">\n      <div class=\"panel-eyebrow\">縱谷無言．事件地圖</div>\n      <h2 class=\"panel-empty-title\">縱谷把痛苦悄悄埋起來。<br/>地圖把它們指出來。</h2>\n      <p class=\"panel-empty-body\">\n        花蓮的山與海之間，發生過四場讓族人失語的大事。\n        從吉安、太魯閣口、豐濱到卓溪，先看見它們在縱谷上的位置。\n      </p>\n      <p class=\"panel-empty-hint\">\n        <span class=\"hint-arrow\">←</span> 點地圖上任一個事件\n      </p>\n      <div class=\"event-color-bar\" style=\"margin-top: 2rem;\">\n        <div class=\"seg-cepo\"></div>\n        <div class=\"seg-dafen\"></div>\n        <div class=\"seg-cikasuan\"></div>\n        <div class=\"seg-truku\"></div>\n      </div>\n      <p class=\"panel-empty-foot\">\n        地圖底圖：OpenStreetMap 貢獻者　／　CARTO Dark Matter\n      </p>\n    </div>\n    ";
 
   const pane = document.getElementById('info-pane');
   let activeId = null;
@@ -444,7 +444,7 @@ body {
       title: ev.name + ' ' + ev.year,
     }).addTo(map);
 
-    m.bindTooltip(`${ev.name}<span class="tt-year">${ev.year}　${ev.count} 位學生</span>`, {
+    m.bindTooltip(`${ev.name}<span class="tt-year">${ev.year}　${ev.ethnic}</span>`, {
       permanent: true,
       direction: 'right',
       offset: [12, 0],
@@ -486,19 +486,6 @@ body {
     // 平移到該點
     map.panTo([ev.lat, ev.lng], { animate: true, duration: 0.5 });
 
-    let quotesHtml = '';
-    if (ev.quotes.length === 0) {
-      quotesHtml = '<div class="quote-empty">這個事件還沒有學生作品</div>';
-    } else {
-      quotesHtml = ev.quotes.map(q => `
-        <article class="quote-card" style="border-left-color: ${ev.color};">
-          <div class="quote-prompt" style="color: ${ev.color};">${escapeHtml(q.prompt)}</div>
-          <p class="quote-text">${escapeHtml(q.text)}</p>
-          <div class="quote-byline">— ${escapeHtml(q.class_name)}　${escapeHtml(q.seat)}　${escapeHtml(q.name)}</div>
-        </article>
-      `).join('');
-    }
-
     pane.innerHTML = `
       <button class="panel-close" id="panel-close" aria-label="返回">×</button>
       <img class="panel-hero-img" src="${ev.image}" alt="">
@@ -510,8 +497,6 @@ body {
       <h2 class="panel-event-name">${escapeHtml(ev.name)}</h2>
       <p class="panel-event-place">${escapeHtml(ev.place)}</p>
       <p class="panel-event-tagline" style="border-left-color: ${ev.color};">${escapeHtml(ev.tagline)}</p>
-      <div class="panel-event-count">學生省思亮點　‧　共 ${ev.count} 位學生</div>
-      <div class="quote-list">${quotesHtml}</div>
     `;
     document.getElementById('panel-close').addEventListener('click', resetPane);
 
