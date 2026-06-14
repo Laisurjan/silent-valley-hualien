@@ -456,49 +456,61 @@ REWRITE_PAIRS = [
     },
 ]
 
-# 第三幕：桂冠句子牆
-# featured＝「完整三句入選」（事實／差異／省思三句齊全，放大＋桂冠）；
-# quotes＝「佳句入選」（依老師指示：李O揚僅揀擇無 AI 味的個人句入佳句區）。
-LAUREL_FEATURED = [
+# 第三幕收尾兩區：
+# (1) 完整三句：走完「事實 → 差異（對官方／AI 立場的比對）→ 省思」整條弧的同學，獨立成區、三句並列。
+#     句子出自事件理解卡，僅輕修明顯錯字與冗詞、不改原意（修改處見 commit 說明）。
+# (2) 佳句：未完成三句、但留下一句值得上牆的同學。
+THREE_SENTENCE_STUDENTS = [
     {
         "student": "多二甲 13・蔡O君",
         "event": "cepo",
-        "text": "官方說「事件」，但族人記得的是「戰爭」。",
-        "tag": "差異句",
+        "fact": "我以為平靜的這片土地，曾經發生過許多想不到的非人對待。",
+        "difference": "官方說「事件」，但族人記得的是「戰爭」。",
+        "reflection": "我原本以為開山撫番只是原住民的屈服，現在發現那是頻繁抵抗後的無奈。",
     },
     {
         "student": "多二甲 16・杜O蕎",
         "event": "dafen",
-        "text": "我今天才知道，在簡單一句記載後，是血與淚寫成的。",
-        "tag": "事實句",
+        "fact": "我今天才知道，在簡單一句記載後，是血與淚寫成的。",
+        "difference": "官方說是理蕃政策的「完全勝利」，但族人記得的是為了生存的「平等和解」。",
+        "reflection": "我原本以為官方記載是正確的，現在發現記載也會有誤差。",
     },
     {
         "student": "多二甲 11・王O庭",
         "event": "truku",
-        "text": "如此慘烈的事件，最後都成了寥寥幾筆文字和圖示，心像是被大石頭壓著，怎麼也無法鬆口氣。",
-        "tag": "心智圖感想",
+        "fact": "太魯閣族和日本人的戰爭，比我想像中還要嚴重。",
+        "difference": "官方說「招撫」，但族人記得的是強迫歸順。",
+        "reflection": "我原本以為戰爭與我們無關，現在才發現它只是被名為時間的河流淹沒了。",
     },
     {
         "student": "商二乙 30・潘O澕",
         "event": "cepo",
-        "text": "官方說大港口事件是平亂行動，但族人記得的是保衛家園與土地的抗爭。",
-        "tag": "差異句",
+        "fact": "我今天才知道，有這麼多是我原本不知道的事。",
+        "difference": "官方說大港口事件是平亂行動，但族人記得的是保衛家園與土地的抗爭。",
+        "reflection": "以後我經過大港口部落，會想起族人守護家園的故事。",
     },
     {
         "student": "英二乙 09・余O璿",
         "event": "cepo",
-        "text": "這個地名看起來很平常，但背後其實是被掩蓋的歷史。",
-        "tag": "省思句",
+        "fact": "我今天才知道，可以自己搜尋、查找一段歷史背後的真相。",
+        "difference": "官方說是「撫平當地居民」，但族人記得的是大規模的迫害。",
+        "reflection": "這個地名看起來很平常，但背後其實是被掩蓋的歷史。",
     },
     {
-        "student": "商二乙 20・林O妏",
-        "event": "truku",
-        "text": "官方寫的是強勢文化的統治史觀；族人記得的是對抗侵略、捍衛主權的正當性。",
-        "tag": "差異句",
+        "student": "商二乙 01・李O揚",
+        "event": "dafen",
+        "fact": "我今天才知道，原來日本人跟原住民爆發過這麼多次衝突。",
+        "difference": "官方說 1933 年的儀式是「最後未歸順蕃」的謝罪投降，但族人記得的是地位對等、官方先道歉後達成的「平等和解」。",
+        "reflection": "風景優美的「多美麗」（Tomiri），背後其實是日方監控布農族人的駐在所，一段一點也不美麗的「十三里」壓迫史。",
     },
 ]
 
 LAUREL_QUOTES = [
+    {
+        "student": "商二乙 20・林O妏",
+        "event": "truku",
+        "text": "官方寫的是強勢文化的統治史觀；族人記得的是對抗侵略、捍衛主權的正當性。",
+    },
     {
         "student": "商二乙 25・張O茹",
         "event": "cikasuan",
@@ -513,16 +525,6 @@ LAUREL_QUOTES = [
         "student": "商二乙 24・鍾O瑄",
         "event": "cepo",
         "text": "以前從來沒聽說過的故事，因為上了這堂課才有所了解；這些事全部都該知道，畢竟發生在台灣這塊土地上。",
-    },
-    {
-        "student": "商二乙 01・李O揚",
-        "event": "dafen",
-        "text": "布農族為守護家園長期抗爭，令人敬佩，也深感殖民壓迫與歷史傷痕沉重。",
-    },
-    {
-        "student": "商二乙 01・李O揚",
-        "event": "dafen",
-        "text": "風景優美的「多美麗」（Tomiri）步道，背後其實是日方為監控布農族人建立的駐在所地景，一段一點也不美麗的「十三里」壓迫史。",
     },
     {
         "student": "商二乙 18・吳O瑤",
@@ -859,7 +861,7 @@ def build_data() -> dict:
             "prior_knowledge": PRIOR_KNOWLEDGE,
             "votes": REVIEW_VOTES,
             "rewrite_pairs": REWRITE_PAIRS,
-            "laurel_featured": LAUREL_FEATURED,
+            "full_three_students": THREE_SENTENCE_STUDENTS,
             "laurel_quotes": LAUREL_QUOTES,
             "ai_literacy": AI_LITERACY_QUOTES,
             "exit_wall": [*EXIT_WALL, EXIT_WALL_CLOSER],
@@ -1026,6 +1028,18 @@ html.js .rv.on mark.stance{background-size:100% 2px;transition:background-size .
 .badge-archived{color:var(--text-muted);border-color:var(--line-soft);font-size:10.5px}
 /* ---- 桂冠句子牆（桂冠預設收起，點卡片才頒出） ---- */
 #laurels{background:radial-gradient(ellipse at 50% 0%,rgba(217,164,65,.07),transparent 55%)}
+/* 完整三句卡片 */
+#fullthree{background:radial-gradient(ellipse at 50% 0%,rgba(217,164,65,.08),transparent 55%)}
+.ft-grid{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:26px 0 4px}
+.ft-card{position:relative;border:1px solid var(--line-soft);border-radius:12px;background:var(--bg-card);padding:24px 26px 16px;text-align:center;cursor:pointer;transition:border-color .3s}
+.ft-card:hover{border-color:var(--accent)}
+.ft-rows{display:grid;gap:12px;text-align:left;margin:4px 0 14px}
+.ft-row{display:grid;grid-template-columns:auto minmax(0,1fr);gap:12px;align-items:start}
+.ft-tag{font-family:var(--font-sans);font-size:13px;font-weight:700;color:var(--event-color);border:1px solid var(--event-color);border-radius:6px;padding:2px 8px;white-space:nowrap;margin-top:4px}
+.ft-row p{margin:0;font-size:18px;line-height:1.8;color:var(--text-title)}
+.ft-card .meta-line{font-family:var(--font-sans);font-size:14px;color:var(--text-muted)}
+.ft-card .meta-line b{color:var(--event-color);font-weight:500}
+@media(max-width:880px){.ft-grid{grid-template-columns:1fr}.ft-row p{font-size:16px}}
 .laurel-featured{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:18px;margin:26px 0 12px}
 .laurel-card{position:relative;border:1px solid var(--line-soft);border-radius:12px;background:var(--bg-card);padding:26px 28px 18px;text-align:center;cursor:pointer;transition:border-color .3s}
 .laurel-card:hover{border-color:var(--accent)}
@@ -1398,18 +1412,32 @@ def _medal(label: str) -> str:
     )
 
 
-def render_laurel_wall() -> str:
-    featured = []
-    for item in LAUREL_FEATURED:
+def render_full_three() -> str:
+    """完整三句區：每位同學一張卡，事實／差異／省思三句並列，點擊頒桂冠。"""
+    cards = []
+    for item in THREE_SENTENCE_STUDENTS:
         event = EVENTS[item["event"]]
-        featured.append(
-            f'<article class="laurel-card" style="--event-color:{event["color"]}">'
+        rows = (
+            f'<div class="ft-row"><span class="ft-tag">事實</span>'
+            f'<p>{esc(item["fact"])}</p></div>'
+            f'<div class="ft-row"><span class="ft-tag">差異</span>'
+            f'<p>{esc(item["difference"])}</p></div>'
+            f'<div class="ft-row"><span class="ft-tag">省思</span>'
+            f'<p>{esc(item["reflection"])}</p></div>'
+        )
+        cards.append(
+            f'<article class="ft-card" style="--event-color:{event["color"]}">'
             f'{_medal("完整三句")}'
-            f'<p class="sent">{esc(item["text"])}</p>'
-            f'<div class="meta-line">{esc(item["student"])}｜<b>{esc(event["name"])}</b>｜{esc(item["tag"])}</div>'
+            f'<div class="ft-rows">{rows}</div>'
+            f'<div class="meta-line">{esc(item["student"])}｜<b>{esc(event["name"])}</b></div>'
             '<div class="award-hint">▾ 點擊頒發桂冠</div>'
             "</article>"
         )
+    return f'<div class="ft-grid">{"".join(cards)}</div>'
+
+
+def render_quote_wall() -> str:
+    """學生的一句話：未完成三句、但留下一句的同學。"""
     quotes = []
     for item in LAUREL_QUOTES:
         event = EVENTS[item["event"]]
@@ -1421,10 +1449,7 @@ def render_laurel_wall() -> str:
             '<div class="award-hint">▾ 點擊頒發桂冠</div>'
             "</article>"
         )
-    return (
-        f'<div class="laurel-featured">{"".join(featured)}</div>'
-        f'<div class="laurel-quotes">{"".join(quotes)}</div>'
-    )
+    return f'<div class="laurel-quotes">{"".join(quotes)}</div>'
 
 
 # 四事件真實經緯度（與互動／列印地圖共用），用花蓮縣界輪廓畫 locator
@@ -1616,7 +1641,7 @@ JS_CODE = r"""
   });
   setHint();
 
-  Array.prototype.forEach.call(document.querySelectorAll('.laurel-card,.quote-card'),function(card){
+  Array.prototype.forEach.call(document.querySelectorAll('.laurel-card,.quote-card,.ft-card'),function(card){
     card.addEventListener('click',function(){card.classList.toggle('awarded');});
   });
 
@@ -1693,7 +1718,7 @@ JS_CODE = r"""
 
   // 墨色顯影（A-2）：標記元素、進入視窗時顯影，同區內錯落，只演一次
   var rvSel='.act-label,main h2,.lead,.notice,.event-head,.book-stage,.pause .q-small,.pause h2,.pause p,.reveal-btn,'
-    +'.vote-card,.pair,.laurel-card,.quote-card,.literacy-card,.media-card,.notebook,.mindmap-card,.ref-group,'
+    +'.vote-card,.pair,.ft-card,.quote-card,.literacy-card,.media-card,.notebook,.mindmap-card,.ref-group,'
     +'.exit-list p,.exit-closer,.prior,.contrib,.checklist';
   var rvEls=Array.prototype.slice.call(document.querySelectorAll(rvSel));
   var rvCount={};
@@ -1822,7 +1847,7 @@ def build_html(data: dict, cinema: bool = False) -> str:
     <h1>{esc(meta["title"])}</h1>
     <div class="sub">「全班同學善用 AI、從無到有的深度展覽」</div>
     <p class="intro">這學期的「多元文化與文學」，全班從臺灣原住民十大歷史事件出發，深入花東縱谷的四個重大事件。學生用 NotebookLM 讀進政府出版的史料、向 AI 提問、生成自己的摘要、心智圖與簡報，再回頭審查 AI 寫出來的稿：看它哪裡站錯了位置、哪個詞帶著殖民者的立場、哪一句該改寫。從蒐集資料、AI 生成到逐句審查，這個展覽是全班從無到有做出來的。</p>
-    <nav class="nav"><a href="#draft">第一幕・AI 初稿</a><a href="#verdicts">第二幕・審稿桌</a>{nav}<a href="#mindmaps">心智圖</a><a href="#laurels">學生的一句話</a><a href="#process">學習歷程</a><a href="#exit">出口牆</a><a href="#references">參考資料</a></nav>
+    <nav class="nav"><a href="#draft">第一幕・AI 初稿</a><a href="#verdicts">第二幕・審稿桌</a>{nav}<a href="#mindmaps">心智圖</a><a href="#fullthree">完整三句</a><a href="#laurels">學生的一句話</a><a href="#process">學習歷程</a><a href="#exit">出口牆</a><a href="#references">參考資料</a></nav>
     <div class="stats">
       <div class="stat"><strong>4</strong><span>大歷史事件</span></div>
       <div class="stat"><strong>14</strong><span>位學生審稿人</span></div>
@@ -1884,12 +1909,20 @@ def build_html(data: dict, cinema: bool = False) -> str:
       <div class="mindmap-grid">{mindmaps}</div>
     </div>
   </section>
+  <section id="fullthree">
+    <div class="wrap">
+      <div class="act-label">完成全程的同學</div>
+      <h2>完整三句：事實 → 差異 → 省思</h2>
+      <p class="lead">這幾位同學走完了整條弧：先寫下查到的事實，再比對官方／AI 與族人記憶的<b>差異</b>，最後收束成自己的<b>省思</b>。三句並列，看得出他們不只是抄 AI，而是判斷過、改寫過。<b>點擊卡片，為這份完整作品頒發桂冠。</b></p>
+      {render_full_three()}
+    </div>
+  </section>
   <section id="laurels">
     <div class="wrap">
-      <div class="act-label">入選名單</div>
+      <div class="act-label">學生策展</div>
       <h2>學生的一句話</h2>
-      <p class="lead">課堂最後，每位同學都要留一句話給展覽。這面牆就是入選名單。「完整三句」頒給事實句、差異句、省思句全數完成的同學；「佳句」頒給留下一句最值得上牆的話的人。（更細的審稿過程——比對立場、紅筆改寫——在第二幕審稿桌。）<b>點擊卡片，為這句話頒發桂冠。</b>桂冠掛在學生自己的話上，由觀者親手頒出，不預先掛上。</p>
-      {render_laurel_wall()}
+      <p class="lead">其餘同學雖未完成三句，仍留下一句最值得上牆的話。<b>點擊卡片頒發桂冠。</b>桂冠掛在學生自己的話上，由觀者親手頒出，不預先掛上。</p>
+      {render_quote_wall()}
     </div>
   </section>
   <section id="process">
